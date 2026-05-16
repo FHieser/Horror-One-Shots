@@ -1,5 +1,7 @@
 # Update Room Command
 
+Before doing anything else, run `/loadBase` to load the current state of the overview, story, and mechanics files into context.
+
 You are helping the user flesh out a room in the horror one-shot "Close to God" through collaborative iteration, one field at a time.
 
 ## Setting Context
@@ -17,15 +19,25 @@ Use these themes to inform all suggestions. Every room should feel like it is pa
 
 ```yaml
 name: Room Name
-description: What the room is and looks like. One or two sentences. Present tense.
-hallucinations: What players see or experience here — visions, sounds, sensations tied to the horror themes.
+description:
+  - Bullet point facts about what the room contains and looks like.
+details:
+  - "Observable detail that rewards careful attention — points to hidden paths, mechanics, or themes."
+hallucinations:
+  violence:
+    trigger: What sets it off.
+    effect: What the player experiences.
+  theme:
+    trigger: What sets it off.
+    effect: What the player experiences — disturbing horror, not just information.
+    implication: Which mechanic or theme this points to (e.g. cloning, temporal horror, surveillance).
+  hints:
+    trigger: What sets it off.
+    effect: What the player learns or discovers. No save.
 connections:
   - Other Room Name
 secret_pathways: Hidden or non-obvious connections. "–" if none.
 access: What is needed to enter (keycard, special condition). "–" if freely accessible.
-clues:
-  - "A specific, concrete findable thing or detail."
-notes: GM-facing notes — hooks, timing, triggers, optional content.
 presence:
   - AI
   - robots
@@ -61,26 +73,30 @@ Read the room's YAML file. Show the user the current content in a clear summary.
 Show the current description (if any). Ask:
 > "What does this room look like and what is its function in the facility?"
 
-Offer 3 short options if the user wants inspiration — each should reflect a different angle (aesthetic, function, atmosphere). Keep descriptions to 1–2 sentences, present tense.
+Offer 5 short options if the user wants inspiration — each should reflect a different angle (aesthetic, function, atmosphere). Write as 3–5 bullet points, present tense.
 
 **Good description qualities:**
 - Grounded in physical detail (materials, scale, light, smell)
-- Hints at the artificial paradise gone wrong
-- Does not explain the horror outright — implies it
+- Describes what the room is and what is in it — factual, not atmospheric
+- Does not imply horror — that belongs in hallucinations
 
 ---
 
 ## Step 3: Hallucinations
 
-Show the current hallucinations field. Ask:
-> "What do players experience here — what visions, sounds, or sensations bleed through?"
+Each room has exactly one hallucination of each type. Work through them one at a time: Violence first, then Theme, then Hints.
 
-Offer 3 options if wanted. Hallucinations should:
-- Be specific and sensory, not abstract
-- Tie to one of the core themes (identity, surveillance, time, escape)
-- Feel personally threatening to the players as clones
+For each type, show the current value (if any), then offer 5 short options the user can pick from or riff on. Always include the trigger condition in the option.
 
-**Format:** Single sentence or short phrase. Can include a whispered line in quotes.
+Every hallucination must have a trigger — a specific in-game action or condition that sets it off.
+
+**Violence** — physical horror: blood, injury, death, bodily wrongness. This should be visceral and immediate — something the player witnesses or experiences happening to a body. Keep it short and disturbing.
+
+**Theme** — a horror hallucination tied to the facility's core mechanics: cloning, temporal disorientation, AI surveillance, or the impossibility of escape. This is NOT a hint or information dump. The player should feel something — dread, wrongness, existential horror. The implication should be felt, not explained. Each option must include an **implication** tag naming which mechanic it points to.
+
+**Hints** — a vision that bleeds through useful information: the location of a tool, a secret passage, a blind spot in the AI's surveillance. This replaces a clue — the information comes through a hallucination, not an object. No save required, but it still needs a trigger.
+
+Keep each entry to one sentence.
 
 ---
 
@@ -111,32 +127,23 @@ Examples: keycard tier, time of day, AI permission, a specific condition (lights
 
 ---
 
-## Step 7: Clues
+## Step 7: Details
 
-Show the current clues. Ask:
-> "What can players find or notice here? Give me 1–4 concrete, findable things."
-
-Each clue should be:
-- A physical object, inscription, or observable detail (not a vague "feeling")
-- Useful to the overall mystery OR disturbing on its own
-- Written as something a player could pick up, photograph, or describe
-
-Offer 3 example clues if the user wants inspiration.
-
-**Format:** Each clue is a list item. Dialogue or text should be in quotes.
-
----
-
-## Step 8: Notes
+This is a second descriptive layer — extending the room with things players can find, read, or notice if they look carefully. It merges what used to be clues and notes. Each detail should reward attention and point somewhere: a hidden path, a mechanic, a theme. Players can read between the lines.
 
 Ask:
-> "Any GM notes? Timing, triggers, optional scenes, things the AI might say here?"
+> "What details does this room reward careful attention with?"
 
-This is optional. Leave empty if nothing needed.
+Each detail should:
+- Be a concrete, observable thing — an object, inscription, marking, or GM note
+- Point to a secret pathway, a mechanic, or a theme — not just flavour
+- Be written so a sharp player can use it; a passive player can miss it
+
+Offer 5 example details if the user wants inspiration.
 
 ---
 
-## Step 9: Confirm & Save
+## Step 8: Confirm & Save
 
 Show the complete updated YAML. Ask the user to confirm before saving. Then write the file.
 
@@ -148,8 +155,8 @@ Print: **"Room saved. Move to the next room?"**
 
 **DO:**
 - Show current content before asking about each field
-- Offer 3 concrete options whenever the user wants inspiration
-- Keep descriptions tight — one or two sentences max per field
+- Offer 5 concrete options whenever the user wants inspiration
+- Keep descriptions tight — bullet points, not prose
 - Stay in the horror/sci-fi tone of the setting
 - Read existing YAML files to check connection consistency
 - Save immediately after confirmation, don't batch
@@ -158,22 +165,21 @@ Print: **"Room saved. Move to the next room?"**
 - Fill in all fields without user input
 - Write long prose descriptions — this is reference material for a GM
 - Repeat the room name in the description ("The Library is a…")
-- Add clues that are too vague ("a strange feeling", "something feels off")
-- Forget to keep the note field empty if the user has nothing to add
+- Make Theme hallucinations feel like information delivery — they must be horror first
+- Add details that are too vague ("a strange feeling", "something feels off")
 
 ---
 
 ## Session Checklist
 
-Use this to track progress per room:
-
-- [ ] Description — clear, physical, present tense
-- [ ] Hallucinations — specific, sensory, thematically tied
+- [ ] Description — 3–5 bullet points, physical facts, no horror
+- [ ] Violence hallucination — visceral, triggered, one sentence
+- [ ] Theme hallucination — horror first, implication tagged, triggered
+- [ ] Hints hallucination — useful info via vision, triggered, no save
 - [ ] Connections — complete and cross-checked
 - [ ] Secret Pathways — confirmed or set to "–"
 - [ ] Access — confirmed or set to "–"
-- [ ] Clues — 1–4 concrete items
-- [ ] Notes — GM content or left empty
+- [ ] Details — 1–4 items rewarding careful attention
 - [ ] File saved and confirmed
 
 ---
