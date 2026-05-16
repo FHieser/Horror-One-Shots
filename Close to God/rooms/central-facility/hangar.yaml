@@ -1,5 +1,6 @@
 name: Hangar
 description: Large empty bay with dead machinery.
+details: ""
 hallucinations: Ship taking off then glitching.
 connections:
   - Billiard & Bar
@@ -7,9 +8,6 @@ connections:
   - Outdoors
 secret_pathways: Left Tower
 access: Hole in wall
-clues:
-  - Blueprint of Mechanoid Bay.
-notes: ""
 presence:
   - AI
   - robots

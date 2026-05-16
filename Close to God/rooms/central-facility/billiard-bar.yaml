@@ -1,5 +1,6 @@
 name: Billiard & Bar
 description: Relaxation room with soft music.
+details: ""
 hallucinations: Billiard ball rolling; wrong reflection.
 connections:
   - Pool
@@ -8,9 +9,6 @@ connections:
   - Hangar
 secret_pathways: Vent shafts
 access: "–"
-clues:
-  - "\"Check the Shed.\""
-notes: ""
 presence:
   - AI
   - robots

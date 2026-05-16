@@ -1,5 +1,6 @@
 name: Eating Area
 description: Perfectly arranged cafeteria.
+details: ""
 hallucinations: Cutlery clatter; table set for strangers.
 connections:
   - Sleeping Area
@@ -12,9 +13,6 @@ connections:
   - Hangar
 secret_pathways: Airducts
 access: "–"
-clues:
-  - "Tray with player's name in wrong handwriting."
-notes: ""
 presence:
   - AI
   - robots

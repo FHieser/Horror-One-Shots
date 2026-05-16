@@ -1,13 +1,10 @@
 name: Cloning Facility
 description: Rows of humming pods.
+details: ""
 hallucinations: Past selves staring; infinite versions.
 connections: []
 secret_pathways: Entry Room, Winter Garden, AI Core
 access: Needs Lab of God code
-clues:
-  - List of all deaths
-  - "\"Stop trying to escape.\""
-notes: ""
 presence:
   - AI
   - robots

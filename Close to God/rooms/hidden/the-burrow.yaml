@@ -1,14 +1,10 @@
 name: The Burrow
 description: Cramped hideout dug by a past self.
+details: ""
 hallucinations: Hearing themselves whisper.
 connections: []
 secret_pathways: Library
 access: Hidden
-clues:
-  - Carved messages
-  - Recording from past self
-  - Escape map
-notes: ""
 presence: "–"
 map:
   x: 44

@@ -1,14 +1,11 @@
 name: Entry Room
 description: Where new bodies awaken.
+details: ""
 hallucinations: Multiple versions waking; voice saying "Again."
 connections:
   - Lookout Facility
 secret_pathways: –
 access: –
-clues:
-  - Clone iteration list
-  - Malfunctioning pod
-notes: ''
 presence:
   - AI
 map:

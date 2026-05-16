@@ -1,14 +1,11 @@
 name: Mechanoid Bay
 description: Robot workshop full of parts.
+details: ""
 hallucinations: Robots twitching; metal footsteps.
 connections:
   - Outdoors
 secret_pathways: "Airduct → Bio Facility"
 access: Opens at night
-clues:
-  - Robot arm with TOR keycard
-  - "\"Night Mode escalation.\""
-notes: ""
 presence:
   - robots
 map:

@@ -1,12 +1,10 @@
 name: Airducts
 description: ""
+details: ""
 hallucinations: Crawling sounds; breathing behind them.
 connections: []
 secret_pathways: Sleeping Area, Pool, Eating Area, Sport
 access: Must be found
-clues:
-  - "Scratched arrows: \"UP\" / \"DON'T LOOK BACK.\""
-notes: ""
 presence:
   - robots
 map:

@@ -1,12 +1,10 @@
 name: Right Tower
 description: Unstable power tower.
+details: ""
 hallucinations: Tower breathing; figure climbing inside.
 connections: []
 secret_pathways: Lab
 access: Hidden
-clues:
-  - "\"Matter conversion unstable — do not overload.\""
-notes: ""
 presence: "–"
 map:
   x: 80

@@ -1,5 +1,6 @@
 name: Outdoors
 description: "Storm‑blasted courtyard."
+details: ""
 hallucinations: Figures in storm; frozen lightning.
 connections:
   - Hangar
@@ -8,10 +9,6 @@ connections:
   - The Shed
 secret_pathways: Left Tower
 access: "–"
-clues:
-  - Footprints ending abruptly
-  - Torn warning sign
-notes: ""
 presence:
   - robots
 map:

@@ -1,14 +1,11 @@
 name: AI Core
 description: "Organic‑mechanical heart of the system."
+details: ""
 hallucinations: "AI speaking in player's voice."
 connections:
   - Cloning Facility
 secret_pathways: Cloning Facility
 access: Hidden
-clues:
-  - Logs of all clone iterations
-  - Storm creation record
-notes: ""
 presence:
   - AI
   - robots

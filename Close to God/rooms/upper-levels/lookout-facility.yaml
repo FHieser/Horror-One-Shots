@@ -1,14 +1,12 @@
 name: Lookout Facility
 description: Panoramic view of storm and towers.
+details: ""
 hallucinations: Figures in towers; impossible landscape.
 connections:
   - Entry Room
   - Lab of God
 secret_pathways: "–"
 access: "–"
-clues:
-  - "Telescope log: \"Tower 7 collapse.\""
-notes: ""
 presence:
   - AI
 map:

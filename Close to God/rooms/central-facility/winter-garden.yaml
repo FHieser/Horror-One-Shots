@@ -1,5 +1,6 @@
 name: Winter Garden
 description: Indoor greenhouse with artificial sun.
+details: ""
 hallucinations: Plants whispering; figure walking.
 connections:
   - Library
@@ -7,9 +8,6 @@ connections:
   - Sport / Gym
 secret_pathways: Cloning Facility
 access: "–"
-clues:
-  - "Dead plant tagged \"Experiment 47 — Failed.\""
-notes: ""
 presence:
   - AI
   - robots

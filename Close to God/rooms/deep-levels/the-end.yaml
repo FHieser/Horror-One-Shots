@@ -1,13 +1,11 @@
 name: The End
 description: The final chamber. No way back.
+details: ""
 hallucinations: "All previous rooms at once; voices from every body they've been."
 connections:
   - The Jump
 secret_pathways: "–"
 access: "–"
-clues:
-  - "A door that opens inward."
-notes: ""
 presence: "–"
 map:
   x: 0

@@ -1,5 +1,6 @@
 name: Library
 description: Quiet archive of books and data.
+details: ""
 hallucinations: Whispering books; pages flipping.
 connections:
   - Sleeping Area
@@ -8,10 +9,6 @@ connections:
   - Winter Garden
 secret_pathways: Entry Room, Burrow
 access: "–"
-clues:
-  - Torn page on Lab of God
-  - Tower map fragment
-notes: ""
 presence:
   - AI
   - robots

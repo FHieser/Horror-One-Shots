@@ -1,14 +1,12 @@
 name: Pool
 description: Warm, echoing indoor pool.
+details: ""
 hallucinations: Floating figure; water turning red.
 connections:
   - Eating Area
   - Billiard & Bar
 secret_pathways: Burrow, Airducts, Bio Facility
 access: "–"
-clues:
-  - "Tablet: \"Don't trust the night machines.\""
-notes: ""
 presence:
   - AI
   - robots

@@ -1,15 +1,12 @@
 name: The Shed
 description: Isolated maintenance room.
+details: ""
 hallucinations: Past self hiding; frantic scratching.
 connections:
   - Outdoors
   - TOR System
 secret_pathways: "–"
 access: "–"
-clues:
-  - Journal from past self
-  - Crude map
-notes: ""
 presence:
   - robots
 map:
