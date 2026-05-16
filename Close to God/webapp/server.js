@@ -2,6 +2,7 @@ const express = require('express');
 const yaml = require('js-yaml');
 const fs = require('fs');
 const path = require('path');
+const { marked } = require('marked');
 
 const app = express();
 const PORT = 3000;
@@ -146,33 +147,8 @@ function generateReadme(rooms) {
   console.log('Readme.md regenerated.');
 }
 
-function extractSection(heading, text) {
-  const re = new RegExp(`## ${heading}([\\s\\S]*?)(?=\\n## |$)`);
-  const m = text.match(re);
-  return m ? m[1].trim() : '';
-}
-
 function mdToHtml(text) {
-  const lines = text.split('\n');
-  let html = '';
-  let inList = false;
-  for (const raw of lines) {
-    const t = raw.trim();
-    const isBullet = /^[•○§]/.test(t);
-    if (isBullet && !inList) { html += '<ul>'; inList = true; }
-    if (!isBullet && inList) { html += '</ul>'; inList = false; }
-    if (t.startsWith('### ')) {
-      html += `<h3>${t.slice(4)}</h3>`;
-    } else if (isBullet) {
-      html += `<li>${t.slice(1).trim()}</li>`;
-    } else if (t === '') {
-      /* skip */
-    } else {
-      html += `<p>${t}</p>`;
-    }
-  }
-  if (inList) html += '</ul>';
-  return html;
+  return marked.parse(text);
 }
 
 function pageHtml(title, activePage, bodyContent, extraStyle = '', extraScript = '') {
@@ -194,11 +170,16 @@ function pageHtml(title, activePage, bodyContent, extraStyle = '', extraScript =
     nav a + a { border-left: none; }
     .content { max-width: 820px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
     .block { margin-bottom: 3rem; }
-    h2 { color: #cc2222; font-size: 1.5rem; border-bottom: 1px solid #330000; padding-bottom: 0.4rem; margin-bottom: 1.2rem; }
+    h1 { color: #cc2222; font-size: 1.8rem; border-bottom: 2px solid #330000; padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+    h2 { color: #cc2222; font-size: 1.5rem; border-bottom: 1px solid #330000; padding-bottom: 0.4rem; margin-bottom: 1.2rem; margin-top: 2.5rem; }
     h3 { color: #aa3333; font-size: 1rem; margin: 1.4rem 0 0.5rem; letter-spacing: 0.02em; }
     p { color: #b8b8b8; font-size: 0.9rem; line-height: 1.75; margin-bottom: 0.5rem; }
     ul { color: #b8b8b8; font-size: 0.9rem; line-height: 1.75; padding-left: 1.4rem; margin-bottom: 0.6rem; list-style: none; }
+    li { margin-bottom: 0.2rem; }
     li::before { content: "›  "; color: #cc2222; }
+    strong { color: #e0e0e0; }
+    em { color: #999; font-style: italic; }
+    code { background: #1a1a1a; color: #7ec8e3; padding: 0.1em 0.4em; border-radius: 3px; font-size: 0.85em; }
     ${extraStyle}
   </style>
 </head>
@@ -258,6 +239,7 @@ function roomDetailHtml(room, allRooms) {
     .conn-link:hover { background: #1a0000; }
     .conn-tag { color: #888; }
     .dim { color: #444; }
+    .save-tag { font-size: 0.72rem; color: #884444; border: 1px solid #441111; border-radius: 2px; padding: 0.1rem 0.35rem; margin-left: 0.4rem; vertical-align: middle; letter-spacing: 0.04em; }
     .notes-box { background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 3px; padding: 0.8rem; font-size: 0.88rem; color: #888; }
   </style>
 </head>
@@ -267,7 +249,23 @@ function roomDetailHtml(room, allRooms) {
   <h1>${room.name}</h1>
   <div class="fields">
     ${room.description ? `<div class="field"><div class="label">Description</div><div class="value">${room.description}</div></div>` : ''}
-    <div class="field"><div class="label">Hallucinations</div><div class="value haunt">${room.hallucinations || '–'}</div></div>
+    ${(() => {
+      const h = room.hallucinations;
+      if (!h || typeof h !== 'object') return `<div class="field"><div class="label">Hallucinations</div><div class="value haunt">${h || '–'}</div></div>`;
+      const types = [
+        { key: 'violence', label: '🩸 Violence',  save: 'Body Save' },
+        { key: 'theme',    label: '🕰️ Theme',     save: 'Sanity Save' },
+        { key: 'hints',    label: '💡 Hints',     save: null },
+      ];
+      return types.filter(t => h[t.key]).map(t => {
+        const entry = h[t.key];
+        const saveTag = t.save ? ` <span class="save-tag">${t.save}</span>` : '';
+        return `<div class="field">
+          <div class="label">${t.label}${saveTag}</div>
+          <div class="value haunt"><em>Trigger:</em> ${entry.trigger || '–'}<br><em>Effect:</em> ${entry.effect || '–'}</div>
+        </div>`;
+      }).join('') || `<div class="field"><div class="label">Hallucinations</div><div class="value dim">–</div></div>`;
+    })()}
     ${connections.length ? `<div class="field"><div class="label">Connections</div><div class="value">${connHtml}</div></div>` : ''}
     ${secret ? `<div class="field"><div class="label">Secret Pathways</div><div class="value">${secret}</div></div>` : ''}
     ${access ? `<div class="field"><div class="label">Access</div><div class="value">${access}</div></div>` : ''}
@@ -286,15 +284,8 @@ app.use('/images', express.static(CONTENT_DIR));
 app.get('/favicon.ico', (req, res) => res.status(204).end());
 
 app.get('/', (req, res) => {
-  const header         = fs.readFileSync(path.join(__dirname, 'header.md'), 'utf8');
-  const backgroundHtml = mdToHtml(extractSection('Background',   header));
-  const teaserHtml     = mdToHtml(extractSection('Teaser',       header));
-  const introHtml      = mdToHtml(extractSection('Introduction', header));
-  const body = `<div class="content">
-    <div class="block"><h2>Background</h2>${backgroundHtml}</div>
-    <div class="block"><h2>Teaser</h2>${teaserHtml}</div>
-    <div class="block"><h2>Introduction</h2>${introHtml}</div>
-  </div>`;
+  const md   = fs.readFileSync(path.join(__dirname, 'header.md'), 'utf8');
+  const body = `<div class="content">${mdToHtml(md)}</div>`;
   res.send(pageHtml('Overview', 'overview', body));
 });
 
