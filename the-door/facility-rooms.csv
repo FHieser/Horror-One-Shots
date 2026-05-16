@@ -1,0 +1,14 @@
+Room,Description,Connections,Notes
+Landing Pad,Exterior pad for shuttle arrivals and departures,Hangar,Exposed to outside atmosphere
+Hangar,Shuttle storage and maintenance bay,Landing Pad;Main Corridor,Contains: Hangar Shuttle (capacity 12 crew + 1 container)
+Med Bay + Cryo Pod,Medical facilities and 6 cryogenic pods,Crew Quarters;Main Corridor,Cryo pods can be used as a solution - destroy some until Players-1 remain
+Crew Quarters,Personal living spaces for all crew,Med Bay;Messhall,
+Messhall,Dining and social area,Crew Quarters;Life Support + Comms;Monitor + Drone Station,Central hub for upper facility
+Life Support + Comms,Atmospheric systems and communication relay,Messhall,Critical system - can be sabotaged
+Botany,Greenhouse and terraforming research,Messhall;Monitor + Drone Station,Biologist's domain
+Monitor + Drone Station,Surveillance feeds and drone control center,Messhall;Botany;Reactor;Mechanics Bay,THE DOOR appears on monitors here first
+Reactor,Power generation for the facility,Monitor + Drone Station,Can melt down - needs captain's codes to prevent
+Mechanics Bay,Equipment repair and vehicle maintenance,Monitor + Drone Station;Air Lock;Lab,Contains 2 Jeeps (electric)
+Air Lock,Transition between facility and mines,Mechanics Bay;Mines,
+Lab,Research and analysis facility,Mechanics Bay,
+Mines,Extensive tunnel network for titanium extraction,Air Lock,THE DOOR is located here. Contains: 5 Driller/excavators;2 Transports;Probe driller;2 Mobile Drones (with testing equipment;manipulator arm;camera)
