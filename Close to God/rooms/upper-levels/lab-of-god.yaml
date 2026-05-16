@@ -1,0 +1,16 @@
+name: Lab of God
+description: Chaotic private lab of the previous owner.
+hallucinations: Owner speaking; self in lab coat.
+connections:
+  - Lookout Facility
+secret_pathways: "Hatch → AI Core"
+access: Needs both tower keycards
+clues:
+  - Matter conversion notes
+  - "Timeline year 607,421"
+  - "\"You are the last.\""
+notes: ""
+presence: "–"
+map:
+  x: 58
+  y: 30

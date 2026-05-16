@@ -1,0 +1,15 @@
+name: The Jump
+description: Deep vertical shaft.
+hallucinations: Endless falling; impact sounds.
+connections:
+  - TOR System
+secret_pathways: "–"
+access: "–"
+clues:
+  - Rope fibers
+  - "\"Only jump if you remember.\""
+notes: ""
+presence: "–"
+map:
+  x: 52
+  y: 88

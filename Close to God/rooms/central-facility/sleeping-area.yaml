@@ -1,0 +1,17 @@
+name: Sleeping Area
+description: Sterile luxury bedrooms where players awaken.
+hallucinations: Seeing themselves asleep; red snow; shadow at bed's foot.
+connections:
+  - Lab
+  - Library
+secret_pathways: Airducts
+access: "–"
+clues:
+  - "\"You've been here before.\" Maintenance schedule."
+notes: ""
+presence:
+  - AI
+  - robots
+map:
+  x: 55
+  y: 40

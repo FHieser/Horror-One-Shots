@@ -1,0 +1,19 @@
+name: Lab
+description: Bright medical research space.
+hallucinations: Hearing their own screams; silhouette on table.
+connections:
+  - Pool
+  - Library
+  - Eating Area
+secret_pathways: Right Tower
+access: "–"
+clues:
+  - Iteration logs
+  - Corrupted cloning file
+notes: ""
+presence:
+  - AI
+  - robots
+map:
+  x: 60
+  y: 42

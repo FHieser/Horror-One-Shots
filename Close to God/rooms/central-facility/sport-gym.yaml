@@ -1,0 +1,19 @@
+name: Sport / Gym
+description: Clean exercise area.
+hallucinations: Heavy breathing; equipment moving.
+connections:
+  - Winter Garden
+  - Eating Area
+  - Billiard & Bar
+  - Hangar
+secret_pathways: Burrow, Airducts
+access: "–"
+clues:
+  - Locker with unfamiliar clothes.
+notes: ""
+presence:
+  - AI
+  - robots
+map:
+  x: 65
+  y: 60

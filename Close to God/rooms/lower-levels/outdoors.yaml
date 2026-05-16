@@ -1,0 +1,19 @@
+name: Outdoors
+description: "Storm‑blasted courtyard."
+hallucinations: Figures in storm; frozen lightning.
+connections:
+  - Hangar
+  - Bio Facility
+  - Mechanoid Bay
+  - The Shed
+secret_pathways: Left Tower
+access: "–"
+clues:
+  - Footprints ending abruptly
+  - Torn warning sign
+notes: ""
+presence:
+  - robots
+map:
+  x: 57
+  y: 68

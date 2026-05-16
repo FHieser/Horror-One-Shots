@@ -1,0 +1,16 @@
+name: TOR System
+description: Industrial exit mechanism.
+hallucinations: "Dissolving in storm; whisper: \"You've done this before.\""
+connections:
+  - The Shed
+  - The Jump
+secret_pathways: "–"
+access: Needs Summit keycard
+clues:
+  - "\"Unauthorized exit triggers failsafe.\""
+notes: ""
+presence:
+  - robots
+map:
+  x: 55
+  y: 85

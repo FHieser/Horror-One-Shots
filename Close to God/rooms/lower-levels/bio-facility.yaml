@@ -1,0 +1,16 @@
+name: Bio Facility
+description: Organic research labs with sealed chambers.
+hallucinations: Breathing behind glass; hazmat figure.
+connections:
+  - Outdoors
+secret_pathways: "Tunnel → Mechanoid Bay"
+access: Closed (kickable)
+clues:
+  - Clone degradation notes
+  - "\"Shed — emergency access.\""
+notes: ""
+presence:
+  - robots
+map:
+  x: 50
+  y: 72

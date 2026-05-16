@@ -1,0 +1,23 @@
+name: Eating Area
+description: Perfectly arranged cafeteria.
+hallucinations: Cutlery clatter; table set for strangers.
+connections:
+  - Sleeping Area
+  - Lab
+  - Pool
+  - Billiard & Bar
+  - Library
+  - Winter Garden
+  - Sport / Gym
+  - Hangar
+secret_pathways: Airducts
+access: "–"
+clues:
+  - "Tray with player's name in wrong handwriting."
+notes: ""
+presence:
+  - AI
+  - robots
+map:
+  x: 55
+  y: 52

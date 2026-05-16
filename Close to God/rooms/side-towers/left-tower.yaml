@@ -1,0 +1,14 @@
+name: Left Tower
+description: "Lightning‑harvesting spire."
+hallucinations: Static forming words; silhouette in lightning.
+connections: []
+secret_pathways: Outdoors, Hangar
+access: Needs access to Outside
+clues:
+  - Storm is artificial (schematic).
+  - "A terminal display, cracked but running. Current date: Year 6,607,604."
+notes: ""
+presence: "–"
+map:
+  x: 18
+  y: 44.5

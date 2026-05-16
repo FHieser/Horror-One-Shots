@@ -1,0 +1,82 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.0.0 Safari/537.36" version="29.3.0">
+  <diagram name="Seite-1" id="hl9iMXIyWPIaAEN5X3mH">
+    <mxGraphModel dx="1146" dy="1050" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-26" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1;fillColor=#bac8d3;strokeColor=#23445d;" value="Cloning Facility" vertex="1">
+          <mxGeometry height="80" width="80" x="220" y="490" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-25" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1;fillColor=#bac8d3;strokeColor=#23445d;" value="The burrow" vertex="1">
+          <mxGeometry height="80" width="80" x="470" y="700" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-20" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1;align=left;" value="Outdoor" vertex="1">
+          <mxGeometry height="200" width="240" x="280" y="840" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-1" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Winter&lt;div&gt;Garden&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="280" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-8" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Library" vertex="1">
+          <mxGeometry height="80" width="80" x="360" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-9" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Sleeping" vertex="1">
+          <mxGeometry height="80" width="80" x="440" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-10" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Lab" vertex="1">
+          <mxGeometry height="80" width="80" x="440" y="560" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-11" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Pool" vertex="1">
+          <mxGeometry height="80" width="80" x="440" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-12" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Eating" vertex="1">
+          <mxGeometry height="80" width="80" x="360" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-13" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Bar" vertex="1">
+          <mxGeometry height="80" width="80" x="360" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-14" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Sport" vertex="1">
+          <mxGeometry height="80" width="80" x="280" y="640" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-15" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Hangar" vertex="1">
+          <mxGeometry height="80" width="80" x="280" y="720" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-16" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Right&lt;div&gt;Tower&lt;/div&gt;" vertex="1">
+          <mxGeometry height="330" width="80" x="640" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-17" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Left Tower&lt;div&gt;Tower&lt;/div&gt;" vertex="1">
+          <mxGeometry height="330" width="80" x="80" y="550" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-18" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Bio" vertex="1">
+          <mxGeometry height="80" width="80" x="420" y="860" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-19" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Mech Bay" vertex="1">
+          <mxGeometry height="80" width="80" x="374" y="940" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-21" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Shed" vertex="1">
+          <mxGeometry height="80" width="80" x="280" y="1120" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-22" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="TOR" vertex="1">
+          <mxGeometry height="80" width="80" x="290" y="1250" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-23" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="The Jump" vertex="1">
+          <mxGeometry height="80" width="80" x="420" y="1270" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-24" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="End" vertex="1">
+          <mxGeometry height="80" width="80" x="560" y="1340" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-27" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1;fillColor=#bac8d3;strokeColor=#23445d;" value="Ai Core" vertex="1">
+          <mxGeometry height="80" width="80" x="180" y="410" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-28" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Entry&lt;div&gt;Room&lt;/div&gt;" vertex="1">
+          <mxGeometry height="80" width="80" x="320" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-29" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Lookout Facility" vertex="1">
+          <mxGeometry height="80" width="80" x="400" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="DCwBsUwCSw8qijCmoDCK-30" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeWidth=2;fontStyle=1" value="Lab of God" vertex="1">
+          <mxGeometry height="80" width="80" x="360" y="120" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
