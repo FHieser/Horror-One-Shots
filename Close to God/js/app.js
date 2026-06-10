@@ -107,7 +107,7 @@ function generateSvg(rooms, layout) {
   </a>`;
   }).join('');
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 720" id="facility-map">
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 720" width="640" height="720" id="facility-map">
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
       <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0a1622" stroke-width="0.5"/>

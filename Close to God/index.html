@@ -50,6 +50,14 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
   <script src="./js/content-index.js"></script>
   <script src="./js/app.js"></script>
-  <script>initMap().catch(e => { document.getElementById('map-wrapper').textContent = 'Error: ' + e.message; });</script>
+  <script>
+    try {
+      initMap().catch(function(e) {
+        document.getElementById('map-wrapper').textContent = 'Error: ' + e.message;
+      });
+    } catch(e) {
+      document.getElementById('map-wrapper').textContent = 'Error: ' + e.message;
+    }
+  </script>
 </body>
 </html>
