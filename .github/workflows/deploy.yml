@@ -33,8 +33,9 @@ jobs:
         run: |
           mkdir -p _site/close-to-god/js _site/the-door _site/on-route-to-chaos
 
-          # Root landing page
+          # Root landing page + shared assets
           cp index.html _site/
+          cp favicon.svg _site/
 
           # Close to God — HTML pages and JS (source lives in "Close to God/", deployed as "close-to-god/")
           cp "Close to God/index.html"      _site/close-to-god/
