@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Audio — Close to God</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0d0d0d; font-family: Georgia, serif; }
+    header { background: #0a0000; border-bottom: 2px solid #330000; padding: 0.5rem 1.5rem; display: flex; align-items: center; gap: 2rem; position: sticky; top: 0; z-index: 10; }
+    .brand { color: #666; font-size: 0.8rem; text-decoration: none; font-family: 'Courier New', monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+    .brand:hover { color: #cc2222; }
+    .brand-sep { color: #330000; margin: 0 0.3rem; }
+    .adv-brand { color: #cc2222; font-size: 1.1rem; letter-spacing: 0.05em; text-decoration: none; font-family: Georgia, serif; }
+    nav { display: flex; margin-left: auto; }
+    nav a { color: #666; text-decoration: none; font-size: 0.82rem; padding: 0.3rem 1rem; border: 1px solid transparent; letter-spacing: 0.06em; text-transform: uppercase; }
+    nav a:hover { color: #cc2222; }
+    nav a.active { color: #cc2222; border-color: #330000; background: #1a0000; }
+    nav a + a { border-left: none; }
+    .audio-wrap { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+    .audio-title { color: #cc2222; font-size: 1.8rem; border-bottom: 2px solid #330000; padding-bottom: 0.5rem; margin-bottom: 2.5rem; }
+    .audio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .audio-card { background: #0d0d0d; border: 1px solid #1a1a1a; padding: 0.8rem; }
+    .audio-card-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #555; font-family: 'Courier New', monospace; margin-bottom: 0.6rem; }
+    .audio-card iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="../">Horror One-Shots</a>
+    <span class="brand-sep">/</span>
+    <a class="adv-brand" href="./">Close to God</a>
+    <nav>
+      <a href="./overview.html">Overview</a>
+      <a href="./index.html">Map</a>
+      <a href="./mechanics.html">Mechanics</a>
+      <a href="./timeline.html">Timeline</a>
+      <a href="./characters.html">Characters</a>
+      <a href="./audio.html" class="active">Audio</a>
+    </nav>
+  </header>
+  <div class="audio-wrap">
+    <h1 class="audio-title">Audio</h1>
+    <div class="audio-grid" id="audio-grid">
+      <p style="color:#444;font-family:'Courier New',monospace;font-size:0.8rem">LOADING…</p>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="./js/content-index.js"></script>
+  <script src="./js/app.js"></script>
+  <script>initAudio().catch(e => { document.getElementById('audio-grid').textContent = 'Error: ' + e.message; });</script>
+</body>
+</html>

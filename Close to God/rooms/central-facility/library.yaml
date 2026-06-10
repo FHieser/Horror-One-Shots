@@ -1,13 +1,51 @@
 name: Library
-description: Quiet archive of books and data.
-details: ""
-hallucinations: Whispering books; pages flipping.
+description:
+  - Floor-to-ceiling shelves on every wall, packed with books spanning centuries — different languages, different bindings, impossible to have been collected in one lifetime.
+  - A fireplace on the far wall burns steadily, casting warm light across the room. Armchairs and a low table are arranged around it.
+  - A reading table sits near the centre with a hanging lamp overhead — the kind of room that makes you want to stay.
+  - Despite the age of the collection, everything is clean, warm, and maintained. The AI keeps this room in particular order.
+  - Quiet. The only sound is the fire and the storm outside, muffled by the walls.
+details:
+  - content: >
+      A grandfather clock stands against one wall. It chimes at the full hour.
+      Inside the case, tucked behind the pendulum, is a folded piece of paper.
+      It reads: "Since when am I here?"
+    implication: Temporal horror — someone lost track of how long they had been in the facility.
+  - content: >
+      Looking closer at the shelves reveals dozens of duplicate titles — sometimes
+      three or four identical copies, spread across different sections. The collection
+      was not curated. It was refilled.
+    implication: Temporal horror — the library has been restocked countless times over an impossible span of time.
+hallucinations:
+  violence:
+    trigger: Opening a book at random.
+    effect: >
+      A flash: all the books are torn from the shelves at once.
+      Paper fills the air. A single figure sits on top of a pile of books,
+      arms wrapped around their head, slumped over.
+  theme:
+    trigger: Opening a book and finding the pages blank except for repeated text.
+    effect: >
+      Every page is blank except for a single word, repeated over and over.
+      The word is "again". Your nose starts bleeding. The word becomes louder.
+    implication: temporal horror, cloning
+  hints:
+    - trigger: Entering the library for the first time after another player has died.
+      effect: >
+        A flash — from inside a staircase, descending. Stone steps, low ceiling,
+        a warm light growing below. The library opens up at the bottom.
+        Someone came down here. The stairs come from above.
+    - trigger: Spending time reading or browsing the collection.
+      effect: >
+        One book on the upper shelves catches the eye — it almost seems to glow
+        against the others. Inside, a lab keycard, and a single line on the page:
+        "stay safe, stay sane."
 connections:
   - Sleeping Area
   - Lab
   - Eating Area
   - Winter Garden
-secret_pathways: Entry Room, Burrow
+secret_pathways: Anteroom
 access: "–"
 presence:
   - AI

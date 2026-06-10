@@ -1,13 +1,46 @@
 name: Sport / Gym
-description: Clean exercise area.
-details: ""
-hallucinations: Heavy breathing; equipment moving.
+description:
+  - Divided into two halves by a low partition — cardio machines on one side, a padded combat area on the other.
+  - The cardio side faces a floor-to-ceiling window; the storm outside fills the entire view, flickering with distant lightning.
+  - The combat side has a hanging heavy bag, a mirrored wall, and a padded sparring mat marked with worn training circles.
+  - Equipment is maintained to factory condition — no scuffs, no sweat stains, no signs of use.
+  - Overhead lighting is bright and even, casting no shadows.
+details:
+  - content: >
+      A weight rack in the corner sits slightly off the wall. Moving it
+      reveals a vent panel with a loose frame — large enough to crawl through.
+    implication: Access to the airducts.
+  - content: >
+      A handprint on the outside of the storm window — pressed flat, human-sized,
+      at chest height. Whatever left it was standing on the exterior wall.
+    implication: Someone survived outside long enough to reach this window.
+hallucinations:
+  violence:
+    trigger: Looking at the floor-to-ceiling storm window.
+    effect: >
+      Two silhouettes are reflected in the glass — fighting. One goes down.
+      The other doesn't stop. You feel every hit.
+  theme:
+    trigger: Performing a strike or technique on the training dummy.
+    effect: >
+      They say you master a skill if you do it ten thousand times.
+      Your body already knows this movement. Your hands are already moving
+      before you decide to move them. The repetition floods back — a movie
+      of the same motion, thousands of times, in this room, in this body —
+      until you can't tell which version of yourself is moving right now.
+    implication: cloning, temporal horror
+  hints:
+    trigger: Being in the gym at night.
+    effect: >
+      A flash: themselves in this room, in the dark, swinging a weight
+      against a robot. The shell caves. It goes still.
+      The weight is still in their hand when the vision ends.
 connections:
   - Winter Garden
   - Eating Area
   - Billiard & Bar
   - Hangar
-secret_pathways: Burrow, Airducts
+secret_pathways: Airducts
 access: "–"
 presence:
   - AI

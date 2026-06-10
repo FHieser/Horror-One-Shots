@@ -1,13 +1,31 @@
 name: Billiard & Bar
-description: Relaxation room with soft music.
-details: ""
-hallucinations: Billiard ball rolling; wrong reflection.
+description:
+  - Open lounge merging a billiard area with a cocktail bar and scattered seating.
+  - Floor-to-ceiling shelving of bottles behind the bar, many unlabelled.
+  - Warm amber lighting from overhead fixtures.
+  - A fireplace on one wall — gas flame, never goes out.
+details:
+  - content: "The AI speaker in this room has a thin strip of electrical tape over the microphone hole. It still plays music and responds, but can't hear what's said in the room."
+    implication: "Surveillance blind spot — conversations here are not monitored."
+  - content: "The bar counter has a hinged section that lifts — behind it, a panel in the wall sits loose, opening directly into the airduct system."
+    implication: "Airduct access — hidden entry point behind the bar."
+hallucinations:
+  violence:
+    trigger: Player grabs something from the back of the bar.
+    effect: They turn around — the room is on fire, glass shattered across the floor — then it's gone, and the room is exactly as it was.
+  theme:
+    trigger: Player drinks heavily — several drinks in.
+    effect: A flash — their own hands, steady, breaking a glass against the bar edge and pressing the shard to the side of their neck. They pull something small and wet from the wound and hold it up to the light. The vision cuts before they can see what it is.
+    implication: Brain Chip — something was planted in their neck; a past iteration found it.
+  hints:
+    trigger: Player stares into the fire for too long.
+    effect: A flash — their own hands reaching into the back of the fireplace, pulling out a keycard wrapped in cloth, still there.
 connections:
   - Pool
   - Eating Area
   - Sport / Gym
   - Hangar
-secret_pathways: Vent shafts
+secret_pathways: Airducts
 access: "–"
 presence:
   - AI

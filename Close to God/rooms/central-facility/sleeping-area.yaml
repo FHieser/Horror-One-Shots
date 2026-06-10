@@ -1,10 +1,38 @@
 name: Sleeping Area
-description: Sterile luxury bedrooms where players awaken.
-details: ""
-hallucinations: Seeing themselves asleep; red snow; shadow at bed's foot.
+description:
+  - Row of private rooms off a central corridor, each with a sealed door.
+  - Each room contains a bed, a wardrobe, a vanity mirror, and soft lighting on a timer.
+  - The beds are immaculate — freshly made every morning by the robots.
+details:
+  - content: "The wardrobe contains clothes in the player's exact size — worn, faded, none of them familiar."
+    implication: "Cloning — physical evidence of past iterations sleeping in this same room."
+  - content: >
+      Each room has a locker beside the wardrobe, sealed with a colour-coded latch — no key required,
+      just the matching colour panel. Inside: one personal item. After every cleanup, anything the robots
+      collected from the facility is deposited here by colour.
+    implication: "Items lost during cleanup are not gone — they are waiting in the locker."
+  - content: "A small camera is mounted in the corner of every room, angled to cover the bed. There is no blind spot."
+    implication: "AI Surveillance — the AI watches even during sleep; there is no private space."
+hallucinations:
+  violence:
+    - trigger: Player looks in the vanity mirror.
+      effect: They see themselves with a slit throat, staring back. The reflection doesn't move when they do. Lasts two seconds, then gone.
+    - trigger: Player opens another room's door.
+      effect: Inside, a body — their own face — is slumped against the wall. When they blink, the room is empty and clean.
+  theme:
+    trigger: Player tries to leave the room.
+    effect: The door opens onto an identical room, with someone already asleep in the bed. They step back. The door closes.
+    implication: Cloning / Escape
+  hints:
+    - trigger: Player looks under the bed.
+      effect: They glimpse a loose floor panel — the panel is real, and leads to the airduct below.
+    - trigger: Player stares at the camera in the corner for too long.
+      effect: For a moment they see the room from the camera's perspective — and spot a dead angle behind the wardrobe the lens can't reach.
 connections:
   - Lab
+  - Pool
   - Library
+  - Eating Area
 secret_pathways: Airducts
 access: "–"
 presence:

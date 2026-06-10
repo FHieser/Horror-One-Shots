@@ -22,7 +22,8 @@ name: Room Name
 description:
   - Bullet point facts about what the room contains and looks like.
 details:
-  - "Observable detail that rewards careful attention — points to hidden paths, mechanics, or themes."
+  - content: "Observable detail that rewards careful attention."
+    implication: What mechanic, theme, or hidden path this points to.
 hallucinations:
   violence:
     trigger: What sets it off.
@@ -92,7 +93,7 @@ Every hallucination must have a trigger — a specific in-game action or conditi
 
 **Violence** — physical horror: blood, injury, death, bodily wrongness. This should be visceral and immediate — something the player witnesses or experiences happening to a body. Keep it short and disturbing.
 
-**Theme** — a horror hallucination tied to the facility's core mechanics: cloning, temporal disorientation, AI surveillance, or the impossibility of escape. This is NOT a hint or information dump. The player should feel something — dread, wrongness, existential horror. The implication should be felt, not explained. Each option must include an **implication** tag naming which mechanic it points to.
+**Theme** — a memory bleeding through from a past clone iteration of the player. A previous version of them experienced something in this exact room — and it surfaces now as a flash of visceral, unwanted memory. This is NOT a hint, NOT information delivery, NOT an environmental detail. The player should feel dread, wrongness, existential horror. The implication should be felt, not explained. Frame every option as: a past self, in this room, experiencing something the current player cannot fully grasp. Each option must include an **implication** tag naming which mechanic it points to (cloning, temporal horror, surveillance, impossibility of escape).
 
 **Hints** — a vision that bleeds through useful information: the location of a tool, a secret passage, a blind spot in the AI's surveillance. This replaces a clue — the information comes through a hallucination, not an object. No save required, but it still needs a trigger.
 
@@ -129,15 +130,14 @@ Examples: keycard tier, time of day, AI permission, a specific condition (lights
 
 ## Step 7: Details
 
-This is a second descriptive layer — extending the room with things players can find, read, or notice if they look carefully. It merges what used to be clues and notes. Each detail should reward attention and point somewhere: a hidden path, a mechanic, a theme. Players can read between the lines.
+This is a second descriptive layer — things players can find, read, or notice if they look carefully. Details should be **helpful to players**: pointing toward a useful tool, a secret route, a weakness in the AI's surveillance, or something they can act on. Pure atmosphere belongs in the description. Pure horror belongs in hallucinations. Details are rewards for paying attention.
 
 Ask:
 > "What details does this room reward careful attention with?"
 
-Each detail should:
-- Be a concrete, observable thing — an object, inscription, marking, or GM note
-- Point to a secret pathway, a mechanic, or a theme — not just flavour
-- Be written so a sharp player can use it; a passive player can miss it
+Each detail has two parts:
+- **content** — a concrete, observable thing a sharp player can use; a passive player can miss. No vague atmosphere.
+- **implication** — what this points to: a hidden path, a tool, a surveillance blind spot, an escape route, or a mechanical advantage.
 
 Offer 5 example details if the user wants inspiration.
 

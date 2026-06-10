@@ -1,9 +1,45 @@
 name: Airducts
-description: ""
-details: ""
-hallucinations: Crawling sounds; breathing behind them.
-connections: []
-secret_pathways: Sleeping Area, Pool, Eating Area, Sport
+description:
+  - A whole network of shafts running above and between the walls of the facility — some sections narrow enough to force a crawl, others wide enough to crouch-walk.
+  - Metal walls, no lighting, no landmarks. Sound travels unpredictably — voices and footsteps from rooms below bleed through the floor of the ducts.
+  - The network connects most of the facility. Getting lost is easy.
+details:
+  - content: >
+      Several vent grates throughout the ducts have been bent back and re-bent
+      multiple times. The crawl paths are worn smooth. These routes have been
+      used over and over.
+    implication: Cloning — the same paths repeated across countless iterations.
+  - content: >
+      At night, movement can be heard inside the ducts — rhythmic, mechanical,
+      unhurried. The robots use this network too.
+    implication: The airducts are not safe at night; timing matters.
+hallucinations:
+  violence:
+    trigger: The first time crawling through the airducts.
+    effect: >
+      A robot rounds the corner ahead — fast, filling the shaft, limbs scraping
+      the walls. No room to turn. No room to run. It hits them full force.
+  theme:
+    trigger: Stopping to rest in the ducts.
+    effect: >
+      They have been crawling for a very long time. They no longer remember
+      which direction they came from. They are not sure how many times
+      they have done this.
+    implication: temporal horror
+  hints:
+    trigger: Crawling in the direction of the mechanoid bay.
+    effect: >
+      A flash: a robot, stationary, positioned directly at the vent entry
+      to the mechanoid bay. It is waiting. It knows this route.
+connections:
+  - Hangar
+  - Sport / Gym
+  - Eating Area
+  - Billiard & Bar
+  - Pool
+  - Sleeping Area
+  - Mechanoid Bay
+secret_pathways: "–"
 access: Must be found
 presence:
   - robots

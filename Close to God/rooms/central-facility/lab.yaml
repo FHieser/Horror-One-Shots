@@ -1,13 +1,37 @@
 name: Lab
-description: Bright medical research space.
-details: ""
-hallucinations: Hearing their own screams; silhouette on table.
+description:
+  - A large research space — workbenches, data terminals, specimen containers, banks of equipment the purpose of which is not immediately clear.
+  - At the far end, a large machine dominates the room. It is unpowered. Its surfaces are cold.
+  - Everything is dark. Screens off. No hum, no movement. The room has been offline for a long time.
+  - Along the side wall, a sealed panel sits flush with the surface — no handle, no label. It does not open.
+  - Quiet. The AI camera in the corner has no indicator light. Nothing is watching.
+details:
+  - content: >
+      The large machine has an input interface identical in layout to the one
+      in the Mechanoid Bay — same menus, same logic.
+    implication: A player who has used the Mechanoid Bay converter already knows how to operate this one.
+  - content: >
+      A keycard sits on one of the workbenches — no label, no markings.
+      It is the access keycard for the TOR system.
+    implication: Access to the TOR system.
+hallucinations:
+  violence:
+    trigger: Touching the large machine.
+    effect: >
+      A flash: it activates. The machine hums, builds, shudders.
+      Something pushes out from the output — not quite finished, not quite right.
+      It hits the floor. It starts to crawl toward them.
+  hints:
+    trigger: Interacting with the sealed panel on the side wall.
+    effect: >
+      A flash: power floods the room — screens alive, machine humming, lights on.
+      The panel clicks and swings open, revealing a narrow passage leading
+      downward toward the Right Tower.
 connections:
-  - Pool
   - Library
-  - Eating Area
+  - Sleeping Area
 secret_pathways: Right Tower
-access: "–"
+access: "Lab keycard required — found in the Library or the Bio Facility. The sealed panel can be cut with the hand welder from the Hangar, but robots repair the damage each night."
 presence:
   - AI
   - robots

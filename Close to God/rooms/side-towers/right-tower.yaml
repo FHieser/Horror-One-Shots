@@ -1,10 +1,36 @@
 name: Right Tower
-description: Unstable power tower.
-details: ""
-hallucinations: Tower breathing; figure climbing inside.
-connections: []
-secret_pathways: Lab
-access: Hidden
+description:
+  - A natural stone spire mirroring the Left Tower — same reinforced framework, same lightning rods fused to the rock at the top, same heavy cables running down through the interior.
+  - The approach from the Lab is short. The tower feels closer, more immediate than its counterpart across the plateau.
+  - Inside, a narrow staircase winds upward. The hum of the cables is constant. Each lightning strike reverberates through the stone.
+  - No concessions to comfort. Built for the same purpose as the Left Tower. Reached by a different path.
+details:
+  - content: >
+      A locked box mounted to the wall at the top — inside, the right tower
+      keycard for the Anteroom door.
+    implication: One of two keys needed to reach God.
+  - content: >
+      A terminal displays a single line of live data — the current timestamp.
+      The year reads: 6,607,604.
+    implication: Sanity Save, then Panic Save — regardless of result.
+hallucinations:
+  violence:
+    trigger: Approaching the Right Tower from the Lab.
+    effect: >
+      Lightning strikes the tower again and again — each hit closer than the last.
+      The air tastes of iron and ozone. The sound is overwhelming. The ground
+      shakes with each strike. Every instinct says turn back.
+  theme:
+    trigger: Looking back at the facility from the top of the tower.
+    effect: >
+      A massive silhouette rises over the entire station — enormous, still,
+      looking down at all of it. It does not move. It does not acknowledge them.
+      They know this shape. They do not know how they know it.
+    implication: God — a memory of something seen before, in another life.
+connections:
+  - Lab
+secret_pathways: "–"
+access: See Lab — unlocked when Lab power is restored from the Left Tower terminal.
 presence: "–"
 map:
   x: 80

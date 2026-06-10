@@ -1,10 +1,42 @@
 name: Cloning Facility
-description: Rows of humming pods.
-details: ""
-hallucinations: Past selves staring; infinite versions.
-connections: []
-secret_pathways: Entry Room, Winter Garden, AI Core
-access: Needs Lab of God code
+description:
+  - Vast dark chamber, most of it cold and silent.
+  - Nine pods arranged in a loose cluster at the centre — each assigned to a colour, labelled with a small panel at the base.
+  - The active pods are the only light source in the room. The rest of the space falls away into dark.
+details:
+  - content: >
+      A terminal is mounted at the head of the pod cluster. It displays a trial
+      counter: 8,247,193,041. Below the counter, a second function: NEURAL DEVICE
+      — DISABLE. One entry per colour. Each can be toggled individually.
+    implication: Disabling the brain chip is the only way to attempt escape via The Jump without the chip triggering.
+  - content: >
+      The pods can be broken. Destroying them does not stop the cloning — within
+      hours the facility resets: pods restored, room clean. Something else is
+      maintaining them. The pods are not the source.
+    implication: The AI Core is still active and needs to be destroyed alongside the pods to end the cycle.
+hallucinations:
+  violence:
+    trigger: Touching their assigned pod.
+    effect: >
+      The perspective shifts — they are inside the pod, looking out. A silhouette
+      stands at the far end of the room, smiling, axe in hand. Everything around
+      it is already destroyed. It walks toward them.
+  hints:
+    trigger: Interacting with the terminal and reading the trial count.
+    effect: >
+      A flash — robots activating pods one by one, lights on then off, faster and
+      faster. It zooms out. The counter becomes a nixie display, digits spinning,
+      number and years blurring until indistinguishable. Then it stops. The room
+      is still. The number is what it was.
+connections:
+  - Anteroom
+  - Winter Garden
+secret_pathways: AI Core
+access: |
+  The transfer corridor from the Anteroom opens only during an active cloning
+  cycle — players experience it briefly when cloned, it seals behind them.
+  The door can be destroyed with explosives from the Anteroom side.
+  The Winter Garden connection is exit only — one-way out.
 presence:
   - AI
   - robots

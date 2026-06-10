@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Horror One-Shots</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #080808;
+      color: #c9c9c9;
+      font-family: Georgia, serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #0a0000;
+      border-bottom: 2px solid #330000;
+      padding: 1.2rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      color: #cc2222;
+      font-size: 1.8rem;
+      letter-spacing: 0.08em;
+    }
+    header p {
+      color: #444;
+      font-size: 0.8rem;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-top: 0.4rem;
+    }
+    main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 4rem auto;
+      padding: 0 1.5rem;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: #0d0d0d;
+      border: 1px solid #1a1a1a;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+      position: relative;
+      transition: border-color 0.15s;
+    }
+    .card.active { border-color: #330000; }
+    .card.active:hover { border-color: #cc2222; }
+    .card.locked { opacity: 0.5; }
+    .card-status {
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      font-family: 'Courier New', monospace;
+      padding: 0.15rem 0.5rem;
+      border-radius: 2px;
+      display: inline-block;
+      align-self: flex-start;
+    }
+    .status-active { background: #1a0000; color: #cc2222; border: 1px solid #330000; }
+    .status-soon   { background: #111; color: #444; border: 1px solid #222; }
+    .card-title {
+      color: #cc2222;
+      font-size: 1.3rem;
+      letter-spacing: 0.02em;
+    }
+    .card.locked .card-title { color: #444; }
+    .card-tagline {
+      color: #666;
+      font-size: 0.82rem;
+      font-style: italic;
+      line-height: 1.5;
+    }
+    .card-meta {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-top: 0.2rem;
+    }
+    .card-meta span {
+      font-size: 0.7rem;
+      font-family: 'Courier New', monospace;
+      color: #444;
+      letter-spacing: 0.06em;
+    }
+    .card-tags {
+      display: flex;
+      gap: 0.4rem;
+      flex-wrap: wrap;
+    }
+    .tag {
+      font-size: 0.62rem;
+      font-family: 'Courier New', monospace;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #555;
+      border: 1px solid #1a1a1a;
+      padding: 0.1rem 0.4rem;
+      border-radius: 2px;
+    }
+    .card-link {
+      display: inline-block;
+      margin-top: 0.4rem;
+      padding: 0.4rem 1rem;
+      background: #1a0000;
+      color: #cc2222;
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid #330000;
+      align-self: flex-start;
+      transition: background 0.15s;
+    }
+    .card-link:hover { background: #2a0000; }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.72rem;
+      font-family: 'Courier New', monospace;
+      color: #222;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-top: 1px solid #111;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Horror One-Shots</h1>
+    <p>A collection of tabletop horror adventures</p>
+  </header>
+
+  <main>
+    <div class="grid">
+
+      <div class="card active">
+        <span class="card-status status-active">Active</span>
+        <h2 class="card-title">Close to God</h2>
+        <p class="card-tagline">A mountain research facility powered by an endless storm. An AI that has degraded over centuries. Guests who keep waking up as strangers.</p>
+        <div class="card-meta">
+          <span>4–8 Players</span>
+          <span>One Session</span>
+          <span>Sci-Fi / Body Horror</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Cloning</span>
+          <span class="tag">Psychological</span>
+          <span class="tag">Identity</span>
+        </div>
+        <a class="card-link" href="./close-to-god/">Enter →</a>
+      </div>
+
+      <div class="card locked">
+        <span class="card-status status-soon">Coming Soon</span>
+        <h2 class="card-title">The Door</h2>
+        <p class="card-tagline">A mining colony. An impossible door that only acts when unobserved. A captain who has gone missing.</p>
+        <div class="card-meta">
+          <span>3–7 Players</span>
+          <span>4–6 Hours</span>
+          <span>Cosmic Horror</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Entity</span>
+          <span class="tag">Paranoia</span>
+          <span class="tag">Mystery</span>
+        </div>
+      </div>
+
+      <div class="card locked">
+        <span class="card-status status-soon">Coming Soon</span>
+        <h2 class="card-title">On Route to Chaos</h2>
+        <p class="card-tagline">A luxury cruise ship. Something has come aboard. Not everyone will disembark.</p>
+        <div class="card-meta">
+          <span>Monster Horror</span>
+          <span>Artifact</span>
+        </div>
+        <div class="card-tags">
+          <span class="tag">Monster</span>
+          <span class="tag">Isolation</span>
+          <span class="tag">Artifact</span>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer>github.com/FHieser/Horror-One-Shots</footer>
+</body>
+</html>

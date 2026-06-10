@@ -1,16 +1,37 @@
 name: Eating Area
-description: Perfectly arranged cafeteria.
-details: ""
-hallucinations: Cutlery clatter; table set for strangers.
+description:
+  - Long communal table running the length of the room, set for twelve, always.
+  - Polished cutlery, folded napkins, candles on timers — reset every morning by the robots.
+  - A serving counter along one wall with hot food prepared by automated systems.
+  - Soft ambient music plays on a loop from hidden speakers.
+details:
+  - content: "The ventilation grille above the counter is missing two of its four screws. It can be pushed open with one hand."
+    implication: "Airduct access — faster entry point than the sleeping area."
+hallucinations:
+  violence:
+    - trigger: Player sits down at a table.
+      effect: The person across from them drives a fork through their own hand, smiles, and is gone.
+    - trigger: Player has been in the facility for two in-game days and is mid-conversation.
+      effect: A corpse is served directly in front of them, the room flashes red, eyeballs in the soup.
+  theme:
+    - trigger: Player looks at the person sitting across from them.
+      effect: The face across the table is their own. When they look around, every seat is filled — all of them wearing their face, all eating in silence. When they blink, the room is empty.
+      implication: Cloning
+    - trigger: Player finishes a conversation with the AI.
+      effect: The moment the AI goes quiet, they have a complete memory of this exact conversation — same words, same silence.
+      implication: Temporal horror / cloning
+  hints:
+    - trigger: Player inspects the cutlery drawer behind the counter.
+      effect: A flash — their own hands, wrapping a scalpel in a cloth napkin and tucking it into a jacket pocket. The drawer is still closed.
+    - trigger: Player looks under the table.
+      effect: A flash of memory — crouched in the dark beneath this exact table, holding their breath, while a robot's feet pass inches away and keep moving.
 connections:
   - Sleeping Area
-  - Lab
   - Pool
-  - Billiard & Bar
   - Library
+  - Billiard & Bar
   - Winter Garden
   - Sport / Gym
-  - Hangar
 secret_pathways: Airducts
 access: "–"
 presence:

@@ -1,8 +1,30 @@
 name: The Burrow
-description: Cramped hideout dug by a past self.
-details: ""
-hallucinations: Hearing themselves whisper.
-connections: []
+description:
+  - A cramped cavity in the facility's structure — low ceiling, rough walls, barely large enough for one person to sit upright.
+  - Someone has lived here. A flattened bedroll, empty containers, a stub of candle burned to nothing.
+  - But look closer and there are layers — different handwriting on the walls, objects from different eras, a bedroll on top of another bedroll. More than one person has called this home. They were all the same person.
+  - The walls are covered in marks, notes, and scratches. Some are still legible. Some have been crossed out and rewritten.
+  - No AI camera. No robot access. This space does not exist to the facility.
+details:
+  - content: >
+      One section of wall has dates scratched into it — spanning an impossible
+      range. The earliest ones are in a script no one should recognise.
+    implication: This hideout has existed far longer than any single person's stay.
+  - content: >
+      A small mirror propped against the wall, cracked down the middle.
+      Someone has written around the crack: "still you."
+    implication: A past self leaving reassurance.
+hallucinations:
+  hints:
+    trigger: Finding a small tin tucked under the bedroll.
+    effect: >
+      Inside: a folded note in their own handwriting. It says the door at the
+      top of the Library stairs only opens when the cloning facility has been used —
+      the dead are always brought through it first.
+      Beneath the note, a keycard marked for the TOR system.
+connections:
+  - Pool
+  - Bio Facility
 secret_pathways: Library
 access: Hidden
 presence: "–"

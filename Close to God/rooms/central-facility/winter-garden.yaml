@@ -1,7 +1,36 @@
 name: Winter Garden
-description: Indoor greenhouse with artificial sun.
-details: ""
-hallucinations: Plants whispering; figure walking.
+description:
+  - A carefully arranged stone garden — raked gravel, flat rocks, and desert plants growing in dry beds across the floor.
+  - Cacti, succulents, and drought-resistant shrubs fill the space. Nothing here needs much water. Nothing here is soft.
+  - An artificial sun panel spans the ceiling, casting a warm, dry light that matches nothing outside.
+  - At the centre, a low sitting arrangement — flat stones and a simple bench, placed to face the largest section of the garden.
+  - The air is noticeably warmer and drier than the rest of the facility. The storm cannot be heard here.
+  - The arrangement feels deliberate — someone designed this with care, and it has been maintained exactly as they left it.
+details:
+  - content: >
+      The gravel in the sitting area is arranged in a pattern — concentric rings
+      of colour bleeding into each other, swirling toward a single dark point at
+      the centre. The colours are dull, faded. The arrangement feels oddly familiar,
+      though it's hard to say why.
+    implication: The same pattern appears elsewhere in the facility — placed deliberately by someone who returned to this motif.
+hallucinations:
+  violence:
+    trigger: Looking closely at one of the larger stones in the garden.
+    effect: >
+      Two silhouettes. One pinned down, one on top, holding the stone above
+      their head and bringing it down. Again. The figure on top turns and
+      looks directly at them. The vision ends.
+  theme:
+    trigger: Staring at the artificial sun panel for too long.
+    effect: >
+      A shadow descends from the light. Round, with eight arms spreading outward.
+      It drops slowly. It does not stop.
+    implication: surveillance — a robot came for a past self in this room.
+  hints:
+    trigger: Running a hand along the stone beds.
+    effect: >
+      One of the beds. They know it immediately — something is in there,
+      buried under the soil. A hangar keycard. It is still there.
 connections:
   - Library
   - Eating Area

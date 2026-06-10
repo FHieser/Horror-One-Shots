@@ -1,11 +1,30 @@
 name: Pool
-description: Warm, echoing indoor pool.
-details: ""
-hallucinations: Floating figure; water turning red.
+description:
+  - Vast atrium pool with a glass ceiling, storm permanently visible above.
+  - The water reflects the lightning — the whole room flashes white every few minutes.
+  - Inflatable toys and pool floats still drift on the surface.
+  - No drain visible anywhere.
+details:
+  - content: "The changing booth at the far end sits in a dead angle — no camera covers it. The wall-mounted AI speaker inside has been manually disconnected."
+    implication: "Surveillance blind spot — the only fully unmonitored space in the room."
+  - content: "The pool has no visible drain, but water levels never rise. Diving to the far end reveals a large outflow grate near the floor — the bolts are loose, and the passage behind it is wide enough for a person."
+    implication: "Route to the Burrow — accessible underwater, not visible from the surface."
+hallucinations:
+  violence:
+    trigger: Player is in the water during a lightning flash.
+    effect: In the split second of white light they see the pool is full of bodies, all floating face-down, all in the same clothes they're wearing now.
+  theme:
+    trigger: Player is alone in the pool in silence.
+    effect: They flash into a memory of this room crowded — voices, laughter, splashing — then silence, all at once, mid-sound, as if something cut the feed.
+    implication: Temporal horror
+  hints:
+    trigger: Player looks up at the vents near the ceiling.
+    effect: They see a brief vision of themselves climbing out of a vent shaft and dropping silently into the pool — entering from somewhere above.
 connections:
+  - Sleeping Area
   - Eating Area
   - Billiard & Bar
-secret_pathways: Burrow, Airducts, Bio Facility
+secret_pathways: Airducts, Burrow
 access: "–"
 presence:
   - AI

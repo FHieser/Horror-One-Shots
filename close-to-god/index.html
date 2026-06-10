@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Map — Close to God</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { background: #0d0d0d; font-family: Georgia, serif; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+    header { background: #0a0000; border-bottom: 2px solid #330000; padding: 0.5rem 1.5rem; display: flex; align-items: center; gap: 2rem; position: sticky; top: 0; z-index: 10; flex-shrink: 0; }
+    .brand { color: #666; font-size: 0.8rem; text-decoration: none; font-family: 'Courier New', monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+    .brand:hover { color: #cc2222; }
+    .brand-sep { color: #330000; margin: 0 0.3rem; }
+    .adv-brand { color: #cc2222; font-size: 1.1rem; letter-spacing: 0.05em; text-decoration: none; font-family: Georgia, serif; }
+    nav { display: flex; margin-left: auto; }
+    nav a { color: #666; text-decoration: none; font-size: 0.82rem; padding: 0.3rem 1rem; border: 1px solid transparent; letter-spacing: 0.06em; text-transform: uppercase; }
+    nav a:hover { color: #cc2222; }
+    nav a.active { color: #cc2222; border-color: #330000; background: #1a0000; }
+    nav a + a { border-left: none; }
+    #map-area { flex: 1; overflow: auto; background: #080808; display: flex; align-items: flex-start; justify-content: center; padding: 1rem; }
+    #map-wrapper svg { max-height: calc(100vh - 62px); width: auto; display: block; }
+    .room-link { cursor: pointer; }
+    .room-link:hover .r { fill: #1a3a55; }
+    .room-link:hover .t { fill: #d0f0ff; }
+    .room-link.hidden-room:hover .r { fill: #0f2030; }
+    .room-link.hidden-room:hover .t { fill: #90ccdd; }
+    .room-link.tower-link:hover .r { fill: #1a3050; }
+    .room-link.tower-link:hover .p { fill: #1a3050; }
+    .room-link.tower-link:hover .t { fill: #d0f0ff; }
+    #loading { color: #444; font-family: 'Courier New', monospace; font-size: 0.85rem; letter-spacing: 0.1em; margin: 4rem auto; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="../">Horror One-Shots</a>
+    <span class="brand-sep">/</span>
+    <a class="adv-brand" href="./">Close to God</a>
+    <nav>
+      <a href="./overview.html">Overview</a>
+      <a href="./index.html" class="active">Map</a>
+      <a href="./mechanics.html">Mechanics</a>
+      <a href="./timeline.html">Timeline</a>
+      <a href="./characters.html">Characters</a>
+      <a href="./audio.html">Audio</a>
+    </nav>
+  </header>
+  <div id="map-area">
+    <div id="map-wrapper"><p id="loading">LOADING FACILITY SCHEMATIC…</p></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="./js/content-index.js"></script>
+  <script src="./js/app.js"></script>
+  <script>initMap().catch(e => { document.getElementById('map-wrapper').textContent = 'Error: ' + e.message; });</script>
+</body>
+</html>

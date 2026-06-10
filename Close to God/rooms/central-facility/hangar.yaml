@@ -1,13 +1,43 @@
 name: Hangar
-description: Large empty bay with dead machinery.
-details: ""
-hallucinations: Ship taking off then glitching.
+description:
+  - A functional bay built for maintenance and storage, not comfort — bare concrete, exposed ceiling struts, no decoration.
+  - The main hangar door has been rammed open from the outside; the frame is buckled and will not close. It has never been repaired.
+  - Snow and ice have accumulated across the floor through the gap, piling against the far wall. The room is cold enough to see breath.
+  - No aircraft or vehicles are present — whatever this bay was built for is gone.
+  - The storm is always audible here. Wind moves through the broken door constantly.
+details:
+  - content: >
+      An access shaft is set into the wall directly above the broken door frame,
+      reachable by climbing the buckled door or the shelving beside it.
+    implication: Entry point to the airducts.
+  - content: >
+      A workbench holds a foam gun, a hand welder, and a nail gun — all in working condition.
+    implication: Usable as tools or weapons.
+hallucinations:
+  violence:
+    trigger: Touching the buckled door frame.
+    effect: >
+      A flash: something enormous hits the door from outside at speed.
+      The metal tears inward. Bodies scatter across the floor.
+  theme:
+    trigger: Looking out through the broken door at the storm.
+    effect: >
+      A flash: they stood here and watched someone else run into the blizzard.
+      They did not follow. They don't know why.
+    implication: surveillance, impossibility of escape
+  hints:
+    trigger: Stepping outside into the storm to look around.
+    effect: >
+      A flash: a figure comes in from outside, packed in cold-weather clothing,
+      moves past them without acknowledgement, and stuffs the clothes into a
+      corner behind a collapsed shelf — hard to reach, easy to miss.
+      The clothes are still there. They fit perfectly.
 connections:
   - Billiard & Bar
   - Sport / Gym
   - Outdoors
-secret_pathways: Left Tower
-access: Hole in wall
+secret_pathways: Airducts
+access: Hangar keycard — hidden behind the fireplace in the Billiard & Bar.
 presence:
   - AI
   - robots

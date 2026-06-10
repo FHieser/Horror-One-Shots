@@ -1,10 +1,68 @@
 name: Left Tower
-description: "Lightning‑harvesting spire."
-details: ""
-hallucinations: Static forming words; silhouette in lightning.
-connections: []
-secret_pathways: Outdoors, Hangar
-access: Needs access to Outside
+description:
+  - A natural stone spire rising from the plateau's edge, reinforced with metal framework bolted into the rock over centuries.
+  - Lightning rods crown the top — thick, blackened, struck so many times they have fused with the stone around them.
+  - Inside, heavy cables run down the full height of the tower, carrying harvested energy to the facility below. The cables hum constantly.
+  - A narrow staircase winds up through the interior. The walls vibrate with each strike. The climb is long.
+  - No concessions to comfort. This tower was built to function.
+details:
+  - content: >
+      A locked box mounted to the wall at the top — inside, the left tower
+      keycard for the Anteroom door.
+    implication: One of two keys needed to reach God.
+  - content: |
+      A wall-mounted terminal with three panels.
+      <pre>
+      PROJECT OLYMPIA — POWER DISTRIBUTION LOG
+
+      WARNING: Irregular power spikes detected. Energy-to-matter conversion
+      activity exceeding baseline. Source: multiple systems.
+
+      POWER DISTRIBUTION:
+        HOUSE OF GOD          — 41%
+        MECHANOID BAY       — 23%
+        BIO FACILITY        — 14%
+        CLONING FACILITY    — 09%
+        AI CORE             — 05%
+        CENTRAL FACILITY    — 03%
+        LAB                 — 00% [OFFLINE]
+        RIGHT TOWER — ACTIVE | INPUT RECEIVED
+
+      SYSTEM STATUS — ENERGY TO MATTER CONVERSION:
+        HOUSE OF GOD          — INACTIVE
+        MECHANOID BAY       — ACTIVE
+        BIO FACILITY        — ACTIVE
+        CLONING FACILITY    — ACTIVE
+        AI CORE             — INACTIVE
+        LAB                 — INACTIVE
+
+      SYSTEM STATUS — ROUTING:
+        HOUSE OF GOD          — [ACCESS DENIED]
+        MECHANOID BAY       — [ACCESS DENIED]
+        BIO FACILITY        — [ACCESS DENIED]
+        CLONING FACILITY    — [ACCESS DENIED]
+        AI CORE             — [ACCESS DENIED]
+        LAB                 — [ACTIVATE?]
+      </pre>
+    implication: Players can activate the Lab from this terminal. Doing so unlocks the Right Tower access pathway.
+hallucinations:
+  violence:
+    trigger: Approaching the Left Tower across the ridge walkway.
+    effect: >
+      Lightning strikes the tower again and again — each hit closer than the last.
+      The air tastes of iron and ozone. The sound is overwhelming. The ground
+      shakes with each strike. Every instinct says turn back.
+  theme:
+    trigger: Walking the ridge walkway toward the tower.
+    effect: >
+      The grating is narrow. The drop is on both sides. Their foot moves
+      to the edge — not from fear, not from accident. It almost goes over.
+      They pull back. They have been here before. They did not always pull back.
+    implication: cloning, impossibility of escape
+connections:
+  - Outdoors
+secret_pathways: "–"
+access: Reached via the ridge walkway along the plateau edge — see Outdoors secret pathways.
 presence: "–"
 map:
   x: 18

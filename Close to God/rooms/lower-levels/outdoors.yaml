@@ -1,7 +1,46 @@
 name: Outdoors
-description: "Storm‑blasted courtyard."
-details: ""
-hallucinations: Figures in storm; frozen lightning.
+description:
+  - An open plateau at the mountain's peak — no shelter, no cover. The wind is constant and violent. The cold is immediately dangerous.
+  - No permanent light source. The area exists only in lightning flashes — strobing, disorienting, never steady.
+  - To one side, the Left Tower rises against the sky — a massive stone pillar, struck by lightning repeatedly. Its silhouette is the only landmark in the storm.
+  - Several structures and buildings are visible across the plateau, connected by open ground. Moving between them means full exposure to the storm.
+details:
+  - content: >
+      Between 3 and 4 in the morning, the wind dies and the snow settles.
+      The lightning is still there — without the wind drowning it out, the
+      thunder carries clearly through the facility, loud enough to wake anyone
+      asleep. In the flashes, the plateau is fully visible: the towers, the
+      walkway, the structures, the drop. Then the wind returns.
+    implication: The wind dying removes the Body Save — but the lightning remains.
+  - content: >
+      Near the edge of the plateau, a rope is anchored to a rusted bolt in the
+      rock — the other end disappears over the side into the storm below.
+      The rope is old.
+    implication: Someone tried to climb down. It may still hold.
+  - content: >
+      During a lightning flash, if they watch the Left Tower's silhouette closely,
+      a metal grating is visible along the ridge — a walkway, stretching far out
+      toward the tower's base.
+    implication: The Left Tower is reachable via the ridge walkway.
+hallucinations:
+  violence:
+    trigger: Moving through the outdoor area.
+    effect: >
+      The cold and wind are immediately dangerous. Body Save.
+      Players with appropriate cold-weather clothing make the save with advantage.
+  theme:
+    trigger: Standing at the edge of the plateau.
+    effect: >
+      It isn't fear. It is familiarity. The drop pulls at them — not violently,
+      quietly. Like something they have done before and the body remembers.
+      They have to choose to step back.
+    implication: cloning, impossibility of escape
+  hints:
+    trigger: Standing still and looking across the plateau during a lightning flash.
+    effect: >
+      For a moment the storm clears. The plateau is visible — the Bio Facility,
+      the Mechanoid Bay, the Shed. Their positions, their distances, their doors.
+      Then the storm swallows it again.
 connections:
   - Hangar
   - Bio Facility

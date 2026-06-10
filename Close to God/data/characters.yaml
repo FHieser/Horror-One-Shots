@@ -1,0 +1,80 @@
+- color: Pink
+  class: Scientist
+  skills: Robotics
+  item: Electrical multi-tool
+  looks:
+    - Worn lab coat, collar turned up
+    - Hair pulled back tight, a few strands loose
+    - Chemical stains on the hands and forearms
+
+- color: White
+  class: Marine
+  skills: Firearms
+  item: Service pistol
+  looks:
+    - Close-cropped hair, rigid posture
+    - Old scar running along the jaw
+    - Military jacket worn open, undershirt showing
+
+- color: Red
+  class: Teamster
+  skills: Mechanical Repair, Computers
+  item: Pry bar
+  looks:
+    - Scarred knuckles, grease under the nails
+    - Heavy jacket, sleeves rolled to the elbow
+    - Steel-toed boots, worn through at the toe
+
+- color: Green
+  class: Android
+  skills: Botany
+  item: Repair patch
+  looks:
+    - Synthetic skin with visible seams at the neck
+    - Eyes that don't quite blink right
+    - Plain clothing — nothing fits quite right on the frame
+
+- color: Yellow
+  class: Scientist
+  skills: Medical
+  item: Adrenaline syringe
+  looks:
+    - Clean hands, scrubbed past the point of comfort
+    - Pale — like they haven't been outside in years
+    - White shirt, always tucked in
+
+- color: Blue
+  class: Marine
+  skills: Command
+  item: Short-range radio
+  looks:
+    - Cropped silver at the temples despite looking young
+    - Pressed collar, no rank insignia
+    - Hands clasped or held behind the back
+
+- color: Orange
+  class: Teamster
+  skills: Mechanics
+  item: Bolt cutters
+  looks:
+    - Worn coveralls, patches on both knees
+    - Oil-stained cloth tucked in the back pocket
+    - Broad shoulders, short neck
+
+- color: Purple
+  class: Android
+  skills: Navigation
+  item: Signal tracker
+  looks:
+    - Movements slightly too smooth, too precise
+    - Eyes that refocus like a lens adjusting
+    - No visible seams — almost convincing
+
+- color: Black
+  class: Marine
+  skills: Recon
+  item: Combat blade
+  looks:
+    - Dark under the eyes, always watching
+    - Dark clothing, nothing reflective
+    - Lean — built to disappear

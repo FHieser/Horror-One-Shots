@@ -1,0 +1,51 @@
+name: House of God
+description:
+  - A vast private space — living quarters, workspace, and observatory combined. High ceilings, open floor, no partition between functions.
+  - A panoramic window spans one wall, matching the scale of the Anteroom's. The same storm. The same towers. A different angle.
+  - At the centre of the room, a man sits in a chair at a low table. He wears robes. He has been dead for a very long time. The room is clean around him.
+  - The AI has maintained everything exactly as it was. Nothing has been moved. Nothing has decayed. The corpse sits as if he simply stopped.
+  - A few objects are arranged on the table in front of him.
+details:
+  - content: |
+      A letter on the table, in his hand.
+
+      "These are my last words.
+
+      Life is a funny thing. It was so easy at the start. I built and built
+      and built myself stairs reaching the sky. I was happy going forward,
+      but with each level something changed. Whenever I looked back the earth
+      got smaller and smaller. And soon it was so far out of sight. I just
+      didn't care anymore.
+
+      I saw the world falling. I watched it go and felt nothing, which told
+      me something about myself I had suspected for a while. It was not my
+      world anymore.
+
+      I brought people here. Brilliant people. I wanted — something. Company,
+      perhaps. Recognition. But they were never the thing I sought.
+
+      The machine keeps running. The guests keep coming back. I don't think
+      they know how many times. I never told them.
+
+      I am very tired. I have been tired for a long time.
+
+      I made everything I could think to make. But I never could build the
+      stairs back to the world. Never the something I was so dearly missing.
+
+      This is the end."
+    implication: God's final words. He built everything and found nothing.
+  - content: >
+      Beside the letter, a small device — simple, unmarked, a single switch.
+      It is the master key. Activating it shuts down all facility systems:
+      the AI, the cloning vats, the robots, the brain chips.
+      Everything stops. The storm remains.
+    implication: The way out. Players who flip the switch disable the chip and can leave — or die permanently.
+connections:
+  - Anteroom
+secret_pathways: "–"
+access: Both the Left Tower keycard and the Right Tower keycard required — the door accepts both simultaneously.
+presence:
+  - AI
+map:
+  x: 280
+  y: 10

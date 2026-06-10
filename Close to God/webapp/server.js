@@ -188,9 +188,11 @@ function pageHtml(title, activePage, bodyContent, extraStyle = '', extraScript =
     <a class="brand" href="/">Close to God</a>
     <nav>
       <a href="/" ${activePage === 'overview' ? 'class="active"' : ''}>Overview</a>
-      <a href="/story" ${activePage === 'story' ? 'class="active"' : ''}>Story</a>
       <a href="/map" ${activePage === 'map' ? 'class="active"' : ''}>Map</a>
       <a href="/mechanics" ${activePage === 'mechanics' ? 'class="active"' : ''}>Mechanics</a>
+      <a href="/timeline" ${activePage === 'timeline' ? 'class="active"' : ''}>Timeline</a>
+      <a href="/characters" ${activePage === 'characters' ? 'class="active"' : ''}>Characters</a>
+      <a href="/audio" ${activePage === 'audio' ? 'class="active"' : ''}>Audio</a>
     </nav>
   </header>
   ${bodyContent}
@@ -202,17 +204,34 @@ function pageHtml(title, activePage, bodyContent, extraStyle = '', extraScript =
 function roomDetailHtml(room, allRooms) {
   const nameToId = {};
   for (const r of allRooms) nameToId[r.name.toLowerCase()] = r.id;
+
+  const roomLink = (name) => {
+    const id = nameToId[name.trim().toLowerCase()];
+    return id ? `<a class="conn-link" href="/room/${id}" target="_blank">${name.trim()}</a>` : `<span class="conn-tag">${name.trim()}</span>`;
+  };
+
   const connections = Array.isArray(room.connections) ? room.connections : [];
   const connHtml = connections.length
-    ? connections.map(c => {
-        const id = nameToId[c.toLowerCase()];
-        return id ? `<a class="conn-link" href="/room/${id}" target="_blank">${c}</a>` : `<span class="conn-tag">${c}</span>`;
-      }).join('')
+    ? connections.map(c => roomLink(c)).join('')
     : '<span class="dim">–</span>';
-  const clues = Array.isArray(room.clues) ? room.clues : (room.clues ? [room.clues] : []);
-  const cluesHtml = clues.length ? '<ul>' + clues.map(c => `<li>${c}</li>`).join('') + '</ul>' : '<span class="dim">–</span>';
-  const secret = room.secret_pathways && room.secret_pathways !== '–' ? room.secret_pathways : null;
+
+  const secretRaw = room.secret_pathways && room.secret_pathways !== '–' ? room.secret_pathways : null;
+  const secretHtml = secretRaw ? secretRaw.split(/,\s*/).map(s => roomLink(s)).join(' ') : null;
+
+  const descHtml = Array.isArray(room.description)
+    ? '<ul>' + room.description.map(d => `<li>${d}</li>`).join('') + '</ul>'
+    : (room.description || '');
+
+  const detailsArr = Array.isArray(room.details) ? room.details : [];
+  const detailsHtml = detailsArr.length
+    ? detailsArr.map(d => typeof d === 'object'
+        ? `<div class="detail-item">${d.content || ''}${d.implication ? `<div class="detail-impl">→ ${d.implication}</div>` : ''}</div>`
+        : `<div class="detail-item">${d}</div>`
+      ).join('')
+    : null;
+
   const access = room.access && room.access !== '–' ? room.access : null;
+  const presence = Array.isArray(room.presence) ? room.presence : (room.presence && room.presence !== '–' ? [room.presence] : []);
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -222,7 +241,8 @@ function roomDetailHtml(room, allRooms) {
   <title>${room.name} — Close to God</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #0d0d0d; color: #c9c9c9; font-family: 'Georgia', serif; min-height: 100vh; padding: 2rem; }
+    body { background: #0d0d0d; color: #c9c9c9; font-family: 'Georgia', serif; min-height: 100vh; }
+    .page { max-width: 820px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
     .back { display: inline-block; color: #555; font-size: 0.8rem; text-decoration: none; margin-bottom: 1.5rem; letter-spacing: 0.05em; }
     .back:hover { color: #cc2222; }
     .badge { display: inline-block; background: #1a0000; color: #aa3333; font-size: 0.7rem; padding: 0.2rem 0.6rem; border: 1px solid #330000; border-radius: 2px; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
@@ -240,37 +260,45 @@ function roomDetailHtml(room, allRooms) {
     .conn-tag { color: #888; }
     .dim { color: #444; }
     .save-tag { font-size: 0.72rem; color: #884444; border: 1px solid #441111; border-radius: 2px; padding: 0.1rem 0.35rem; margin-left: 0.4rem; vertical-align: middle; letter-spacing: 0.04em; }
-    .notes-box { background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 3px; padding: 0.8rem; font-size: 0.88rem; color: #888; }
+    .detail-item { margin-bottom: 0.6rem; font-size: 0.9rem; color: #b8b8b8; }
+    .detail-impl { font-size: 0.78rem; color: #664444; margin-top: 0.2rem; font-style: italic; }
+    .detail-item pre { background: #0a1218; border: 1px solid #1a3040; padding: 0.6rem 0.8rem; font-family: 'Courier New', monospace; font-size: 0.78rem; color: #7ec8e3; line-height: 1.6; overflow-x: auto; margin-top: 0.4rem; }
+    .haunt-entry { margin-bottom: 0.5rem; }
+    .haunt-entry + .haunt-entry { border-top: 1px solid #2a1a1a; padding-top: 0.5rem; }
   </style>
 </head>
 <body>
-  <a class="back" href="javascript:window.close()">✕ close</a>&nbsp;&nbsp;<a class="back" href="/" target="_blank">← map</a>
+  <div class="page">
+  <a class="back" href="/" target="_blank">← map</a>
   <div class="badge">${room.section}</div>
   <h1>${room.name}</h1>
   <div class="fields">
-    ${room.description ? `<div class="field"><div class="label">Description</div><div class="value">${room.description}</div></div>` : ''}
+    ${descHtml ? `<div class="field"><div class="label">Description</div><div class="value">${descHtml}</div></div>` : ''}
+    ${detailsHtml ? `<div class="field"><div class="label">Details</div><div class="value">${detailsHtml}</div></div>` : ''}
     ${(() => {
       const h = room.hallucinations;
-      if (!h || typeof h !== 'object') return `<div class="field"><div class="label">Hallucinations</div><div class="value haunt">${h || '–'}</div></div>`;
+      if (!h || typeof h !== 'object') return h ? `<div class="field"><div class="label">Hallucinations</div><div class="value haunt">${h}</div></div>` : '';
       const types = [
-        { key: 'violence', label: '🩸 Violence',  save: 'Body Save' },
-        { key: 'theme',    label: '🕰️ Theme',     save: 'Sanity Save' },
-        { key: 'hints',    label: '💡 Hints',     save: null },
+        { key: 'violence', label: '🩸 Violence', save: 'Body Save' },
+        { key: 'theme',    label: '🕰️ Theme',    save: 'Sanity Save' },
+        { key: 'hints',    label: '💡 Hints',    save: null },
       ];
       return types.filter(t => h[t.key]).map(t => {
         const entry = h[t.key];
         const saveTag = t.save ? ` <span class="save-tag">${t.save}</span>` : '';
-        return `<div class="field">
-          <div class="label">${t.label}${saveTag}</div>
-          <div class="value haunt"><em>Trigger:</em> ${entry.trigger || '–'}<br><em>Effect:</em> ${entry.effect || '–'}</div>
-        </div>`;
-      }).join('') || `<div class="field"><div class="label">Hallucinations</div><div class="value dim">–</div></div>`;
+        const entries = Array.isArray(entry) ? entry : [entry];
+        const entriesHtml = entries.map(e =>
+          `<div class="haunt-entry"><em>Trigger:</em> ${e.trigger || '–'}<br><em>Effect:</em> ${e.effect || '–'}</div>`
+        ).join('');
+        const implHtml = !Array.isArray(entry) && entry.implication ? `<div class="detail-impl">→ ${entry.implication}</div>` : '';
+        return `<div class="field"><div class="label">${t.label}${saveTag}</div><div class="value haunt">${entriesHtml}${implHtml}</div></div>`;
+      }).join('');
     })()}
     ${connections.length ? `<div class="field"><div class="label">Connections</div><div class="value">${connHtml}</div></div>` : ''}
-    ${secret ? `<div class="field"><div class="label">Secret Pathways</div><div class="value">${secret}</div></div>` : ''}
+    ${secretHtml ? `<div class="field"><div class="label">Secret Pathways</div><div class="value">${secretHtml}</div></div>` : ''}
     ${access ? `<div class="field"><div class="label">Access</div><div class="value">${access}</div></div>` : ''}
-    <div class="field"><div class="label">Findings / Clues</div><div class="value">${cluesHtml}</div></div>
-    ${room.notes && room.notes.trim() ? `<div class="field"><div class="label">Notes</div><div class="notes-box">${room.notes}</div></div>` : ''}
+    ${presence.length ? `<div class="field"><div class="label">Presence</div><div class="value">${presence.join(', ')}</div></div>` : ''}
+  </div>
   </div>
 </body>
 </html>`;
@@ -344,16 +372,151 @@ app.get('/map', (req, res) => {
   res.send(pageHtml('Map', 'map', `<div id="map-area">${svg}</div>`, mapStyle, mapScript));
 });
 
-app.get('/story', (req, res) => {
-  const md   = fs.readFileSync(path.join(__dirname, 'story.md'), 'utf8');
-  const body = `<div class="content">${mdToHtml(md)}</div>`;
-  res.send(pageHtml('Story', 'story', body));
-});
 
 app.get('/mechanics', (req, res) => {
   const md   = fs.readFileSync(path.join(__dirname, 'mechanics.md'), 'utf8');
   const body = `<div class="content">${mdToHtml(md)}</div>`;
   res.send(pageHtml('Mechanics', 'mechanics', body));
+});
+
+app.get('/characters', (req, res) => {
+  const chars = yaml.load(fs.readFileSync(path.join(CONTENT_DIR, 'data', 'characters.yaml'), 'utf8'));
+  const colorDots = {
+    Pink: '#ff69b4', White: '#e0e0e0', Red: '#cc2222', Green: '#3a8a3a',
+    Yellow: '#ccaa00', Blue: '#2a7aa8', Orange: '#cc6600', Purple: '#7a3a9a', Black: '#444'
+  };
+  const rows = chars.map(c => {
+    const dot = colorDots[c.color] || '#666';
+    return `<tr>
+      <td><span class="color-dot" style="background:${dot}"></span>${c.color}</td>
+      <td>${c.class || '<span class="dim">—</span>'}</td>
+      <td>${c.skills || '<span class="dim">—</span>'}</td>
+      <td>${c.item || '<span class="dim">—</span>'}</td>
+      <td>${Array.isArray(c.looks) && c.looks.length ? c.looks.map(l => `<div class="look-line">${l}</div>`).join('') : '<span class="dim">—</span>'}</td>
+    </tr>`;
+  }).join('');
+  const charStyle = `
+    .content table { width: 100%; border-collapse: collapse; margin-top: 1.5rem; }
+    .content th { text-align: left; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #555; font-family: 'Courier New', monospace; padding: 0.5rem 1rem; border-bottom: 1px solid #330000; }
+    .content td { padding: 0.6rem 1rem; border-bottom: 1px solid #1a1a1a; font-size: 0.88rem; color: #b8b8b8; vertical-align: middle; }
+    .content tr:hover td { background: #111; }
+    .color-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 0.5rem; vertical-align: middle; }
+    .dim { color: #333; }
+    .look-line { line-height: 1.6; }
+  `;
+  const body = `<div class="content">
+    <h1>Characters</h1>
+    <table>
+      <thead><tr><th>Colour</th><th>Class</th><th>Skills</th><th>Item</th><th>Looks</th></tr></thead>
+      <tbody>${rows}</tbody>
+    </table>
+  </div>`;
+  res.send(pageHtml('Characters', 'characters', body, charStyle));
+});
+
+app.get('/timeline', (req, res) => {
+  const timelineStyle = `
+    .tl-wrap { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+    .tl-title { color: #cc2222; font-size: 1.8rem; border-bottom: 2px solid #330000; padding-bottom: 0.5rem; margin-bottom: 3rem; font-family: Georgia, serif; }
+    .tl { position: relative; display: flex; flex-direction: column; gap: 0; }
+    .tl::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #330000, #cc2222, #330000); transform: translateX(-50%); z-index: 0; }
+    .tl-row { display: grid; grid-template-columns: 1fr 60px 1fr; align-items: start; gap: 0; min-height: 80px; }
+    .tl-left { text-align: right; padding: 0.6rem 1.2rem 0.6rem 0; }
+    .tl-right { text-align: left; padding: 0.6rem 0 0.6rem 1.2rem; }
+    .tl-center { display: flex; flex-direction: column; align-items: center; padding-top: 0.5rem; z-index: 2; position: relative; }
+    .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: #cc2222; border: 2px solid #660000; flex-shrink: 0; }
+    .tl-dot.phase { width: 18px; height: 18px; background: #330000; border: 2px solid #cc2222; }
+    .tl-card { background: #0d0d0d; border: 1px solid #1a1a1a; padding: 0.5rem 0.8rem; border-radius: 2px; display: inline-block; max-width: 100%; }
+    .tl-card.facility { border-color: #330000; }
+    .tl-card.player { border-color: #1a3040; }
+    .tl-card.warning { border-color: #553300; }
+    .tl-card-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; font-family: 'Courier New', monospace; }
+    .facility .tl-card-label { color: #884444; }
+    .player .tl-card-label { color: #2a7aa8; }
+    .warning .tl-card-label { color: #886633; }
+    .tl-card p { font-size: 0.82rem; color: #b8b8b8; margin: 0; line-height: 1.5; }
+    .tl-phase-header { grid-column: 1 / -1; text-align: center; padding: 2rem 0 1rem; position: relative; z-index: 1; }
+    .tl-phase-header span { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.2em; color: #cc2222; font-family: 'Courier New', monospace; border: 1px solid #cc2222; padding: 0.3rem 1.2rem; background: #0d0d0d; box-shadow: 0 0 12px #0d0d0d; }
+    .tl-label { font-size: 0.62rem; font-family: 'Courier New', monospace; color: #cc2222; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.3rem; text-align: center; white-space: nowrap; background: #1a0000; border: 1px solid #330000; padding: 0.15rem 0.4rem; border-radius: 2px; }
+    .tl-legend { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
+    .tl-legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: #666; font-family: 'Courier New', monospace; }
+    .tl-legend-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .tl-note { background: #0d0d0d; border: 1px solid #2a2a2a; padding: 1rem 1.4rem; margin: 0.5rem 0 1rem; font-size: 0.84rem; color: #b8b8b8; line-height: 1.7; }
+    .tl-note p { margin: 0 0 0.5rem; }
+    .tl-note p:last-child { margin-bottom: 0; }
+    .tl-note strong { color: #cc2222; font-weight: normal; }
+  `;
+
+  const events = yaml.load(fs.readFileSync(path.join(CONTENT_DIR, 'data', 'timeline.yaml'), 'utf8'));
+
+  let rows = '';
+  let extra = '';
+  let idx = 0;
+  let inExtra = false;
+  for (const e of events) {
+    if (e.phase) {
+      if (e.note || inExtra) inExtra = true;
+      const header = `<div class="tl-phase-header"><span>${e.phase}</span></div>`;
+      if (inExtra) extra += header; else rows += header;
+      continue;
+    }
+    if (e.note) {
+      inExtra = true;
+      extra += `<div class="tl-note">${marked.parse(e.note)}</div>`;
+      continue;
+    }
+    if (inExtra) continue;
+    const card = `<div class="tl-card ${e.type || ''}"><div class="tl-card-label">${e.title || ''}</div><p>${e.text || ''}</p></div>`;
+    const isLeft = idx % 2 === 0;
+    rows += `
+      <div class="tl-row">
+        <div class="tl-left">${isLeft ? card : ''}</div>
+        <div class="tl-center"><div class="tl-dot"></div><div class="tl-label">${e.label || ''}</div></div>
+        <div class="tl-right">${!isLeft ? card : ''}</div>
+      </div>`;
+    idx++;
+  }
+
+  const body = `<div class="tl-wrap">
+    <h1 class="tl-title">Session Timeline</h1>
+    <div class="tl-legend">
+      <div class="tl-legend-item"><div class="tl-legend-dot" style="background:#884444;border:1px solid #330000"></div> Facility / AI Event</div>
+      <div class="tl-legend-item"><div class="tl-legend-dot" style="background:#2a7aa8;border:1px solid #1a3040"></div> Player Opportunity</div>
+      <div class="tl-legend-item"><div class="tl-legend-dot" style="background:#886633;border:1px solid #553300"></div> Escalation / Warning</div>
+    </div>
+    <div class="tl">${rows}</div>
+    ${extra}
+  </div>`;
+  res.send(pageHtml('Timeline', 'timeline', body, timelineStyle));
+});
+
+app.get('/audio', (req, res) => {
+  const tracks = yaml.load(fs.readFileSync(path.join(CONTENT_DIR, 'data', 'audio.yaml'), 'utf8'));
+  function videoId(url) {
+    const m = url.match(/[?&]v=([^&]+)/) || url.match(/youtu\.be\/([^?]+)/);
+    return m ? m[1] : null;
+  }
+  const audioStyle = `
+    .audio-wrap { max-width: 1100px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
+    .audio-title { color: #cc2222; font-size: 1.8rem; border-bottom: 2px solid #330000; padding-bottom: 0.5rem; margin-bottom: 2.5rem; font-family: Georgia, serif; }
+    .audio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1.5rem; }
+    .audio-card { background: #0d0d0d; border: 1px solid #1a1a1a; padding: 0.8rem; }
+    .audio-card-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: #555; font-family: 'Courier New', monospace; margin-bottom: 0.6rem; }
+    .audio-card iframe { width: 100%; aspect-ratio: 16/9; border: none; display: block; }
+  `;
+  const cards = tracks.map(t => {
+    const id = videoId(t.url);
+    if (!id) return '';
+    return `<div class="audio-card">
+      <div class="audio-card-title">${t.title || ''}</div>
+      <iframe src="https://www.youtube.com/embed/${id}" allowfullscreen></iframe>
+    </div>`;
+  }).join('');
+  const body = `<div class="audio-wrap">
+    <h1 class="audio-title">Audio</h1>
+    <div class="audio-grid">${cards}</div>
+  </div>`;
+  res.send(pageHtml('Audio', 'audio', body, audioStyle));
 });
 
 app.get('/room/:id', (req, res) => {

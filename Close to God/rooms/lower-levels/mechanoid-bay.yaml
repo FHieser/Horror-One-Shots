@@ -1,11 +1,45 @@
 name: Mechanoid Bay
-description: Robot workshop full of parts.
-details: ""
-hallucinations: Robots twitching; metal footsteps.
+description:
+  - A large bay designed for one purpose — the robots build more of themselves here.
+  - At the centre, a heavy energy-to-matter converter hums constantly, feeding raw material into assembly frames along the walls. New units take shape slowly, over days.
+  - During the day the bay is still. Inactive robots stand in rows, dormant, plugged into wall units along the far wall.
+  - At night they leave. By morning they are back, and the converter has progressed another increment.
+  - The scale is unsettling — there are more robots here than the players have seen active in the facility.
+details:
+  - content: >
+      The converter's production log is scrollable. Every entry is a robot
+      component — chassis unit, limb assembly, power cell. Scrolling back
+      further it is still robot parts. Further still. It does not change.
+      The log has no beginning.
+    implication: Temporal horror — the bay has been running without interruption for an incomprehensible span of time.
+  - content: >
+      Below the log, an input field. A cursor blinks. Players can type a
+      description of any object — the converter will attempt to produce it.
+    implication: The converter can build anything. Players can use it freely.
+hallucinations:
+  violence:
+    trigger: Standing between two rows of dormant robots.
+    effect: >
+      A flash: every robot activates at once. They turn to face the player —
+      all of them, simultaneously. None of them move. They just watch.
+  theme:
+    trigger: Watching the energy-to-matter converter run.
+    effect: >
+      It speeds up. A robot steps out of the assembly frame. Then another.
+      Then another. The pace increases. They keep coming. The bay fills.
+      It doesn't stop.
+    implication: temporal horror — the facility has been building and replacing for an incomprehensible span of time.
+  hints:
+    trigger: Approaching the energy-to-matter converter.
+    effect: >
+      A silhouette stands at the controls. They navigate the interface
+      with purpose, wait a moment, and take something from the output tray.
+      A gun. They pocket it and walk out.
 connections:
   - Outdoors
-secret_pathways: "Airduct → Bio Facility"
-access: Opens at night
+  - Bio Facility
+secret_pathways: Airducts
+access: The exterior door opens at night only — locked during the day.
 presence:
   - robots
 map:

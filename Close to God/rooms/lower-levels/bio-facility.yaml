@@ -1,11 +1,37 @@
 name: Bio Facility
-description: Organic research labs with sealed chambers.
-details: ""
-hallucinations: Breathing behind glass; hazmat figure.
+description:
+  - A functional processing room — industrial, utilitarian, no surfaces wasted on aesthetics.
+  - Large sealed chambers line the walls, each connected to a network of pipes running into the floor and ceiling. The pipes lead deeper into the facility.
+  - A central processing unit dominates the room — mechanical, large, designed to handle organic material in volume.
+  - Everything is clean. Whatever comes in here does not stay in recognisable form for long.
+  - The room runs continuously. It does not need anyone to operate it.
+details:
+  - content: >
+      A lab keycard sits on a workbench near the processing unit, left out
+      in the open as if someone set it down and never came back for it.
+    implication: Access to the Lab.
+hallucinations:
+  violence:
+    trigger: Looking through the viewing window of a sealed chamber.
+    effect: >
+      A hand drifts past in the fluid — just for a moment — and is gone.
+  theme:
+    trigger: Reading any labels or readouts in the room.
+    effect: >
+      They wrote some of these. They worked here once — optimised the process,
+      made it faster. They remember being proud of it.
+    implication: temporal horror, identity horror
+  hints:
+    trigger: Looking across the room while the processing unit is running.
+    effect: >
+      A silhouette crouches toward one of the larger pipes along the wall.
+      They find a panel, open it, and drop inside without hesitation.
+      The panel swings shut behind them.
 connections:
   - Outdoors
-secret_pathways: "Tunnel → Mechanoid Bay"
-access: Closed (kickable)
+  - Mechanoid Bay
+secret_pathways: The Burrow
+access: The exterior door has a manual override panel — requires a tool to force. The hand welder from the Hangar works.
 presence:
   - robots
 map:

@@ -1,12 +1,49 @@
-name: Lookout Facility
-description: Panoramic view of storm and towers.
-details: ""
-hallucinations: Figures in towers; impossible landscape.
+name: Anteroom
+description:
+  - A large room at the top of the stairs. Three things dominate it, each on a different wall.
+  - "To the left: a floor-to-ceiling painting — a maelstrom of colour swirling inward to a single point. Red, green, yellow, blue, orange, purple, white, black, pink — all present, all merging. It covers the entire wall."
+  - "Straight ahead: a heavy door flanked by two panels, one on each side. Each panel has a keycard slot. The door does not open with one. It requires both."
+  - "To the right: a floor-to-ceiling panoramic window with a round couch facing outward. The storm fills the view — dark, violent, endless. The two towers rise on either side, lit by lightning. This is how he saw the world."
+  - The room is otherwise bare. It was not designed for comfort. It was designed to make a point.
+details:
+  - content: >
+      The colours in the painting all converge on a single dark point at the
+      centre — not a colour, just absence.
+    implication: The guests orbit the master. He is the void they circle.
+  - content: >
+      The keycard panels are positioned so that when you stand at the door and
+      look back, the two towers in the panorama align perfectly with each panel —
+      left tower, left slot; right tower, right slot.
+    implication: The room was designed to tell you exactly what to do.
+  - content: >
+      The couch is angled precisely so that both towers are always in view,
+      framed symmetrically. It was not placed for comfort.
+    implication: Sitting here, you see the world exactly as he intended you to.
+hallucinations:
+  violence:
+    trigger: Looking at the painting for too long.
+    effect: >
+      The colours begin to move, swirling inward. The world spins with them.
+      The floor tilts. They fall. When it stops they are on the ground and
+      the painting is perfectly still.
+  theme:
+    trigger: Sitting on the couch and taking in the panorama.
+    effect: >
+      A man is sitting across from them — someone they haven't seen in a very
+      long time. His face is missing. He looks out at the storm with them.
+      "I am God," he says, "and this is my world. Stay for as long as you can."
+      A pause. "Everyone stays." Then he is gone.
+    implication: God — still present in some form, or a memory the facility will not let go of.
+  hints:
+    trigger: Reaching the top of the stairs for the first time.
+    effect: >
+      Déjà vu. Not a flash — just a certainty, settling in quietly.
+      They have been here before. They have been here a lot.
 connections:
-  - Entry Room
-  - Lab of God
-secret_pathways: "–"
-access: "–"
+  - Library
+  - House of God
+secret_pathways: Cloning Facility
+access: Only accessible through death — the cloning process delivers players here automatically.
 presence:
   - AI
 map:

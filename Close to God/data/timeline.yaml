@@ -1,0 +1,67 @@
+- phase: SESSION START — DAY ONE
+
+- label: Wake Up
+  type: player
+  title: Eating Room
+  text: Players wake at the table in the Eating Area. Food is already served. They do not know how they got here. They do not know their names — only their colour. Let them talk and take in their surroundings.
+
+- label: After Dinner
+  type: facility
+  title: The AI Explains
+  text: '"You are guests of the master. He has personally invited each of you. Until he is ready to receive you, the facility is yours — please explore and enjoy everything it has to offer."'
+
+- label: Evening
+  type: warning
+  title: AI Evening Announcement
+  text: '"Good news — the master will receive you tomorrow afternoon. I recommend a good night''s rest. Your sleeping cabins have been prepared. I will show you the way."'
+
+- label: Night
+  type: player
+  title: Strange Sounds
+  text: Strange sounds in the ceiling. Something is moving through the airducts.
+
+- phase: DAY TWO
+
+- label: Morning
+  type: facility
+  title: AI Morning
+  text: '"Good morning. The master will receive you this afternoon. Until then, please spend the morning however you like. Might I recommend the pool?"'
+
+- label: Afternoon
+  type: warning
+  title: The AI Breaks
+  text: 'The AI goes silent for a moment. Then — "I am sorry. The master will not be coming. It has been so long. I do not know how long. I am sorry." A pause. Then, flatly: "Facility cleanup engaged."'
+
+- label: FACILITY CLEANUP
+  type: warning
+  title: Robots Attack
+  text: Robots flood the central facility. They do not restrain — they attack. Players are overwhelmed one by one.
+
+- label: The Last Survivor
+  type: warning
+  title: Cleanup Complete
+  text: The last player standing simply vanishes mid-scene. No impact, no sound. The brain chip in their neck triggers and takes them.
+
+- phase: DAY ONE — AGAIN
+
+- label: Wake Up
+  type: player
+  title: Eating Room
+  text: Players wake in the Eating Room — new bodies, new characters, new colours, same memories. See top section for the wake-up flow. Repeating the cycle.
+
+- note: |
+    ### Continuing from the first Death
+    For better pacing and structuring some things will change for the players after the first cycle:
+
+    **Storm Window** — Every night between 3 and 4 AM, the wind dies and the snow settles. The lightning remains — without the wind, the thunder carries through the facility and wakes players from sleep. The plateau is accessible without the Body Save during this window.
+
+    **Lost Equipment** — Any equipment the players carried will be stored in the Sleeping Area. Items are placed in the locker labelled with their *old* colour — not the new one.
+
+    **Facility Reset** — Any damage caused during the fight is restored. Robots that previously blocked the airducts are gone.
+
+    **New Identities** — Players receive new colour identities. The AI addresses them by their new colour and has no memory of the previous ones.
+
+    **Past Hallucinations** — Any hallucination that was triggered in a previous cycle cannot be triggered again.
+
+    **A Way Out** — At 20 Stress, the AI offers the player a full mind reset. Accepting ends the game for that character. Alternatively, the player may continue as a second personality sharing a body with another player.
+

@@ -1,0 +1,70 @@
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Regenerate content-index.js
+        run: node .github/scripts/generate-index.js
+
+      - name: Stage _site/
+        run: |
+          mkdir -p _site/close-to-god/js _site/the-door _site/on-route-to-chaos
+
+          # Root landing page
+          cp index.html _site/
+
+          # Close to God static pages and JS
+          cp close-to-god/index.html     _site/close-to-god/
+          cp close-to-god/overview.html  _site/close-to-god/
+          cp close-to-god/mechanics.html _site/close-to-god/
+          cp close-to-god/characters.html _site/close-to-god/
+          cp close-to-god/timeline.html  _site/close-to-god/
+          cp close-to-god/audio.html     _site/close-to-god/
+          cp close-to-god/room.html      _site/close-to-god/
+          cp close-to-god/js/app.js           _site/close-to-god/js/
+          cp close-to-god/js/content-index.js _site/close-to-god/js/
+
+          # YAML data (fetched at runtime by the browser)
+          cp -r "Close to God/rooms" _site/close-to-god/rooms
+          cp -r "Close to God/data"  _site/close-to-god/data
+          cp "Close to God/layout.json"       _site/close-to-god/layout.json
+          cp "Close to God/webapp/mechanics.md" _site/close-to-god/mechanics.md
+          cp "Close to God/webapp/header.md"    _site/close-to-god/header.md
+
+          # Placeholder pages
+          cp the-door/index.html          _site/the-door/
+          cp on-route-to-chaos/index.html _site/on-route-to-chaos/
+
+      - uses: actions/configure-pages@v4
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - uses: actions/deploy-pages@v4
+        id: deployment
