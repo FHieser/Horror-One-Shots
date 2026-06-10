@@ -36,27 +36,27 @@ jobs:
           # Root landing page
           cp index.html _site/
 
-          # Close to God static pages and JS
-          cp close-to-god/index.html     _site/close-to-god/
-          cp close-to-god/overview.html  _site/close-to-god/
-          cp close-to-god/mechanics.html _site/close-to-god/
-          cp close-to-god/characters.html _site/close-to-god/
-          cp close-to-god/timeline.html  _site/close-to-god/
-          cp close-to-god/audio.html     _site/close-to-god/
-          cp close-to-god/room.html      _site/close-to-god/
-          cp close-to-god/js/app.js           _site/close-to-god/js/
-          cp close-to-god/js/content-index.js _site/close-to-god/js/
+          # Close to God — HTML pages and JS (source lives in "Close to God/", deployed as "close-to-god/")
+          cp "Close to God/index.html"      _site/close-to-god/
+          cp "Close to God/overview.html"   _site/close-to-god/
+          cp "Close to God/mechanics.html"  _site/close-to-god/
+          cp "Close to God/characters.html" _site/close-to-god/
+          cp "Close to God/timeline.html"   _site/close-to-god/
+          cp "Close to God/audio.html"      _site/close-to-god/
+          cp "Close to God/room.html"       _site/close-to-god/
+          cp "Close to God/js/app.js"           _site/close-to-god/js/
+          cp "Close to God/js/content-index.js" _site/close-to-god/js/
 
           # YAML data (fetched at runtime by the browser)
-          cp -r "Close to God/rooms" _site/close-to-god/rooms
-          cp -r "Close to God/data"  _site/close-to-god/data
-          cp "Close to God/layout.json"       _site/close-to-god/layout.json
-          cp "Close to God/webapp/mechanics.md" _site/close-to-god/mechanics.md
-          cp "Close to God/webapp/header.md"    _site/close-to-god/header.md
+          cp -r "Close to God/rooms"       _site/close-to-god/rooms
+          cp -r "Close to God/data"        _site/close-to-god/data
+          cp "Close to God/layout.json"    _site/close-to-god/layout.json
+          cp "Close to God/mechanics.md"   _site/close-to-god/mechanics.md
+          cp "Close to God/header.md"      _site/close-to-god/header.md
 
           # Placeholder pages
-          cp the-door/index.html          _site/the-door/
-          cp on-route-to-chaos/index.html _site/on-route-to-chaos/
+          cp "the-door/index.html"          _site/the-door/
+          cp "On route to chaos/index.html" _site/on-route-to-chaos/
 
       - uses: actions/configure-pages@v4
         with:

@@ -1,12 +1,12 @@
 #!/usr/bin/env node
-// Scans Close to God/rooms/ and regenerates close-to-god/js/content-index.js.
+// Scans Close to God/rooms/ and regenerates Close to God/js/content-index.js.
 // Run locally after adding new YAML files, or let GitHub Actions do it on push.
 
 const fs   = require('fs');
 const path = require('path');
 
 const ROOMS_DIR = path.join(__dirname, '../../Close to God/rooms');
-const OUT_FILE  = path.join(__dirname, '../../close-to-god/js/content-index.js');
+const OUT_FILE  = path.join(__dirname, '../../Close to God/js/content-index.js');
 
 const SECTION_ORDER = [
   'central-facility', 'lower-levels', 'side-towers',
