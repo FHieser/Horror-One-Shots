@@ -60,6 +60,34 @@ async function loadAllRooms() {
 // ── SVG Map generation ───────────────────────────────────────────────────────
 
 function generateSvg(rooms, layout) {
+  // Build lookup maps
+  const nameToId = {};
+  for (const r of rooms) nameToId[r.name.toLowerCase()] = r.id;
+
+  const idToCenter = {};
+  for (const [id, p] of Object.entries(layout)) {
+    idToCenter[id] = { x: p.x + p.w / 2, y: p.y + p.h / 2 };
+  }
+
+  // Connection lines (deduplicated)
+  const drawnPairs = new Set();
+  const connLines = rooms.flatMap(room => {
+    const from = idToCenter[room.id];
+    if (!from) return [];
+    return (Array.isArray(room.connections) ? room.connections : []).flatMap(name => {
+      const toId = nameToId[name.toLowerCase()];
+      if (!toId) return [];
+      const to = idToCenter[toId];
+      if (!to) return [];
+      const key = [room.id, toId].sort().join('|');
+      if (drawnPairs.has(key)) return [];
+      drawnPairs.add(key);
+      const isMinesConn = room.sectionSlug === 'mines' || rooms.find(r => r.id === toId)?.sectionSlug === 'mines';
+      const color = isMinesConn ? '#2a4020' : '#3a0000';
+      return [`<line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}" stroke="${color}" stroke-width="1" opacity="0.7"/>`];
+    });
+  }).join('\n  ');
+
   const sorted = [...rooms].sort((a, b) => (b.sectionSlug === 'mines') - (a.sectionSlug === 'mines'));
 
   const roomElements = sorted.map(room => {
@@ -90,7 +118,7 @@ function generateSvg(rooms, layout) {
   </a>`;
   }).join('');
 
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" width="640" height="560" id="facility-map">
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" id="facility-map">
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
       <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0d0000" stroke-width="0.5"/>
@@ -117,6 +145,9 @@ function generateSvg(rooms, layout) {
   <text x="10" y="117" fill="#440000" font-family="'Courier New',monospace" font-size="7" letter-spacing="2">FACILITY</text>
   <rect x="2" y="440" width="636" height="116" fill="#080a06" stroke="#1a0000" stroke-width="1"/>
   <text x="10" y="453" fill="#3a5020" font-family="'Courier New',monospace" font-size="7" letter-spacing="2">MINES</text>
+
+  <!-- Connection lines -->
+  ${connLines}
 
 ${roomElements}
 </svg>`;

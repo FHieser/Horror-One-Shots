@@ -19,7 +19,8 @@
     nav a.active { color: #cc2222; border-color: #330000; background: #1a0000; }
     nav a + a { border-left: none; }
     #map-area { flex: 1; overflow: auto; background: #080808; display: flex; align-items: flex-start; justify-content: center; padding: 1rem; }
-    #map-wrapper svg { max-height: calc(100vh - 62px); width: auto; display: block; }
+    #map-wrapper { width: min(100%, 900px); }
+    #map-wrapper svg { width: 100%; height: auto; display: block; }
     .room-link { cursor: pointer; }
     .room-link:hover .r { fill: #1a0000; }
     .room-link:hover .t { fill: #ff8080; }
