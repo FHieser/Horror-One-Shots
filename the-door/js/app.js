@@ -72,7 +72,7 @@ function generateSvg(rooms, layout) {
 
     const words = room.name.split(' ');
     const mid   = Math.ceil(words.length / 2);
-    const textFill = isMines ? '#6aaa40' : '#d4a040';
+    const textFill = isMines ? '#6aaa40' : '#cc4444';
     const textEl = words.length > 1
       ? `<text class="t" x="${cx}" y="${cy - 1}" text-anchor="middle" fill="${textFill}" font-family="'Courier New',monospace" font-size="8">${words.slice(0, mid).join(' ')}</text>
     <text class="t" x="${cx}" y="${cy + 8}" text-anchor="middle" fill="${textFill}" font-family="'Courier New',monospace" font-size="8">${words.slice(mid).join(' ')}</text>`
@@ -80,7 +80,7 @@ function generateSvg(rooms, layout) {
 
     const rectStyle = isMines
       ? `fill="#080c05" stroke="#4a6a30" stroke-width="1.5" stroke-dasharray="4,3"`
-      : `fill="#120e04" stroke="#8a6000" stroke-width="1.5"`;
+      : `fill="#0d0d0d" stroke="#330000" stroke-width="1.5"`;
     const cls = `room-link${isMines ? ' mines-room' : ''}`;
 
     return `
@@ -93,29 +93,29 @@ function generateSvg(rooms, layout) {
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" width="640" height="560" id="facility-map">
   <defs>
     <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0e0900" stroke-width="0.5"/>
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0d0000" stroke-width="0.5"/>
     </pattern>
   </defs>
 
-  <rect width="640" height="560" fill="#060400"/>
+  <rect width="640" height="560" fill="#080808"/>
   <rect width="640" height="560" fill="url(#grid)"/>
-  <rect x="4" y="4" width="632" height="552" fill="none" stroke="#3d2000" stroke-width="1"/>
-  <line x1="4" y1="20" x2="4" y2="4" stroke="#cc8800" stroke-width="1.5"/>
-  <line x1="4" y1="4" x2="20" y2="4" stroke="#cc8800" stroke-width="1.5"/>
-  <line x1="636" y1="20" x2="636" y2="4" stroke="#cc8800" stroke-width="1.5"/>
-  <line x1="636" y1="4" x2="620" y2="4" stroke="#cc8800" stroke-width="1.5"/>
-  <line x1="4" y1="540" x2="4" y2="556" stroke="#cc8800" stroke-width="1.5"/>
-  <line x1="4" y1="556" x2="20" y2="556" stroke="#cc8800" stroke-width="1.5"/>
-  <line x1="636" y1="540" x2="636" y2="556" stroke="#cc8800" stroke-width="1.5"/>
-  <line x1="636" y1="556" x2="620" y2="556" stroke="#cc8800" stroke-width="1.5"/>
-  <text x="320" y="17" text-anchor="middle" fill="#6a4000" font-family="'Courier New',monospace" font-size="9" letter-spacing="3">4D7 — FACILITY SCHEMATIC</text>
+  <rect x="4" y="4" width="632" height="552" fill="none" stroke="#1a0000" stroke-width="1"/>
+  <line x1="4" y1="20" x2="4" y2="4" stroke="#cc2222" stroke-width="1.5"/>
+  <line x1="4" y1="4" x2="20" y2="4" stroke="#cc2222" stroke-width="1.5"/>
+  <line x1="636" y1="20" x2="636" y2="4" stroke="#cc2222" stroke-width="1.5"/>
+  <line x1="636" y1="4" x2="620" y2="4" stroke="#cc2222" stroke-width="1.5"/>
+  <line x1="4" y1="540" x2="4" y2="556" stroke="#cc2222" stroke-width="1.5"/>
+  <line x1="4" y1="556" x2="20" y2="556" stroke="#cc2222" stroke-width="1.5"/>
+  <line x1="636" y1="540" x2="636" y2="556" stroke="#cc2222" stroke-width="1.5"/>
+  <line x1="636" y1="556" x2="620" y2="556" stroke="#cc2222" stroke-width="1.5"/>
+  <text x="320" y="17" text-anchor="middle" fill="#440000" font-family="'Courier New',monospace" font-size="9" letter-spacing="3">4D7 — FACILITY SCHEMATIC</text>
 
   <!-- Section backgrounds -->
-  <rect x="2" y="4"   width="636" height="100" fill="#0a0800" stroke="#2a1800" stroke-width="1"/>
-  <text x="10" y="17" fill="#6a4000" font-family="'Courier New',monospace" font-size="7" letter-spacing="2">SURFACE</text>
-  <rect x="2" y="104" width="636" height="336" fill="#0a0800" stroke="#2a1800" stroke-width="1"/>
-  <text x="10" y="117" fill="#6a4000" font-family="'Courier New',monospace" font-size="7" letter-spacing="2">FACILITY</text>
-  <rect x="2" y="440" width="636" height="116" fill="#080a06" stroke="#2a1800" stroke-width="1"/>
+  <rect x="2" y="4"   width="636" height="100" fill="#0a0000" stroke="#1a0000" stroke-width="1"/>
+  <text x="10" y="17" fill="#440000" font-family="'Courier New',monospace" font-size="7" letter-spacing="2">SURFACE</text>
+  <rect x="2" y="104" width="636" height="336" fill="#0a0000" stroke="#1a0000" stroke-width="1"/>
+  <text x="10" y="117" fill="#440000" font-family="'Courier New',monospace" font-size="7" letter-spacing="2">FACILITY</text>
+  <rect x="2" y="440" width="636" height="116" fill="#080a06" stroke="#1a0000" stroke-width="1"/>
   <text x="10" y="453" fill="#3a5020" font-family="'Courier New',monospace" font-size="7" letter-spacing="2">MINES</text>
 
 ${roomElements}

@@ -4,47 +4,48 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Timeline — The Door</title>
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { background: #050400; font-family: Georgia, serif; }
-    header { background: #060500; border-bottom: 2px solid #2a1800; padding: 0.5rem 1.5rem; display: flex; align-items: center; gap: 2rem; position: sticky; top: 0; z-index: 10; }
-    .brand { color: #555; font-size: 0.8rem; text-decoration: none; font-family: 'Courier New', monospace; letter-spacing: 0.08em; text-transform: uppercase; }
-    .brand:hover { color: #cc8800; }
-    .brand-sep { color: #2a1800; margin: 0 0.3rem; }
-    .adv-brand { color: #cc8800; font-size: 1.1rem; letter-spacing: 0.05em; text-decoration: none; font-family: Georgia, serif; }
+    body { background: #0d0d0d; font-family: Georgia, serif; }
+    header { background: #0a0000; border-bottom: 2px solid #330000; padding: 0.5rem 1.5rem; display: flex; align-items: center; gap: 2rem; position: sticky; top: 0; z-index: 10; }
+    .brand { color: #666; font-size: 0.8rem; text-decoration: none; font-family: 'Courier New', monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+    .brand:hover { color: #cc2222; }
+    .brand-sep { color: #330000; margin: 0 0.3rem; }
+    .adv-brand { color: #cc2222; font-size: 1.1rem; letter-spacing: 0.05em; text-decoration: none; font-family: Georgia, serif; }
     nav { display: flex; margin-left: auto; }
-    nav a { color: #555; text-decoration: none; font-size: 0.82rem; padding: 0.3rem 1rem; border: 1px solid transparent; letter-spacing: 0.06em; text-transform: uppercase; }
-    nav a:hover { color: #cc8800; }
-    nav a.active { color: #cc8800; border-color: #2a1800; background: #0e0800; }
+    nav a { color: #666; text-decoration: none; font-size: 0.82rem; padding: 0.3rem 1rem; border: 1px solid transparent; letter-spacing: 0.06em; text-transform: uppercase; }
+    nav a:hover { color: #cc2222; }
+    nav a.active { color: #cc2222; border-color: #330000; background: #1a0000; }
     nav a + a { border-left: none; }
     .tl-wrap { max-width: 900px; margin: 0 auto; padding: 3rem 1.5rem 6rem; }
-    .tl-title { color: #cc8800; font-size: 1.8rem; border-bottom: 2px solid #2a1800; padding-bottom: 0.5rem; margin-bottom: 3rem; }
+    .tl-title { color: #cc2222; font-size: 1.8rem; border-bottom: 2px solid #330000; padding-bottom: 0.5rem; margin-bottom: 3rem; }
     .tl { position: relative; display: flex; flex-direction: column; gap: 0; }
-    .tl::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #2a1800, #cc8800, #2a1800); transform: translateX(-50%); z-index: 0; }
+    .tl::before { content: ''; position: absolute; left: 50%; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, #330000, #cc2222, #330000); transform: translateX(-50%); z-index: 0; }
     .tl-row { display: grid; grid-template-columns: 1fr 60px 1fr; align-items: start; gap: 0; min-height: 80px; }
     .tl-left { text-align: right; padding: 0.6rem 1.2rem 0.6rem 0; }
     .tl-right { text-align: left; padding: 0.6rem 0 0.6rem 1.2rem; }
     .tl-center { display: flex; flex-direction: column; align-items: center; padding-top: 0.5rem; z-index: 2; position: relative; }
-    .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: #cc8800; border: 2px solid #664400; flex-shrink: 0; }
-    .tl-card { background: #080600; border: 1px solid #1a1a1a; padding: 0.5rem 0.8rem; border-radius: 2px; display: inline-block; max-width: 100%; }
-    .tl-card.facility { border-color: #2a1800; }
+    .tl-dot { width: 12px; height: 12px; border-radius: 50%; background: #cc2222; border: 2px solid #660000; flex-shrink: 0; }
+    .tl-card { background: #0d0d0d; border: 1px solid #1a1a1a; padding: 0.5rem 0.8rem; border-radius: 2px; display: inline-block; max-width: 100%; }
+    .tl-card.facility { border-color: #330000; }
     .tl-card.player { border-color: #1a3040; }
-    .tl-card.warning { border-color: #332200; }
+    .tl-card.warning { border-color: #553300; }
     .tl-card-label { font-size: 0.62rem; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; font-family: 'Courier New', monospace; }
-    .facility .tl-card-label { color: #aa7700; }
+    .facility .tl-card-label { color: #884444; }
     .player .tl-card-label { color: #2a7aa8; }
     .warning .tl-card-label { color: #886633; }
     .tl-card p { font-size: 0.82rem; color: #b8b8b8; margin: 0; line-height: 1.5; }
     .tl-phase-header { grid-column: 1 / -1; text-align: center; padding: 2rem 0 1rem; position: relative; z-index: 1; }
-    .tl-phase-header span { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.2em; color: #cc8800; font-family: 'Courier New', monospace; border: 1px solid #cc8800; padding: 0.3rem 1.2rem; background: #080600; box-shadow: 0 0 12px #080600; }
-    .tl-label { font-size: 0.62rem; font-family: 'Courier New', monospace; color: #cc8800; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.3rem; text-align: center; white-space: nowrap; background: #0e0800; border: 1px solid #2a1800; padding: 0.15rem 0.4rem; border-radius: 2px; }
+    .tl-phase-header span { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.2em; color: #cc2222; font-family: 'Courier New', monospace; border: 1px solid #cc2222; padding: 0.3rem 1.2rem; background: #0d0d0d; box-shadow: 0 0 12px #0d0d0d; }
+    .tl-label { font-size: 0.62rem; font-family: 'Courier New', monospace; color: #cc2222; letter-spacing: 0.06em; text-transform: uppercase; margin-top: 0.3rem; text-align: center; white-space: nowrap; background: #1a0000; border: 1px solid #330000; padding: 0.15rem 0.4rem; border-radius: 2px; }
     .tl-legend { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; flex-wrap: wrap; }
-    .tl-legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: #555; font-family: 'Courier New', monospace; }
+    .tl-legend-item { display: flex; align-items: center; gap: 0.4rem; font-size: 0.75rem; color: #666; font-family: 'Courier New', monospace; }
     .tl-legend-dot { width: 10px; height: 10px; border-radius: 50%; }
-    .tl-note { background: #080600; border: 1px solid #2a2a2a; padding: 1rem 1.4rem; margin: 0.5rem 0 1rem; font-size: 0.84rem; color: #b8b8b8; line-height: 1.7; }
+    .tl-note { background: #0d0d0d; border: 1px solid #2a2a2a; padding: 1rem 1.4rem; margin: 0.5rem 0 1rem; font-size: 0.84rem; color: #b8b8b8; line-height: 1.7; }
     .tl-note p { margin: 0 0 0.5rem; }
     .tl-note p:last-child { margin-bottom: 0; }
-    .tl-note strong { color: #cc8800; font-weight: normal; }
+    .tl-note strong { color: #cc2222; font-weight: normal; }
   </style>
 </head>
 <body>
@@ -64,9 +65,9 @@
   <div class="tl-wrap">
     <h1 class="tl-title">Session Timeline</h1>
     <div class="tl-legend">
-      <div class="tl-legend-item"><div class="tl-legend-dot" style="background:#aa7700;border:1px solid #2a1800"></div> Facility Event</div>
+      <div class="tl-legend-item"><div class="tl-legend-dot" style="background:#884444;border:1px solid #330000"></div> Facility Event</div>
       <div class="tl-legend-item"><div class="tl-legend-dot" style="background:#2a7aa8;border:1px solid #1a3040"></div> Player Opportunity</div>
-      <div class="tl-legend-item"><div class="tl-legend-dot" style="background:#886633;border:1px solid #332200"></div> Escalation / Warning</div>
+      <div class="tl-legend-item"><div class="tl-legend-dot" style="background:#886633;border:1px solid #553300"></div> Escalation / Warning</div>
     </div>
     <div class="tl" id="tl-rows"></div>
     <div id="tl-extra"></div>
