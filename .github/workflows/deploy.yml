@@ -31,7 +31,7 @@ jobs:
 
       - name: Stage _site/
         run: |
-          mkdir -p _site/close-to-god/js _site/the-door _site/on-route-to-chaos
+          mkdir -p _site/close-to-god/js _site/the-door/js _site/on-route-to-chaos
 
           # Root landing page + shared assets
           cp index.html _site/
@@ -55,8 +55,23 @@ jobs:
           cp "Close to God/mechanics.md"   _site/close-to-god/mechanics.md
           cp "Close to God/header.md"      _site/close-to-god/header.md
 
-          # Placeholder pages
+          # The Door — full webapp
           cp "the-door/index.html"          _site/the-door/
+          cp "the-door/overview.html"       _site/the-door/
+          cp "the-door/mechanics.html"      _site/the-door/
+          cp "the-door/characters.html"     _site/the-door/
+          cp "the-door/timeline.html"       _site/the-door/
+          cp "the-door/audio.html"          _site/the-door/
+          cp "the-door/room.html"           _site/the-door/
+          cp "the-door/js/app.js"           _site/the-door/js/
+          cp "the-door/js/content-index.js" _site/the-door/js/
+          cp -r "the-door/rooms"            _site/the-door/rooms
+          cp -r "the-door/data"             _site/the-door/data
+          cp "the-door/layout.json"         _site/the-door/layout.json
+          cp "the-door/introduction.md"     _site/the-door/introduction.md
+          cp "the-door/entity-the-door.md"  _site/the-door/entity-the-door.md
+
+          # Placeholder pages
           cp "On route to chaos/index.html" _site/on-route-to-chaos/
 
       - uses: actions/configure-pages@v4
