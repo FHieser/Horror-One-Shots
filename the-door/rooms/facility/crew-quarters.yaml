@@ -1,0 +1,8 @@
+name: Crew Quarters
+description:
+  - Personal living spaces for all crew members.
+  - Small private cabins off a shared corridor.
+connections:
+  - Med Bay + Cryo Pod
+  - Messhall
+notes: ""

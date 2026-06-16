@@ -1,0 +1,7 @@
+name: Med Bay + Cryo Pod
+description:
+  - Medical facilities and 6 cryogenic suspension pods.
+  - Clean, functional, designed for emergency use.
+connections:
+  - Crew Quarters
+notes: Cryo pods can be used as a solution — destroy pods until Players-1 remain, trapping the entity in the final occupied pod.

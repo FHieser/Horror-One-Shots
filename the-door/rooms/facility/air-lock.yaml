@@ -1,0 +1,8 @@
+name: Air Lock
+description:
+  - Transition zone between the pressurized facility and the mine tunnels.
+  - Suits, helmets, safety gear on the walls.
+connections:
+  - Mechanics Bay
+  - Mines
+notes: ""

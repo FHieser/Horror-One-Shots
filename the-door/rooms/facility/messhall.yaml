@@ -1,0 +1,10 @@
+name: Messhall
+description:
+  - Dining and social area — long table, basic kitchen, wall screens.
+  - Central hub of the upper facility. Where the crew gathers.
+connections:
+  - Crew Quarters
+  - Life Support + Comms
+  - Monitor + Drone Station
+  - Hangar
+notes: Central hub for the upper facility.

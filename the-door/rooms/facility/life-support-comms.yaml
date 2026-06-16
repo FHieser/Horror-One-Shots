@@ -1,0 +1,7 @@
+name: Life Support + Comms
+description:
+  - Atmospheric systems and communication relay for the facility.
+  - Banks of hardware, warning lights, atmospheric readouts.
+connections:
+  - Messhall
+notes: Critical system — can be sabotaged. Captain's codes required to prevent shutdown.

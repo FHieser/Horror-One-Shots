@@ -1,0 +1,8 @@
+name: Mines
+description:
+  - Extensive tunnel network carved into 4d7 for titanium extraction.
+  - Dark, vast, and only partially mapped.
+  - The Door is here. It should not be here.
+connections:
+  - Air Lock
+notes: "Contains: 5 driller/excavators, 2 transports, a probe driller, 2 mobile drones (testing equipment, manipulator arm, camera). Captain's codes are stored here, near The Door."

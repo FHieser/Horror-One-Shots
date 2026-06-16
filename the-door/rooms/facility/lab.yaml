@@ -1,0 +1,7 @@
+name: Lab
+description:
+  - Research and analysis facility.
+  - Sample processing, geological analysis, data terminals.
+connections:
+  - Mechanics Bay
+notes: ""

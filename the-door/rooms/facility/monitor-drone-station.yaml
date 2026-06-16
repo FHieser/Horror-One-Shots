@@ -1,0 +1,10 @@
+name: Monitor + Drone Station
+description:
+  - Surveillance feeds and drone control center.
+  - Wall of monitors showing tunnel feeds, surface feeds, facility feeds.
+connections:
+  - Messhall
+  - Botany
+  - Reactor
+  - Mechanics Bay
+notes: The Door appears on the monitors here first. Drone Control works from this station.

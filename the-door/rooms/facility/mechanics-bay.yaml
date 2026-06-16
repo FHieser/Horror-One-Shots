@@ -1,0 +1,9 @@
+name: Mechanics Bay
+description:
+  - Equipment repair and vehicle maintenance.
+  - Heavy machinery, tool racks, spare parts.
+connections:
+  - Monitor + Drone Station
+  - Air Lock
+  - Lab
+notes: Contains 2 electric jeeps used for mine transport.

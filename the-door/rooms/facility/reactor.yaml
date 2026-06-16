@@ -1,0 +1,7 @@
+name: Reactor
+description:
+  - Power generation for the entire facility.
+  - Hot, loud, and off-limits to most crew.
+connections:
+  - Monitor + Drone Station
+notes: Can melt down — requires captain's codes to prevent. Codes are stored near The Door.

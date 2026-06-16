@@ -1,0 +1,7 @@
+name: Landing Pad
+description:
+  - Exterior pad for shuttle arrivals and departures.
+  - Exposed directly to the atmosphere of 4d7 — no shelter, no airlock.
+connections:
+  - Hangar
+notes: Exposed to outside atmosphere.

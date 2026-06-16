@@ -1,0 +1,51 @@
+- phase: ACT 1 — THE DOOR
+
+- label: Inciting Event
+  type: warning
+  title: The Pager Goes Off
+  text: Drone Control is woken by a message on their pager. One of the mining robots has found something unusual in the tunnels — a door. It appears on the monitors.
+
+- label: First Contact
+  type: player
+  title: On the Monitors
+  text: The Door is visible on the surveillance feed. Let players react naturally. Establish the impossibility — there should not be a door here. The Door does nothing.
+
+- phase: ACT 2 — INVESTIGATIONS
+
+- label: Crew Investigates
+  type: player
+  title: The Captain Insists
+  text: The crew investigates. The Door doesn't react. The captain insists on continuous monitoring and orders the drones not to interact with it. The tension is in its passivity.
+
+- label: Minor Omens
+  type: warning
+  title: Something Is Off
+  text: Begin dropping minor omens for each character — small, personal, deniable. Nothing that can't be explained away yet.
+
+- phase: ACT 3 — MISSING CAPTAIN
+
+- label: Point of No Return
+  type: warning
+  title: The Captain Is Gone
+  text: The captain is missing. The camera feed in the mines has gone dark. A personal item belonging to the captain is found at The Door. Captain's codes are needed for the reactor and life support.
+
+- phase: ACT 4 — OMENS
+
+- label: Escalation
+  type: warning
+  title: Major Omens Unleashed
+  text: Let the players run. Release the major omens. Each character experiences personalized horror. Paranoia peaks — players may begin suspecting each other.
+
+- phase: ACT 5 — CHAOS
+
+- label: Resolution
+  type: player
+  title: No Correct Ending
+  text: Players will fight about what to do. Destroying it? Leaving it? Opening it? Let them drive the conclusion. There is no correct ending — see Mechanics for possible solutions.
+
+- note: |
+    **The Door's Rules** — The Door cannot act while it is being observed. Cameras, drones, direct line of sight — all count. It cannot be opened while watched.
+
+    **Solutions** — Cryo pods (last resort), constant surveillance, mass interaction, fleeing, creative player solutions, death, or finding a winning condition. See entity-the-door.md for the full solutions table.
+
+    **The Drawings** — Each player drew a door during setup. Revisit these as the session escalates — they reveal how each character perceives The Door, and can drive paranoia between players.

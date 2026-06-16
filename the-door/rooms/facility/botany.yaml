@@ -1,0 +1,8 @@
+name: Botany
+description:
+  - Greenhouse and terraforming research area.
+  - Grow lights, sample racks, hydroponic beds. The only green in the facility.
+connections:
+  - Messhall
+  - Monitor + Drone Station
+notes: The Biologist's domain.

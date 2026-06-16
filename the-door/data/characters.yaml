@@ -1,0 +1,130 @@
+- role: Biologist
+  salary: 4 kcr
+  skills:
+    - Botany
+    - Ecology
+  description: Handles the Botany Field and experiments on terraforming of 4d7.
+  daily_job:
+    - Handle the greenhouse
+    - Grow your own foods
+    - Take probes of the surface and analyze them
+  minor_omen:
+    - Changes in temperature and humidity — fog, unexpected cold
+    - Rapid plant growth in the greenhouse
+    - Food starts tasting bland
+  major_omen: Parts of the greenhouse lose power and the plants die.
+
+- role: Comms and Relay
+  salary: 3.5 kcr
+  skills:
+    - Computers
+    - Mathematics
+  description: Communications and keeping the relay station working.
+  daily_job:
+    - Create reports of crew activities
+    - Analyze outskirt waves
+  minor_omen:
+    - Comms sends mysterious messages
+    - Messages don't get through
+  major_omen: A new signal for everyone to hear — coming from The Door.
+
+- role: Mechanic
+  salary: 4.5 kcr
+  skills:
+    - Mechanical Repair
+    - Engineering
+  description: Repair of mining equipment and all other facility equipment.
+  daily_job:
+    - Repair malfunctioning equipment
+    - Routine checkups on all equipment
+  minor_omen:
+    - Tools go missing
+    - Convinced repairs were reset since yesterday
+  major_omen: Repairs from yesterday are undone. A drone runs into a wall — or tries to crush the mechanic.
+
+- role: Drone Control
+  salary: 4 kcr
+  skills:
+    - Computers
+    - Hacking
+  description: Controls the facility drones.
+  daily_job:
+    - Control drones through the tunnels
+    - Routine travel and monitoring runs
+  minor_omen:
+    - Drones stop responding
+    - Alarm goes off on their pager
+  major_omen: See The Door moving on the feed. See dead or missing crew in the video feed.
+
+- role: Geologist
+  salary: 4.5 kcr
+  skills:
+    - Geology
+    - Asteroid Mining
+  description: Analyzes probes and creates mining recommendations.
+  daily_job:
+    - Take and analyze probes
+    - Create geological mappings
+    - Write recommendations for the team
+  minor_omen:
+    - Seismograph sends a failure reading
+    - Sees what looks like a door in the probe samples
+  major_omen: Presents a geological map that looks exactly like a giant door. Attacks someone with a drill.
+
+- role: Transports
+  salary: 4 kcr
+  skills:
+    - Zero G
+    - Piloting
+  description: Handles supply drops, terraforming expeditions, and tunnel camera installation.
+  daily_job:
+    - Terraforming expedition runs
+    - Check outside equipment
+    - Tours in the mine
+    - Install cameras
+    - Help take probes
+  minor_omen:
+    - Sees The Door during expeditions
+    - Airlock malfunctions and won't open without mechanical input
+  major_omen: Wakes up driving a jeep in the mines with no memory of getting there.
+
+- role: Medic / Psychiatrist
+  salary: 4 kcr
+  skills:
+    - Psychology
+  description: Crew checkups. Preventing and mediating disputes.
+  daily_job:
+    - Regular checkups on all crew members
+  minor_omen:
+    - Takes drugs
+    - Talks to themselves about doors
+    - Opens and closes doors repeatedly
+    - Starts seeing doors everywhere
+  major_omen: Takes a lot of drugs. Gives drugs to others. Insists they don't see "any" doors.
+
+- role: Explosives
+  salary: 4 kcr
+  skills:
+    - Explosives
+  description: Handles and stores explosives. Plans and executes blasts. Safety inspections.
+  daily_job:
+    - Safety checks in the tunnels
+    - Explosive drilling
+  minor_omen:
+    - Constant wind from a new blast site
+    - A creaking sound like a door opening
+  major_omen: After a blast, parts of a giant door are visible in the newly uncovered rock face.
+
+- role: Miscellaneous
+  salary: 1 kcr
+  skills: []
+  description: General assistance. Mixes and sets explosives in the tunnels.
+  daily_job:
+    - Create explosive charges
+    - Prep work in the tunnels
+  minor_omen:
+    - Dreams of The Door — sees it, opens it, gets what they want
+    - Pager malfunction — urge to turn things off, close eyes, lights go out when leaving
+    - Sleep walks toward The Door
+    - Tries to turn off the video feed
+  major_omen: Android gets killed and the area is destroyed. Life support turns off — Fear Save, then Body Save after 3 hours of low oxygen. Reactor begins melting down — codes required, stored near The Door.
