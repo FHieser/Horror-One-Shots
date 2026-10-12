@@ -27,6 +27,17 @@
     .color-dot { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 0.5rem; vertical-align: middle; }
     .dim { color: #333; }
     .look-line { line-height: 1.6; }
+    .roller { display: flex; align-items: center; gap: 1.25rem; flex-wrap: wrap; padding: 1rem 1.25rem; border: 1px solid #330000; background: #0a0000; }
+    .roller button { font-family: 'Courier New', monospace; font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; padding: 0.5rem 1.1rem; cursor: pointer; background: #1a0000; color: #cc2222; border: 1px solid #551111; }
+    .roller button:hover:not(:disabled) { background: #2a0000; }
+    .roller button:disabled { color: #444; border-color: #222; cursor: default; }
+    .roller button.secondary { background: transparent; color: #666; border-color: #222; }
+    .roller button.secondary:hover { color: #cc2222; background: transparent; }
+    .roll-result { font-size: 1.4rem; color: #ddd; min-width: 8rem; display: flex; align-items: center; }
+    .roll-dot { display: inline-block; width: 18px; height: 18px; border-radius: 50%; margin-right: 0.6rem; }
+    .roll-remaining { margin-left: auto; font-family: 'Courier New', monospace; font-size: 0.72rem; color: #555; letter-spacing: 0.06em; }
+    tr.rolled td { background: #1a0000; color: #ddd; }
+    tr.taken td { opacity: 0.35; }
   </style>
 </head>
 <body>
@@ -45,6 +56,12 @@
   </header>
   <div class="content">
     <h1>Characters</h1>
+    <div class="roller">
+      <button id="roll-btn">Roll Colour</button>
+      <div class="roll-result" id="roll-result"><span class="dim">—</span></div>
+      <span class="roll-remaining" id="roll-remaining"></span>
+      <button id="roll-reset" class="secondary">Reset</button>
+    </div>
     <table>
       <thead>
         <tr>

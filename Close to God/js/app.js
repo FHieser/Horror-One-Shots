@@ -219,17 +219,18 @@ function renderRoomDetail(room, allRooms) {
 
 // ── Characters rendering (ported from server.js /characters route) ───────────
 
+const colorDots = {
+  Pink: '#ff69b4', White: '#e0e0e0', Red: '#cc2222', Green: '#3a8a3a',
+  Yellow: '#ccaa00', Blue: '#2a7aa8', Orange: '#cc6600', Purple: '#7a3a9a', Black: '#444',
+};
+
 function renderCharacters(chars) {
-  const colorDots = {
-    Pink: '#ff69b4', White: '#e0e0e0', Red: '#cc2222', Green: '#3a8a3a',
-    Yellow: '#ccaa00', Blue: '#2a7aa8', Orange: '#cc6600', Purple: '#7a3a9a', Black: '#444',
-  };
   const rows = chars.map(c => {
     const dot = colorDots[c.color] || '#666';
     const looks = Array.isArray(c.looks) && c.looks.length
       ? c.looks.map(l => `<div class="look-line">${l}</div>`).join('')
       : '<span class="dim">—</span>';
-    return `<tr>
+    return `<tr data-color="${c.color}">
       <td><span class="color-dot" style="background:${dot}"></span>${c.color}</td>
       <td>${c.class  || '<span class="dim">—</span>'}</td>
       <td>${c.skills || '<span class="dim">—</span>'}</td>
@@ -238,6 +239,60 @@ function renderCharacters(chars) {
     </tr>`;
   }).join('');
   document.getElementById('char-tbody').innerHTML = rows;
+}
+
+// ── Colour roller: draws colours without repeats until reset ────────────────
+
+function initColorRoller(chars) {
+  const btn    = document.getElementById('roll-btn');
+  const reset  = document.getElementById('roll-reset');
+  const result = document.getElementById('roll-result');
+  const info   = document.getElementById('roll-remaining');
+  const all    = chars.map(c => c.color);
+  let taken    = [];
+  let rolling  = false;
+
+  const show = color => {
+    result.innerHTML = `<span class="roll-dot" style="background:${colorDots[color] || '#666'}"></span>${color}`;
+  };
+  const update = () => {
+    const left = all.length - taken.length;
+    info.textContent = left ? `${left} of ${all.length} remaining` : 'All colours taken';
+    btn.disabled = rolling || !left;
+    document.querySelectorAll('#char-tbody tr[data-color]').forEach(tr => {
+      const c = tr.dataset.color;
+      tr.classList.toggle('taken', taken.includes(c) && c !== taken[taken.length - 1]);
+      tr.classList.toggle('rolled', c === taken[taken.length - 1]);
+    });
+  };
+
+  btn.addEventListener('click', () => {
+    const pool = all.filter(c => !taken.includes(c));
+    if (!pool.length || rolling) return;
+    rolling = true;
+    update();
+    const pick = pool[Math.floor(Math.random() * pool.length)];
+    let ticks = 0;
+    const spin = setInterval(() => {
+      show(pool[Math.floor(Math.random() * pool.length)]);
+      if (++ticks >= 14) {
+        clearInterval(spin);
+        show(pick);
+        taken.push(pick);
+        rolling = false;
+        update();
+      }
+    }, 70);
+  });
+
+  reset.addEventListener('click', () => {
+    if (rolling) return;
+    taken = [];
+    result.innerHTML = '<span class="dim">—</span>';
+    update();
+  });
+
+  update();
 }
 
 // ── Timeline rendering (ported from server.js /timeline route) ──────────────
@@ -326,6 +381,7 @@ async function initMechanics() {
 async function initCharacters() {
   const chars = await fetchYaml('./data/characters.yaml');
   renderCharacters(chars);
+  initColorRoller(chars);
 }
 
 async function initTimeline() {
