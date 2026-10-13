@@ -4,5 +4,6 @@ description:
   - Houses the facility's only means of off-world departure.
 connections:
   - Landing Pad
+  - Outside
   - Messhall
 notes: Contains the hangar shuttle — capacity 12 crew and 1 cargo container.

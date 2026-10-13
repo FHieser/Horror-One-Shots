@@ -1,0 +1,9 @@
+name: Outside
+description:
+  - The open surface of 4d7. Thin, unbreathable atmosphere; suits required.
+  - Rock plains, dust, terraforming probe sites and outside equipment.
+  - The Landing Pad lies out here, exposed, next to the Hangar.
+connections:
+  - Hangar
+  - Landing Pad
+notes: Transports runs terraforming expeditions and equipment checks out here; the Biologist takes surface probes. Doors can be seen out here too.

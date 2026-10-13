@@ -34,6 +34,9 @@
     .room:hover rect, .room:focus rect { fill: #2e0c0c; stroke: #ff5050; }
     .room:hover text, .room:focus text { fill: #ffffff; }
     .room.pad rect { fill: #3a3030; stroke: #8a3030; }
+    .room.outside rect { fill: #14100b; stroke: #c07a3a; stroke-dasharray: 8 5; }
+    .room.outside:hover rect { fill: #221a10; stroke: #f0a860; }
+    .shaft { fill: #9a8c8c; font: 9px 'Courier New', monospace; letter-spacing: 2px; }
     .room.mines rect { fill: #0f120c; stroke: #6a8a4a; stroke-dasharray: 8 5; }
     .room.mines:hover rect { fill: #18200f; stroke: #a8d878; }
     .door rect { fill: #cc2222; stroke: none; }
@@ -60,18 +63,19 @@
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 462" role="img" aria-label="Facility map of 4d7">
         <rect class="bg" width="940" height="462"/>
 
-        <!-- Title block (empty top-left corner) -->
-        <text class="title" x="16" y="30">4D7 — FACILITY</text>
-        <text class="sub" x="16" y="50">DAEDALUS GROUP · TITANIUM</text>
-        <text class="sub" x="16" y="68">Click a room for details</text>
+        <!-- Title block -->
+        <text class="title" x="16" y="150">4D7 — FACILITY</text>
+        <text class="sub" x="16" y="170">DAEDALUS GROUP · TITANIUM</text>
+        <text class="sub" x="16" y="188">Click a room for details</text>
 
         <!-- Ground line: surface above, facility below -->
-        <line class="ground" x1="300" y1="96" x2="940" y2="96"/>
-        <text class="section" x="300" y="89">SURFACE</text>
-        <text class="section" x="300" y="111">FACILITY</text>
+        <line class="ground" x1="6" y1="96" x2="940" y2="96"/>
+        <text class="section" x="772" y="89">SURFACE</text>
+        <text class="section" x="772" y="111">FACILITY</text>
 
-        <!-- Connections -->
-        <line class="conn" x1="568" y1="73"  x2="580" y2="73"/>   <!-- landing pad – hangar -->
+        <!-- Connections (x=670: elevator shaft) -->
+        <text class="shaft" x="680" y="226">ELEVATOR</text>
+        <line class="conn" x1="550" y1="69"  x2="582" y2="69"/>   <!-- landing pad – hangar -->
         <line class="conn" x1="670" y1="82"  x2="670" y2="131"/>  <!-- hangar – messhall -->
         <line class="conn" x1="436" y1="166" x2="444" y2="166"/>  <!-- med bay – crew quarters -->
         <line class="conn" x1="544" y1="164" x2="620" y2="164"/>  <!-- crew quarters – messhall -->
@@ -80,18 +84,22 @@
         <line class="conn" x1="551" y1="286" x2="620" y2="286"/>  <!-- botany – monitor -->
         <line class="conn" x1="720" y1="287" x2="828" y2="287"/>  <!-- monitor – reactor -->
         <line class="conn" x1="670" y1="315" x2="670" y2="366"/>  <!-- monitor – mechanics bay -->
-        <line class="conn" x1="744" y1="420" x2="828" y2="420"/>  <!-- mechanics bay – lab -->
+        <line class="conn" x1="745" y1="420" x2="828" y2="420"/>  <!-- mechanics bay – lab -->
         <line class="conn" x1="506" y1="425" x2="512" y2="425"/>  <!-- mines – air lock -->
-        <line class="conn" x1="588" y1="425" x2="594" y2="425"/>  <!-- air lock – mechanics bay -->
+        <line class="conn" x1="588" y1="425" x2="595" y2="425"/>  <!-- air lock – mechanics bay -->
 
         <!-- Surface -->
+        <a class="room outside" href="./room.html?id=outside">
+          <rect x="6" y="6" width="566" height="80"/>
+          <text x="190" y="46">Outside</text>
+        </a>
         <a class="room pad" href="./room.html?id=landing-pad">
-          <rect x="390" y="68" width="178" height="11" rx="2"/>
-          <text x="479" y="52">Landing Pad</text>
+          <rect x="380" y="64" width="170" height="11" rx="2"/>
+          <text x="465" y="48">Landing Pad</text>
         </a>
         <a class="room" href="./room.html?id=hangar">
-          <rect x="580" y="6" width="176" height="76"/>
-          <text x="668" y="44">Hangar</text>
+          <rect x="582" y="6" width="176" height="76"/>
+          <text x="670" y="44">Hangar</text>
         </a>
 
         <!-- Facility -->
@@ -132,8 +140,8 @@
           <text x="550" y="425">Air Lock</text>
         </a>
         <a class="room" href="./room.html?id=mechanics-bay">
-          <rect x="594" y="366" width="150" height="89"/>
-          <text x="669" y="410">Mechanics Bay</text>
+          <rect x="595" y="366" width="150" height="89"/>
+          <text x="670" y="410">Mechanics Bay</text>
         </a>
         <a class="room" href="./room.html?id=lab">
           <rect x="828" y="390" width="104" height="60"/>

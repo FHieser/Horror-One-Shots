@@ -3,7 +3,8 @@
 const CONTENT_INDEX = {
   "rooms/surface": [
     "hangar.yaml",
-    "landing-pad.yaml"
+    "landing-pad.yaml",
+    "outside.yaml"
   ],
   "rooms/facility": [
     "air-lock.yaml",
