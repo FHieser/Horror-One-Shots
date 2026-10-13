@@ -18,15 +18,27 @@
     nav a:hover { color: #cc2222; }
     nav a.active { color: #cc2222; border-color: #330000; background: #1a0000; }
     nav a + a { border-left: none; }
-    #map-area { flex: 1; overflow: auto; background: #080808; display: flex; align-items: flex-start; justify-content: center; padding: 1rem; }
-    #map-wrapper { width: min(100%, 900px); }
+    #map-area { flex: 1; overflow: auto; background: #080808; padding: 1.5rem 1rem; }
+    #map-wrapper { width: min(100%, 1150px); min-width: 680px; margin: 0 auto; }
     #map-wrapper svg { width: 100%; height: auto; display: block; }
-    .room-link { cursor: pointer; }
-    .room-link:hover .r { fill: #1a0000; }
-    .room-link:hover .t { fill: #ff8080; }
-    .room-link.mines-room:hover .r { fill: #0a1205; }
-    .room-link.mines-room:hover .t { fill: #90cc60; }
-    #loading { color: #444; font-family: 'Courier New', monospace; font-size: 0.85rem; letter-spacing: 0.1em; margin: 4rem auto; }
+
+    /* Map styling */
+    .bg { fill: #080808; }
+    .title { fill: #cc2222; font: 600 15px 'Courier New', monospace; letter-spacing: 3px; }
+    .sub { fill: #8a8a8a; font: 11px 'Courier New', monospace; letter-spacing: 1px; }
+    .section { fill: #c07a3a; font: 10px 'Courier New', monospace; letter-spacing: 3px; }
+    .ground { stroke: #c07a3a; stroke-width: 1.5; opacity: 0.8; }
+    .conn { stroke: #9a8c8c; stroke-width: 2; }
+    .room rect { fill: #161212; stroke: #8a3030; stroke-width: 2.5; transition: fill 0.15s, stroke 0.15s; }
+    .room text { fill: #f0e6e6; font: 13px system-ui, -apple-system, 'Segoe UI', sans-serif; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
+    .room:hover rect, .room:focus rect { fill: #2e0c0c; stroke: #ff5050; }
+    .room:hover text, .room:focus text { fill: #ffffff; }
+    .room.pad rect { fill: #3a3030; stroke: #8a3030; }
+    .room.mines rect { fill: #0f120c; stroke: #6a8a4a; stroke-dasharray: 8 5; }
+    .room.mines:hover rect { fill: #18200f; stroke: #a8d878; }
+    .door rect { fill: #cc2222; stroke: none; }
+    .door circle { fill: #080808; }
+    .door-label { fill: #ff6060; font: 10px 'Courier New', monospace; letter-spacing: 2px; }
   </style>
 </head>
 <body>
@@ -44,19 +56,102 @@
     </nav>
   </header>
   <div id="map-area">
-    <div id="map-wrapper"><p id="loading">LOADING FACILITY SCHEMATIC…</p></div>
+    <div id="map-wrapper">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 462" role="img" aria-label="Facility map of 4d7">
+        <rect class="bg" width="940" height="462"/>
+
+        <!-- Title block (empty top-left corner) -->
+        <text class="title" x="16" y="30">4D7 — FACILITY</text>
+        <text class="sub" x="16" y="50">DAEDALUS GROUP · TITANIUM</text>
+        <text class="sub" x="16" y="68">Click a room for details</text>
+
+        <!-- Ground line: surface above, facility below -->
+        <line class="ground" x1="300" y1="96" x2="940" y2="96"/>
+        <text class="section" x="300" y="89">SURFACE</text>
+        <text class="section" x="300" y="111">FACILITY</text>
+
+        <!-- Connections -->
+        <line class="conn" x1="568" y1="73"  x2="580" y2="73"/>   <!-- landing pad – hangar -->
+        <line class="conn" x1="670" y1="82"  x2="670" y2="131"/>  <!-- hangar – messhall -->
+        <line class="conn" x1="436" y1="166" x2="444" y2="166"/>  <!-- med bay – crew quarters -->
+        <line class="conn" x1="544" y1="164" x2="620" y2="164"/>  <!-- crew quarters – messhall -->
+        <line class="conn" x1="720" y1="162" x2="822" y2="162"/>  <!-- messhall – life support -->
+        <line class="conn" x1="670" y1="191" x2="670" y2="255"/>  <!-- messhall – monitor -->
+        <line class="conn" x1="551" y1="286" x2="620" y2="286"/>  <!-- botany – monitor -->
+        <line class="conn" x1="720" y1="287" x2="828" y2="287"/>  <!-- monitor – reactor -->
+        <line class="conn" x1="670" y1="315" x2="670" y2="366"/>  <!-- monitor – mechanics bay -->
+        <line class="conn" x1="744" y1="420" x2="828" y2="420"/>  <!-- mechanics bay – lab -->
+        <line class="conn" x1="506" y1="425" x2="512" y2="425"/>  <!-- mines – air lock -->
+        <line class="conn" x1="588" y1="425" x2="594" y2="425"/>  <!-- air lock – mechanics bay -->
+
+        <!-- Surface -->
+        <a class="room pad" href="./room.html?id=landing-pad">
+          <rect x="390" y="68" width="178" height="11" rx="2"/>
+          <text x="479" y="52">Landing Pad</text>
+        </a>
+        <a class="room" href="./room.html?id=hangar">
+          <rect x="580" y="6" width="176" height="76"/>
+          <text x="668" y="44">Hangar</text>
+        </a>
+
+        <!-- Facility -->
+        <a class="room" href="./room.html?id=med-bay">
+          <rect x="360" y="136" width="76" height="60"/>
+          <text x="398" y="158">Med Bay +</text>
+          <text x="398" y="175">Cryo Pod</text>
+        </a>
+        <a class="room" href="./room.html?id=crew-quarters">
+          <rect x="444" y="136" width="100" height="60"/>
+          <text x="494" y="158">Crew</text>
+          <text x="494" y="175">Quarters</text>
+        </a>
+        <a class="room" href="./room.html?id=messhall">
+          <rect x="620" y="131" width="100" height="60"/>
+          <text x="670" y="161">Messhall</text>
+        </a>
+        <a class="room" href="./room.html?id=life-support-comms">
+          <rect x="822" y="132" width="110" height="60"/>
+          <text x="877" y="154">Life Support</text>
+          <text x="877" y="171">+ Comms</text>
+        </a>
+        <a class="room" href="./room.html?id=botany">
+          <rect x="251" y="256" width="300" height="60"/>
+          <text x="401" y="286">Botany</text>
+        </a>
+        <a class="room" href="./room.html?id=monitor-drone-station">
+          <rect x="620" y="255" width="100" height="60"/>
+          <text x="670" y="277">Monitor +</text>
+          <text x="670" y="294">Drone Station</text>
+        </a>
+        <a class="room" href="./room.html?id=reactor">
+          <rect x="828" y="257" width="104" height="60"/>
+          <text x="880" y="287">Reactor</text>
+        </a>
+        <a class="room" href="./room.html?id=air-lock">
+          <rect x="512" y="395" width="76" height="60"/>
+          <text x="550" y="425">Air Lock</text>
+        </a>
+        <a class="room" href="./room.html?id=mechanics-bay">
+          <rect x="594" y="366" width="150" height="89"/>
+          <text x="669" y="410">Mechanics Bay</text>
+        </a>
+        <a class="room" href="./room.html?id=lab">
+          <rect x="828" y="390" width="104" height="60"/>
+          <text x="880" y="420">Lab</text>
+        </a>
+
+        <!-- Mines -->
+        <a class="room mines" href="./room.html?id=mines">
+          <rect x="6" y="368" width="500" height="87"/>
+          <text x="300" y="411">Mines</text>
+        </a>
+        <g class="door" aria-label="The Door">
+          <rect x="60" y="388" width="22" height="40" rx="1"/>
+          <circle cx="77" cy="409" r="2"/>
+        </g>
+        <text class="door-label" x="92" y="412">THE DOOR</text>
+      </svg>
+    </div>
   </div>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
-  <script src="./js/content-index.js"></script>
-  <script src="./js/app.js"></script>
-  <script>
-    try {
-      initMap().catch(function(e) {
-        document.getElementById('map-wrapper').textContent = 'Error: ' + e.message;
-      });
-    } catch(e) {
-      document.getElementById('map-wrapper').textContent = 'Error: ' + e.message;
-    }
-  </script>
 </body>
 </html>

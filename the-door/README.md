@@ -30,7 +30,7 @@ the-door/
     ├── overview.md    # Excerpt, at a glance, GM guide through all three acts
     ├── mechanics.md   # The Door's rules and solutions
     ├── characters.yaml, timeline.yaml, audio.yaml
-    ├── map/           # layout.json (map layout) + map.png (reference image)
+    ├── map/           # map.png (reference sketch; the map itself is hand-placed SVG in webapp/map.html)
     └── rooms/         # surface/, facility/, mines/ — one YAML per room
 ```
 

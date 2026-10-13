@@ -41,116 +41,16 @@ async function discoverYamlFiles(folderPath) {
 }
 
 async function loadAllRooms() {
-  const rooms = [];
-  for (const section of SECTION_ORDER) {
+  const sections = await Promise.all(SECTION_ORDER.map(async section => {
     const files = await discoverYamlFiles(`rooms/${section}`);
-    for (const file of files) {
-      const data = await fetchYaml(`../data/rooms/${section}/${file}`);
-      rooms.push({
-        ...data,
-        id: file.replace('.yaml', ''),
-        section: sectionDisplayName(section),
-        sectionSlug: section,
-      });
-    }
-  }
-  return rooms;
-}
-
-// ── SVG Map generation ───────────────────────────────────────────────────────
-
-function generateSvg(rooms, layout) {
-  // Build lookup maps
-  const nameToId = {};
-  for (const r of rooms) nameToId[r.name.toLowerCase()] = r.id;
-
-  const idToCenter = {};
-  for (const [id, p] of Object.entries(layout)) {
-    idToCenter[id] = { x: p.x + p.w / 2, y: p.y + p.h / 2 };
-  }
-
-  // Connection lines (deduplicated)
-  const drawnPairs = new Set();
-  const connLines = rooms.flatMap(room => {
-    const from = idToCenter[room.id];
-    if (!from) return [];
-    return (Array.isArray(room.connections) ? room.connections : []).flatMap(name => {
-      const toId = nameToId[name.toLowerCase()];
-      if (!toId) return [];
-      const to = idToCenter[toId];
-      if (!to) return [];
-      const key = [room.id, toId].sort().join('|');
-      if (drawnPairs.has(key)) return [];
-      drawnPairs.add(key);
-      const isMinesConn = room.sectionSlug === 'mines' || rooms.find(r => r.id === toId)?.sectionSlug === 'mines';
-      const color = isMinesConn ? '#2a4020' : '#3a0000';
-      return [`<line x1="${from.x}" y1="${from.y}" x2="${to.x}" y2="${to.y}" stroke="${color}" stroke-width="1" opacity="0.7"/>`];
-    });
-  }).join('\n  ');
-
-  const sorted = [...rooms].sort((a, b) => (b.sectionSlug === 'mines') - (a.sectionSlug === 'mines'));
-
-  const roomElements = sorted.map(room => {
-    const p = layout[room.id];
-    if (!p) return '';
-    const isMines = room.sectionSlug === 'mines';
-
-    const cx = p.x + p.w / 2;
-    const cy = p.y + p.h / 2;
-
-    const words = room.name.split(' ');
-    const mid   = Math.ceil(words.length / 2);
-    const textFill = isMines ? '#6aaa40' : '#cc4444';
-    const textEl = words.length > 1
-      ? `<text class="t" x="${cx}" y="${cy - 1}" text-anchor="middle" fill="${textFill}" font-family="'Courier New',monospace" font-size="8">${words.slice(0, mid).join(' ')}</text>
-    <text class="t" x="${cx}" y="${cy + 8}" text-anchor="middle" fill="${textFill}" font-family="'Courier New',monospace" font-size="8">${words.slice(mid).join(' ')}</text>`
-      : `<text class="t" x="${cx}" y="${cy + 4}" text-anchor="middle" fill="${textFill}" font-family="'Courier New',monospace" font-size="8">${room.name}</text>`;
-
-    const rectStyle = isMines
-      ? `fill="#080c05" stroke="#4a6a30" stroke-width="1.5" stroke-dasharray="4,3"`
-      : `fill="#0d0d0d" stroke="#330000" stroke-width="1.5"`;
-    const cls = `room-link${isMines ? ' mines-room' : ''}`;
-
-    return `
-  <a class="${cls}" href="./room.html?id=${room.id}" data-id="${room.id}">
-    <rect class="r" x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" ${rectStyle}/>
-    ${textEl}
-  </a>`;
-  }).join('');
-
-  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 560" id="facility-map">
-  <defs>
-    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
-      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="#0d0000" stroke-width="0.5"/>
-    </pattern>
-  </defs>
-
-  <rect width="640" height="560" fill="#080808"/>
-  <rect width="640" height="560" fill="url(#grid)"/>
-  <rect x="4" y="4" width="632" height="552" fill="none" stroke="#1a0000" stroke-width="1"/>
-  <line x1="4" y1="20" x2="4" y2="4" stroke="#cc2222" stroke-width="1.5"/>
-  <line x1="4" y1="4" x2="20" y2="4" stroke="#cc2222" stroke-width="1.5"/>
-  <line x1="636" y1="20" x2="636" y2="4" stroke="#cc2222" stroke-width="1.5"/>
-  <line x1="636" y1="4" x2="620" y2="4" stroke="#cc2222" stroke-width="1.5"/>
-  <line x1="4" y1="540" x2="4" y2="556" stroke="#cc2222" stroke-width="1.5"/>
-  <line x1="4" y1="556" x2="20" y2="556" stroke="#cc2222" stroke-width="1.5"/>
-  <line x1="636" y1="540" x2="636" y2="556" stroke="#cc2222" stroke-width="1.5"/>
-  <line x1="636" y1="556" x2="620" y2="556" stroke="#cc2222" stroke-width="1.5"/>
-  <text x="320" y="17" text-anchor="middle" fill="#440000" font-family="'Courier New',monospace" font-size="9" letter-spacing="3">4D7 — FACILITY SCHEMATIC</text>
-
-  <!-- Section backgrounds -->
-  <rect x="2" y="4"   width="636" height="100" fill="#0a0000" stroke="#1a0000" stroke-width="1"/>
-  <text x="10" y="17" fill="#440000" font-family="'Courier New',monospace" font-size="7" letter-spacing="2">SURFACE</text>
-  <rect x="2" y="104" width="636" height="336" fill="#0a0000" stroke="#1a0000" stroke-width="1"/>
-  <text x="10" y="117" fill="#440000" font-family="'Courier New',monospace" font-size="7" letter-spacing="2">FACILITY</text>
-  <rect x="2" y="440" width="636" height="116" fill="#080a06" stroke="#1a0000" stroke-width="1"/>
-  <text x="10" y="453" fill="#3a5020" font-family="'Courier New',monospace" font-size="7" letter-spacing="2">MINES</text>
-
-  <!-- Connection lines -->
-  ${connLines}
-
-${roomElements}
-</svg>`;
+    return Promise.all(files.map(async file => ({
+      ...(await fetchYaml(`../data/rooms/${section}/${file}`)),
+      id: file.replace('.yaml', ''),
+      section: sectionDisplayName(section),
+      sectionSlug: section,
+    })));
+  }));
+  return sections.flat();
 }
 
 // ── Room detail rendering ────────────────────────────────────────────────────
@@ -275,14 +175,6 @@ function renderAudio(tracks) {
 }
 
 // ── Page initializers ────────────────────────────────────────────────────────
-
-async function initMap() {
-  const [rooms, layout] = await Promise.all([
-    loadAllRooms(),
-    fetchJson('../data/map/layout.json'),
-  ]);
-  document.getElementById('map-wrapper').innerHTML = generateSvg(rooms, layout);
-}
 
 async function initRoom() {
   const id = new URLSearchParams(location.search).get('id');
