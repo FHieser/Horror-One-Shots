@@ -52,6 +52,11 @@
     .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.6rem; }
     .tag { font: 0.75rem 'Courier New', monospace; letter-spacing: 0.06em; text-transform: uppercase; color: #7ec8e3; border: 1px solid #1a3a4a; background: #0a1418; padding: 0.15rem 0.5rem; }
     .label { font: 0.72rem 'Courier New', monospace; letter-spacing: 0.12em; text-transform: uppercase; color: #888; margin-bottom: 0.4rem; }
+    .pages { background: #0c1a0e; border: 1px solid #1f4a26; border-radius: 4px; padding: 0.5rem 0.9rem; font: 0.85rem 'Courier New', monospace; color: #8dff9a; }
+    .page { display: grid; grid-template-columns: 9.5rem 1fr; gap: 0.8rem; padding: 0.3rem 0; border-bottom: 1px dashed #1f4a26; }
+    .page:last-child { border-bottom: none; }
+    .page-from { color: #5ec46c; letter-spacing: 0.06em; }
+    @media (max-width: 600px) { .page { grid-template-columns: 1fr; gap: 0; } }
     .omens { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 1.6rem; }
     .omen { border: 1px solid #3a2a10; background: #120e06; padding: 1rem 1.2rem; }
     .omen.major { border-color: #551111; background: #160606; }

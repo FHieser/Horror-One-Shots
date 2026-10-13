@@ -1,23 +1,14 @@
-# Pager messages for the randomizer on the Omens page.
+# Eerie pager messages for the randomizer on the Omens page.
+# Routine, automated job pages live with each role in characters.yaml (Crew page).
 # Write the result on a slip of paper and hand it to one player privately.
 # Each category has an id, a label, a short GM hint and a list of messages (from + text).
 
 - id: pages
   label: False Pages
-  hint: The Door reaches out. Plausible, personal, wrong. Use from Act II on.
+  hint: The Door reaches out. Locations only send automated messages, so make them wrong rather than personal; only people get personal. Use from Act II on.
   messages:
     - from: "DRONE CTRL"
       text: "D-2 is moving on its own. Come to the monitors. Now."
-    - from: "MED BAY"
-      text: "Your checkup results came back. Come alone."
-    - from: "MECH BAY"
-      text: "Jeep 2 is gone. Did you take it?"
-    - from: "COMMS"
-      text: "Personal message from home for you. Can't forward it. Come to the relay."
-    - from: "LIFE SUPPORT"
-      text: "O2 recycler offline in crew quarters. Do not sleep there."
-    - from: "REACTOR"
-      text: "Coolant warning. Manual check required. Bring the card."
     - from: "DRONE CTRL"
       text: "Camera 7 shows you in tunnel C. Where are you really?"
     - from: "UNKNOWN"
@@ -26,10 +17,22 @@
       text: "You left the door open."
     - from: "YOU"
       text: "It's me. Don't trust what I say tomorrow."
+    - from: "LIFE SUPPORT"
+      text: "O2 RECYCLER OFFLINE: CREW QUARTERS"
+    - from: "REACTOR"
+      text: "COOLANT WARNING. MANUAL CHECK REQUIRED"
+    - from: "MECH BAY"
+      text: "JEEP 2 CHECKED OUT. NO OPERATOR ID"
     - from: "BOTANY"
-      text: "Something is growing in tray 4. It wasn't planted."
+      text: "TRAY 4 GROWTH +340% IN 6H. NO SEED LOGGED"
     - from: "AIR LOCK"
-      text: "Cycle request from the outside. No one is logged out."
+      text: "CYCLE REQUEST FROM OUTSIDE. NO CREW LOGGED OUT"
+    - from: "MED BAY"
+      text: "CRYO POD 6 OCCUPIED"
+    - from: "DRONE STATION"
+      text: "CAMERA 7: MOTION DETECTED. NO PERSONNEL IN SECTOR"
+    - from: "RELAY"
+      text: "1 PERSONAL MESSAGE. DELIVERY FAILED. RETRYING"
 
 - id: captain
   label: The Captain
@@ -50,28 +53,28 @@
 
 - id: hints
   label: Hints
-  hint: Subtle pushes towards opening the Door (lights out, cameras off). Never too obvious.
+  hint: Barely-there nudges. Never a tip; they should only make sense in hindsight.
   messages:
     - from: "UNKNOWN"
       text: "It's shy."
     - from: "UNKNOWN"
-      text: "Close your eyes."
+      text: "Shhh."
     - from: "UNKNOWN"
-      text: "Lights out at 0300."
+      text: "Good night."
     - from: "UNKNOWN"
-      text: "Nobody is watching tonight."
+      text: "You blinked."
     - from: "UNKNOWN"
-      text: "Camera 7 sees too much."
+      text: "Don't stare."
     - from: "UNKNOWN"
-      text: "It only listens in the dark."
+      text: "Everyone is asleep."
     - from: "UNKNOWN"
-      text: "Be alone."
+      text: "It's patient."
     - from: "UNKNOWN"
-      text: "It's waiting for you to look away."
+      text: "Knock knock."
     - from: "UNKNOWN"
-      text: "Did you hear it click?"
+      text: "It's so bright in here."
     - from: "UNKNOWN"
-      text: "Turn it off. Then knock."
+      text: "Are you still watching?"
 
 - id: company
   label: Daedalus HQ

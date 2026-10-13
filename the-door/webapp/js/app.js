@@ -112,6 +112,9 @@ function renderRoleSheet(c) {
       <div class="tags">${skills}</div>
       <div class="label">Daily Job</div>
       ${listHtml(c.daily_job)}
+      ${Array.isArray(c.pager) && c.pager.length ? `
+      <div class="label" style="margin-top:1.4rem">Routine Pages</div>
+      <div class="pages">${c.pager.map(m => `<div class="page"><span class="page-from">${m.from}</span><span>${m.text}</span></div>`).join('')}</div>` : ''}
       <div class="omens">
         <div class="omen"><span class="gm-tag">GM ONLY</span><div class="label">Minor Omens</div>${listHtml(c.minor_omen)}</div>
         <div class="omen major"><span class="gm-tag">GM ONLY</span><div class="label">Major Omen</div>${listHtml(c.major_omen)}</div>

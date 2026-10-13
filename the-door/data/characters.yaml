@@ -13,6 +13,15 @@
     - Rapid plant growth in the greenhouse
     - Food starts tasting bland
   major_omen: Parts of the greenhouse lose power and the plants die.
+  pager:
+    - from: "BOTANY"
+      text: "IRRIGATION CYCLE DUE 06:00"
+    - from: "BOTANY"
+      text: "GROW LIGHTS TRAY 1-4: SCHEDULED SWAP"
+    - from: "BOTANY"
+      text: "HUMIDITY OUT OF RANGE. CHECK VENT 2"
+    - from: "SURFACE PROBES"
+      text: "SITE 3 SAMPLE COLLECTION DUE"
 
 - role: Comms and Relay
   salary: 3.5 kcr
@@ -27,6 +36,15 @@
     - Comms sends mysterious messages
     - Messages don't get through
   major_omen: A new signal for everyone to hear — coming from The Door.
+  pager:
+    - from: "COMMS"
+      text: "DAILY ACTIVITY REPORT DUE 18:00"
+    - from: "COMMS"
+      text: "3 MESSAGES QUEUED FOR HQ"
+    - from: "RELAY"
+      text: "UPLINK WINDOW OPENS 14:20 (38 MIN)"
+    - from: "RELAY"
+      text: "SCHEDULED SCAN: OUTER BAND"
 
 - role: Mechanic
   salary: 4.5 kcr
@@ -41,6 +59,15 @@
     - Tools go missing
     - Convinced repairs were reset since yesterday
   major_omen: Repairs from yesterday are undone. A drone runs into a wall — or tries to crush the mechanic.
+  pager:
+    - from: "MECH BAY"
+      text: "ROUTINE CHECK DUE: EXCAVATOR 3"
+    - from: "MECH BAY"
+      text: "JEEP 1 BATTERY 12%. CHARGE REQUIRED"
+    - from: "MECH BAY"
+      text: "WORK ORDER #114: DRILL HEAD REPLACEMENT"
+    - from: "AIR LOCK"
+      text: "SEAL INSPECTION OVERDUE (2 DAYS)"
 
 - role: Drone Control
   salary: 4 kcr
@@ -55,6 +82,15 @@
     - Drones stop responding
     - Alarm goes off on their pager
   major_omen: See The Door moving on the feed. See dead or missing crew in the video feed.
+  pager:
+    - from: "DRONE STATION"
+      text: "D-1 PATROL ROUTE B DUE 08:00"
+    - from: "DRONE STATION"
+      text: "D-2 BATTERY LOW. RETURN TO DOCK"
+    - from: "DRONE STATION"
+      text: "CAMERA 4 FEED DEGRADED"
+    - from: "DRONE STATION"
+      text: "DAILY TUNNEL SWEEP NOT COMPLETED"
 
 - role: Geologist
   salary: 4.5 kcr
@@ -70,6 +106,15 @@
     - Seismograph sends a failure reading
     - Sees what looks like a door in the probe samples
   major_omen: Presents a geological map that looks exactly like a giant door. Attacks someone with a drill.
+  pager:
+    - from: "LAB"
+      text: "CORE SAMPLE 22-B: ANALYSIS PENDING"
+    - from: "LAB"
+      text: "WEEKLY GEOLOGICAL MAP UPDATE DUE"
+    - from: "LAB"
+      text: "RECOMMENDATION REPORT REQUESTED BY HQ"
+    - from: "SEISMOGRAPH"
+      text: "CALIBRATION DUE"
 
 - role: Transports
   salary: 4 kcr
@@ -87,6 +132,15 @@
     - Sees The Door during expeditions
     - Airlock malfunctions and won't open without mechanical input
   major_omen: Wakes up driving a jeep in the mines with no memory of getting there.
+  pager:
+    - from: "HANGAR"
+      text: "SUPPLY DROP ETA 54 DAYS. CHECKLIST OPEN"
+    - from: "HANGAR"
+      text: "EXPEDITION SLOT 09:00: SURFACE SITE 3"
+    - from: "MINES"
+      text: "CAMERA INSTALL SCHEDULED: TUNNEL D"
+    - from: "OUTSIDE"
+      text: "WEATHER MAST 2 OFFLINE"
 
 - role: Medic / Psychiatrist
   salary: 4 kcr
@@ -101,6 +155,15 @@
     - Opens and closes doors repeatedly
     - Starts seeing doors everywhere
   major_omen: Takes a lot of drugs. Gives drugs to others. Insists they don't see "any" doors.
+  pager:
+    - from: "MED BAY"
+      text: "ROUTINE CHECKUP DUE: 2 CREW"
+    - from: "MED BAY"
+      text: "MEDICATION INVENTORY. RESTOCK REQUIRED"
+    - from: "MED BAY"
+      text: "CRYO POD 4 SELF-TEST FAILED"
+    - from: "MED BAY"
+      text: "CREW SLEEP LOGS IRREGULAR. REVIEW"
 
 - role: Explosives
   salary: 4 kcr
@@ -114,3 +177,12 @@
     - Constant wind from a new blast site
     - A creaking sound like a door opening
   major_omen: After a blast, parts of a giant door are visible in the newly uncovered rock face.
+  pager:
+    - from: "MINES"
+      text: "BLAST WINDOW TUNNEL C 11:00. CLEAR SECTOR"
+    - from: "MINES"
+      text: "SAFETY INSPECTION OVERDUE: SHAFT 2"
+    - from: "MINES"
+      text: "DRILL PATTERN 7 READY FOR CHARGES"
+    - from: "MINES"
+      text: "EXPLOSIVES INVENTORY CHECK DUE"
