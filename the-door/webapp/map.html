@@ -26,17 +26,19 @@
     .bg { fill: #080808; }
     .title { fill: #cc2222; font: 600 15px 'Courier New', monospace; letter-spacing: 3px; }
     .sub { fill: #8a8a8a; font: 11px 'Courier New', monospace; letter-spacing: 1px; }
-    .section { fill: #c07a3a; font: 10px 'Courier New', monospace; letter-spacing: 3px; }
-    .ground { stroke: #c07a3a; stroke-width: 1.5; opacity: 0.8; }
+    .section { fill: #f0a860; font: 700 13px 'Courier New', monospace; letter-spacing: 3px; }
+    .ground { stroke: #e0904a; stroke-width: 2; }
     .conn { stroke: #9a8c8c; stroke-width: 2; }
     .room rect { fill: #161212; stroke: #8a3030; stroke-width: 2.5; transition: fill 0.15s, stroke 0.15s; }
     .room text { fill: #f0e6e6; font: 13px system-ui, -apple-system, 'Segoe UI', sans-serif; text-anchor: middle; dominant-baseline: middle; pointer-events: none; }
     .room:hover rect, .room:focus rect { fill: #2e0c0c; stroke: #ff5050; }
     .room:hover text, .room:focus text { fill: #ffffff; }
     .room.pad rect { fill: #3a3030; stroke: #8a3030; }
+    .room rect.hit, .room:hover rect.hit { fill: transparent; stroke: none; }
+    .room.pad:hover text { fill: #ff8080; }
     .room.outside rect { fill: #14100b; stroke: #c07a3a; stroke-dasharray: 8 5; }
     .room.outside:hover rect { fill: #221a10; stroke: #f0a860; }
-    .shaft { fill: #9a8c8c; font: 9px 'Courier New', monospace; letter-spacing: 2px; }
+    .shaft { fill: #d8cccc; font: 700 11px 'Courier New', monospace; letter-spacing: 2px; }
     .room.mines rect { fill: #0f120c; stroke: #6a8a4a; stroke-dasharray: 8 5; }
     .room.mines:hover rect { fill: #18200f; stroke: #a8d878; }
     .door rect { fill: #cc2222; stroke: none; }
@@ -70,8 +72,8 @@
 
         <!-- Ground line: surface above, facility below -->
         <line class="ground" x1="6" y1="96" x2="940" y2="96"/>
-        <text class="section" x="772" y="89">SURFACE</text>
-        <text class="section" x="772" y="111">FACILITY</text>
+        <text class="section" x="772" y="88">▲ SURFACE</text>
+        <text class="section" x="772" y="114">▼ FACILITY</text>
 
         <!-- Connections (x=670: elevator shaft) -->
         <text class="shaft" x="680" y="226">ELEVATOR</text>
@@ -94,6 +96,7 @@
           <text x="190" y="46">Outside</text>
         </a>
         <a class="room pad" href="./room.html?id=landing-pad">
+          <rect class="hit" x="380" y="34" width="170" height="44"/>
           <rect x="380" y="64" width="170" height="11" rx="2"/>
           <text x="465" y="48">Landing Pad</text>
         </a>
