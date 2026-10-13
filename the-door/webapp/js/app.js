@@ -91,25 +91,82 @@ function renderRoomDetail(room, allRooms) {
 
 // ── Characters rendering ─────────────────────────────────────────────────────
 
+function roleSlug(role) {
+  return (role || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+}
+
+function listHtml(value) {
+  if (Array.isArray(value)) return value.length ? '<ul>' + value.map(v => `<li>${v}</li>`).join('') + '</ul>' : '<p class="dim">—</p>';
+  return value ? `<p>${value}</p>` : '<p class="dim">—</p>';
+}
+
+function renderRoleSheet(c) {
+  const skills = Array.isArray(c.skills) && c.skills.length
+    ? c.skills.map(s => `<span class="tag">${s}</span>`).join('')
+    : '<span class="dim">No special skills</span>';
+  document.getElementById('role-sheet').innerHTML = `
+    <article class="sheet">
+      <div class="sheet-head"><h2>${c.role}</h2><span class="salary">${c.salary || '—'} / month</span></div>
+      <p class="sheet-desc">${c.description || ''}</p>
+      <div class="label">Skills</div>
+      <div class="tags">${skills}</div>
+      <div class="label">Daily Job</div>
+      ${listHtml(c.daily_job)}
+      <div class="omens">
+        <div class="omen"><span class="gm-tag">GM ONLY</span><div class="label">Minor Omens</div>${listHtml(c.minor_omen)}</div>
+        <div class="omen major"><span class="gm-tag">GM ONLY</span><div class="label">Major Omen</div>${listHtml(c.major_omen)}</div>
+      </div>
+    </article>`;
+  document.querySelectorAll('.role-btn').forEach(b => b.classList.toggle('active', b.dataset.role === roleSlug(c.role)));
+}
+
 function renderCharacters(chars) {
-  const rows = chars.map(c => {
-    const skills = Array.isArray(c.skills) ? c.skills.join(', ') : (c.skills || '–');
-    const daily = Array.isArray(c.daily_job)
-      ? c.daily_job.map(j => `<div class="look-line">${j}</div>`).join('')
-      : (c.daily_job || '<span class="dim">—</span>');
-    const minor = Array.isArray(c.minor_omen)
-      ? c.minor_omen.map(o => `<div class="look-line">${o}</div>`).join('')
-      : (c.minor_omen || '<span class="dim">—</span>');
-    return `<tr>
-      <td><strong>${c.role || '<span class="dim">—</span>'}</strong></td>
+  // Roles tab: selector + one role sheet
+  document.getElementById('role-picker').innerHTML = chars
+    .map(c => `<button class="role-btn" data-role="${roleSlug(c.role)}">${c.role}</button>`).join('');
+
+  // Overview tab: all roles in one table
+  const cell = v => Array.isArray(v)
+    ? v.map(j => `<div class="look-line">${j}</div>`).join('')
+    : (v || '<span class="dim">—</span>');
+  document.getElementById('char-tbody').innerHTML = chars.map(c => `<tr>
+      <td><a href="#role-${roleSlug(c.role)}">${c.role}</a></td>
       <td>${c.salary || '<span class="dim">—</span>'}</td>
-      <td>${skills}</td>
-      <td>${daily}</td>
-      <td>${minor}</td>
-      <td>${c.major_omen || '<span class="dim">—</span>'}</td>
-    </tr>`;
-  }).join('');
-  document.getElementById('char-tbody').innerHTML = rows;
+      <td>${Array.isArray(c.skills) && c.skills.length ? c.skills.join(', ') : '<span class="dim">—</span>'}</td>
+      <td>${cell(c.daily_job)}</td>
+      <td>${cell(c.minor_omen)}</td>
+      <td>${cell(c.major_omen)}</td>
+    </tr>`).join('');
+
+  // Tabs and selected role live in the URL hash: #roles, #overview, #creation, #role-<slug>
+  const bySlug = Object.fromEntries(chars.map(c => [roleSlug(c.role), c]));
+  let currentRole = roleSlug(chars[0].role);
+
+  function showTab(tab) {
+    document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab === tab));
+    document.querySelectorAll('.panel').forEach(p => { p.hidden = p.id !== `panel-${tab}`; });
+  }
+
+  function route() {
+    const hash = location.hash.slice(1);
+    if (hash.startsWith('role-') && bySlug[hash.slice(5)]) {
+      currentRole = hash.slice(5);
+      showTab('roles');
+    } else {
+      showTab(['overview', 'creation'].includes(hash) ? hash : 'roles');
+    }
+    renderRoleSheet(bySlug[currentRole]);
+  }
+
+  document.querySelectorAll('.tab').forEach(t => t.addEventListener('click', () => {
+    location.hash = t.dataset.tab === 'roles' ? `role-${currentRole}` : t.dataset.tab;
+  }));
+  document.getElementById('role-picker').addEventListener('click', e => {
+    const btn = e.target.closest('.role-btn');
+    if (btn) location.hash = `role-${btn.dataset.role}`;
+  });
+  window.addEventListener('hashchange', route);
+  route();
 }
 
 // ── Timeline rendering ───────────────────────────────────────────────────────
