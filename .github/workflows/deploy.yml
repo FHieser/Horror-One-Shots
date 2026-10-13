@@ -57,7 +57,7 @@ jobs:
 
           # The Door — full webapp
           cp "the-door/index.html"          _site/the-door/
-          cp "the-door/overview.html"       _site/the-door/
+          cp "the-door/map.html"            _site/the-door/
           cp "the-door/mechanics.html"      _site/the-door/
           cp "the-door/characters.html"     _site/the-door/
           cp "the-door/timeline.html"       _site/the-door/
