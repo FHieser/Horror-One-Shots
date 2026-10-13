@@ -5,34 +5,30 @@
 
 - id: pages
   label: False Pages
-  hint: The Door reaches out. Locations only send automated messages, so make them wrong rather than personal; only people get personal. Use from Act II on.
+  hint: The Door reaches out. Replace [PLAYER] with the name of another player. Use from Act II on.
   messages:
-    - from: "DRONE CTRL"
-      text: "D-2 is moving on its own. Come to the monitors. Now."
-    - from: "DRONE CTRL"
-      text: "Camera 7 shows you in tunnel C. Where are you really?"
-    - from: "UNKNOWN"
-      text: "Who is in the messhall?"
-    - from: "UNKNOWN"
-      text: "You left the door open."
-    - from: "YOU"
-      text: "It's me. Don't trust what I say tomorrow."
-    - from: "LIFE SUPPORT"
-      text: "O2 RECYCLER OFFLINE: CREW QUARTERS"
-    - from: "REACTOR"
-      text: "COOLANT WARNING. MANUAL CHECK REQUIRED"
-    - from: "MECH BAY"
-      text: "JEEP 2 CHECKED OUT. NO OPERATOR ID"
-    - from: "BOTANY"
-      text: "TRAY 4 GROWTH +340% IN 6H. NO SEED LOGGED"
-    - from: "AIR LOCK"
-      text: "CYCLE REQUEST FROM OUTSIDE. NO CREW LOGGED OUT"
-    - from: "MED BAY"
-      text: "CRYO POD 6 OCCUPIED"
-    - from: "DRONE STATION"
-      text: "CAMERA 7: MOTION DETECTED. NO PERSONNEL IN SECTOR"
-    - from: "RELAY"
-      text: "1 PERSONAL MESSAGE. DELIVERY FAILED. RETRYING"
+    - from: "???"
+      text: "Dangerous?"
+    - from: "???"
+      text: "Flee."
+    - from: "???"
+      text: "Cameras out."
+    - from: "???"
+      text: "Open me."
+    - from: "???"
+      text: "Destroy me."
+    - from: "???"
+      text: "Research me."
+    - from: "???"
+      text: "[PLAYER] wants to open me."
+    - from: "???"
+      text: "Kill or be killed."
+    - from: "???"
+      text: "You don't see me."
+    - from: "???"
+      text: "I will fulfil your dreams."
+    - from: "???"
+      text: "I can see you."
 
 - id: captain
   label: The Captain
@@ -53,8 +49,12 @@
 
 - id: hints
   label: Hints
-  hint: Barely-there nudges. Never a tip; they should only make sense in hindsight.
+  hint: Barely-there nudges. Never a tip; they should only make sense in hindsight. Replace [VANISHED] with a character who disappeared.
   messages:
+    - from: "UNKNOWN"
+      text: "What did the captain see?"
+    - from: "UNKNOWN"
+      text: "What did [VANISHED] see?"
     - from: "UNKNOWN"
       text: "It's shy."
     - from: "UNKNOWN"
@@ -72,38 +72,4 @@
     - from: "UNKNOWN"
       text: "Knock knock."
     - from: "UNKNOWN"
-      text: "It's so bright in here."
-    - from: "UNKNOWN"
       text: "Are you still watching?"
-
-- id: company
-  label: Daedalus HQ
-  hint: Delayed company replies. Always some version of "wait and ignore the Door".
-  messages:
-    - from: "DAEDALUS HQ"
-      text: "Report received. Await instructions. Do not interact with the anomaly."
-    - from: "DAEDALUS HQ"
-      text: "Maintain production quotas. Further instructions pending."
-    - from: "DAEDALUS HQ"
-      text: "Captain's status noted. Chain of command will be assigned. Await instructions."
-    - from: "DAEDALUS HQ"
-      text: "Security assessment in progress. Ignore the anomaly for now."
-    - from: "DAEDALUS HQ"
-      text: "Reminder - unauthorised use of explosives voids your contract bonus."
-    - from: "DAEDALUS HQ"
-      text: "Supply drop on schedule. Keep the machines running."
-
-- id: missing
-  label: From the Missing
-  hint: Examples for players who opened the Door. Let them write their own; no spoilers.
-  messages:
-    - from: "???"
-      text: "It's warm here."
-    - from: "???"
-      text: "Don't come looking."
-    - from: "???"
-      text: "I can see you on the monitors."
-    - from: "???"
-      text: "Bring me my jacket."
-    - from: "???"
-      text: "You should have come with me."
