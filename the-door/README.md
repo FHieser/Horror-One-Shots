@@ -20,7 +20,8 @@ A mining drone discovers an impossible door deep in the tunnels. The Door doesn'
 
 ## Files
 
-- [introduction.md](introduction.md) - Setting details, company info, starting situation
+- [data/overview.md](data/overview.md) - Excerpt, at a glance, and the GM guide through all three acts
+- [introduction.md](introduction.md) - Setting details (planet, company, isolation)
 - [crew-roles.csv](crew-roles.csv) - All playable roles with salaries, skills, duties, omens
 - [facility-rooms.csv](facility-rooms.csv) - Base layout and room descriptions
 - [story-flow.md](story-flow.md) - Plot progression from discovery to chaos

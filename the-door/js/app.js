@@ -290,7 +290,7 @@ async function initRoom() {
 }
 
 async function initOverview() {
-  const md = await fetchText('./introduction.md');
+  const md = await fetchText('./data/overview.md');
   document.getElementById('md-content').innerHTML = marked.parse(md);
 }
 

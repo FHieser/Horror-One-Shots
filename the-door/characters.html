@@ -27,6 +27,17 @@
     td strong { color: #cc2222; }
     .dim { color: #333; }
     .look-line { line-height: 1.6; }
+    h2 { color: #cc2222; font-size: 1.3rem; border-bottom: 1px solid #330000; padding-bottom: 0.4rem; margin: 2.5rem 0 1rem; }
+    .step { color: #555; font-family: 'Courier New', monospace; font-size: 0.8rem; margin-right: 0.5rem; }
+    p { color: #b8b8b8; font-size: 0.9rem; line-height: 1.75; margin-bottom: 0.5rem; }
+    ul, ol { color: #b8b8b8; font-size: 0.9rem; line-height: 1.75; padding-left: 1.4rem; margin-bottom: 0.6rem; }
+    ul { list-style: none; }
+    ul li::before { content: "›  "; color: #cc2222; }
+    ol li::marker { color: #cc2222; }
+    li { margin-bottom: 0.2rem; }
+    li strong, p strong { color: #e0e0e0; }
+    .gm-note { margin-top: 2.5rem; border: 1px solid #330000; background: #120000; padding: 1rem 1.2rem; }
+    .gm-note h2 { margin-top: 0; border-bottom: none; padding-bottom: 0; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.08em; font-family: 'Courier New', monospace; }
   </style>
 </head>
 <body>
@@ -44,7 +55,19 @@
     </nav>
   </header>
   <div class="content">
-    <h1>Crew Roles</h1>
+    <h1>Crew</h1>
+
+    <h2><span class="step">01</span>What Everyone Gets</h2>
+    <p>Daedalus Group provides every crew member with:</p>
+    <ul>
+      <li>Monthly salary (see role)</li>
+      <li>Crew attire</li>
+      <li>Food and accommodations</li>
+      <li>A pager</li>
+      <li><strong>1.5 kcr</strong> (thousand credits) starting money</li>
+    </ul>
+
+    <h2><span class="step">02</span>Choose Your Job</h2>
     <table>
       <thead>
         <tr>
@@ -53,6 +76,24 @@
       </thead>
       <tbody id="char-tbody"><tr><td colspan="6" style="color:#444;font-family:'Courier New',monospace;font-size:0.8rem">LOADING…</td></tr></tbody>
     </table>
+
+    <h2><span class="step">03</span>Who Are You?</h2>
+    <p>Every player answers these. They have no mechanical effect; they are there to give the character a life outside the job.</p>
+    <ol>
+      <li>What do they do in their free time?</li>
+      <li>How do they really relax?</li>
+      <li>Why do they do this job?</li>
+      <li>What is their dream?</li>
+      <li><strong>Draw the GM a door.</strong></li>
+    </ol>
+
+    <div class="gm-note">
+      <h2>GM Only</h2>
+      <ul>
+        <li>Fill every role no player took with an NPC that you play.</li>
+        <li>Keep the door drawings. You will need them later.</li>
+      </ul>
+    </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
   <script src="./js/content-index.js"></script>
