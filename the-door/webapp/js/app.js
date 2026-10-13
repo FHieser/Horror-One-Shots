@@ -1,4 +1,4 @@
-// the-door/js/app.js
+// the-door/webapp/js/app.js
 // Client-side rendering for The Door static site.
 // Depends on: jsyaml (CDN), marked (CDN, overview/mechanics only), CONTENT_INDEX (content-index.js).
 
@@ -34,7 +34,7 @@ async function discoverYamlFiles(folderPath) {
   if (typeof CONTENT_INDEX !== 'undefined' && CONTENT_INDEX[folderPath]) {
     return CONTENT_INDEX[folderPath];
   }
-  const res = await fetch(`./${folderPath}/`);
+  const res = await fetch(`../data/${folderPath}/`);
   const html = await res.text();
   const matches = [...html.matchAll(/href="([^"]+\.yaml)"/g)];
   return matches.map(m => m[1]).sort();
@@ -45,7 +45,7 @@ async function loadAllRooms() {
   for (const section of SECTION_ORDER) {
     const files = await discoverYamlFiles(`rooms/${section}`);
     for (const file of files) {
-      const data = await fetchYaml(`./rooms/${section}/${file}`);
+      const data = await fetchYaml(`../data/rooms/${section}/${file}`);
       rooms.push({
         ...data,
         id: file.replace('.yaml', ''),
@@ -279,7 +279,7 @@ function renderAudio(tracks) {
 async function initMap() {
   const [rooms, layout] = await Promise.all([
     loadAllRooms(),
-    fetchJson('./layout.json'),
+    fetchJson('../data/map/layout.json'),
   ]);
   document.getElementById('map-wrapper').innerHTML = generateSvg(rooms, layout);
 }
@@ -295,26 +295,26 @@ async function initRoom() {
 }
 
 async function initOverview() {
-  const md = await fetchText('./data/overview.md');
+  const md = await fetchText('../data/overview.md');
   document.getElementById('md-content').innerHTML = marked.parse(md);
 }
 
 async function initMechanics() {
-  const md = await fetchText('./entity-the-door.md');
+  const md = await fetchText('../data/mechanics.md');
   document.getElementById('md-content').innerHTML = marked.parse(md);
 }
 
 async function initCharacters() {
-  const chars = await fetchYaml('./data/characters.yaml');
+  const chars = await fetchYaml('../data/characters.yaml');
   renderCharacters(chars);
 }
 
 async function initTimeline() {
-  const events = await fetchYaml('./data/timeline.yaml');
+  const events = await fetchYaml('../data/timeline.yaml');
   renderTimeline(events);
 }
 
 async function initAudio() {
-  const tracks = await fetchYaml('./data/audio.yaml');
+  const tracks = await fetchYaml('../data/audio.yaml');
   renderAudio(tracks);
 }

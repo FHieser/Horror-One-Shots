@@ -20,12 +20,21 @@ A mining drone discovers an impossible door deep in the tunnels. The Door doesn'
 
 ## Files
 
-- [data/overview.md](data/overview.md) - Excerpt, at a glance, and the GM guide through all three acts
-- [introduction.md](introduction.md) - Setting details (planet, company, isolation)
-- [crew-roles.csv](crew-roles.csv) - All playable roles with salaries, skills, duties, omens
-- [facility-rooms.csv](facility-rooms.csv) - Base layout and room descriptions
-- [story-flow.md](story-flow.md) - Plot progression from discovery to chaos
-- [entity-the-door.md](entity-the-door.md) - The Door's rules, goals, and solutions
+```
+the-door/
+├── webapp/            # Static site (open webapp/index.html via a local server)
+│   ├── index.html     # Overview (start page)
+│   ├── map.html, room.html, mechanics.html, timeline.html, characters.html, audio.html
+│   └── js/            # app.js + auto-generated content-index.js
+└── data/              # Everything the pages load
+    ├── overview.md    # Excerpt, at a glance, GM guide through all three acts
+    ├── mechanics.md   # The Door's rules and solutions
+    ├── characters.yaml, timeline.yaml, audio.yaml
+    ├── map/           # layout.json (map layout) + map.png (reference image)
+    └── rooms/         # surface/, facility/, mines/ — one YAML per room
+```
+
+After adding or removing room YAML files, run `node .github/scripts/generate-index.js`.
 
 ## Quick Reference
 

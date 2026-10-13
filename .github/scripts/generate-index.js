@@ -33,7 +33,7 @@ generateIndex(
 );
 
 generateIndex(
-  path.join(__dirname, '../../the-door/rooms'),
-  path.join(__dirname, '../../the-door/js/content-index.js'),
+  path.join(__dirname, '../../the-door/data/rooms'),
+  path.join(__dirname, '../../the-door/webapp/js/content-index.js'),
   ['surface', 'facility', 'mines'],
 );
