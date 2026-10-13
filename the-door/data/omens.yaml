@@ -1,0 +1,23 @@
+# General omens that work on any character.
+# Role-specific omens live in characters.yaml (Crew page).
+
+escalation:
+  - act: Act I
+    text: No omens. The Door does nothing.
+  - act: Act II
+    text: Start with minor omens, one player at a time, privately. Escalate to major omens as the crew splits up, sleeps or argues.
+  - act: Act III
+    text: Nothing is deniable anymore. Major omens and beyond, shared hallucinations, the missing seen on feeds.
+
+minor:
+  - Dreams of the Door. They see it, open it, and get what they want.
+  - The pager beeps with an empty message.
+  - An urge to switch things off and close their eyes.
+  - The lights go out whenever they leave a room.
+  - They sleepwalk towards the Door.
+  - They catch themselves trying to turn off the video feed.
+
+major:
+  - An android is killed and the area around it is destroyed.
+  - Life support turns off. Fear Save; after 3 hours, Body Save for low oxygen.
+  - The reactor begins to melt down. Stopping it needs the captain's security card.

@@ -1,0 +1,106 @@
+# Pager messages for the randomizer on the Omens page.
+# Write the result on a slip of paper and hand it to one player privately.
+# Each category has an id, a label, a short GM hint and a list of messages (from + text).
+
+- id: pages
+  label: False Pages
+  hint: The Door reaches out. Plausible, personal, wrong. Use from Act II on.
+  messages:
+    - from: "DRONE CTRL"
+      text: "D-2 is moving on its own. Come to the monitors. Now."
+    - from: "MED BAY"
+      text: "Your checkup results came back. Come alone."
+    - from: "MECH BAY"
+      text: "Jeep 2 is gone. Did you take it?"
+    - from: "COMMS"
+      text: "Personal message from home for you. Can't forward it. Come to the relay."
+    - from: "LIFE SUPPORT"
+      text: "O2 recycler offline in crew quarters. Do not sleep there."
+    - from: "REACTOR"
+      text: "Coolant warning. Manual check required. Bring the card."
+    - from: "DRONE CTRL"
+      text: "Camera 7 shows you in tunnel C. Where are you really?"
+    - from: "UNKNOWN"
+      text: "Who is in the messhall?"
+    - from: "UNKNOWN"
+      text: "You left the door open."
+    - from: "YOU"
+      text: "It's me. Don't trust what I say tomorrow."
+    - from: "BOTANY"
+      text: "Something is growing in tray 4. It wasn't planted."
+    - from: "AIR LOCK"
+      text: "Cycle request from the outside. No one is logged out."
+
+- id: captain
+  label: The Captain
+  hint: Pages that seem to come from the missing captain. Strongest in Act II and III.
+  messages:
+    - from: "CAPTAIN"
+      text: "I'm fine. Keep the cameras on."
+    - from: "CAPTAIN"
+      text: "Stop looking for me."
+    - from: "CAPTAIN"
+      text: "Leave it alone. The machines must keep running."
+    - from: "CAPTAIN"
+      text: "Who gave you permission?"
+    - from: "CAPTAIN"
+      text: "I can see you."
+    - from: "CAPTAIN"
+      text: "Bring my card back."
+
+- id: hints
+  label: Hints
+  hint: Subtle pushes towards opening the Door (lights out, cameras off). Never too obvious.
+  messages:
+    - from: "UNKNOWN"
+      text: "It's shy."
+    - from: "UNKNOWN"
+      text: "Close your eyes."
+    - from: "UNKNOWN"
+      text: "Lights out at 0300."
+    - from: "UNKNOWN"
+      text: "Nobody is watching tonight."
+    - from: "UNKNOWN"
+      text: "Camera 7 sees too much."
+    - from: "UNKNOWN"
+      text: "It only listens in the dark."
+    - from: "UNKNOWN"
+      text: "Be alone."
+    - from: "UNKNOWN"
+      text: "It's waiting for you to look away."
+    - from: "UNKNOWN"
+      text: "Did you hear it click?"
+    - from: "UNKNOWN"
+      text: "Turn it off. Then knock."
+
+- id: company
+  label: Daedalus HQ
+  hint: Delayed company replies. Always some version of "wait and ignore the Door".
+  messages:
+    - from: "DAEDALUS HQ"
+      text: "Report received. Await instructions. Do not interact with the anomaly."
+    - from: "DAEDALUS HQ"
+      text: "Maintain production quotas. Further instructions pending."
+    - from: "DAEDALUS HQ"
+      text: "Captain's status noted. Chain of command will be assigned. Await instructions."
+    - from: "DAEDALUS HQ"
+      text: "Security assessment in progress. Ignore the anomaly for now."
+    - from: "DAEDALUS HQ"
+      text: "Reminder - unauthorised use of explosives voids your contract bonus."
+    - from: "DAEDALUS HQ"
+      text: "Supply drop on schedule. Keep the machines running."
+
+- id: missing
+  label: From the Missing
+  hint: Examples for players who opened the Door. Let them write their own; no spoilers.
+  messages:
+    - from: "???"
+      text: "It's warm here."
+    - from: "???"
+      text: "Don't come looking."
+    - from: "???"
+      text: "I can see you on the monitors."
+    - from: "???"
+      text: "Bring me my jacket."
+    - from: "???"
+      text: "You should have come with me."

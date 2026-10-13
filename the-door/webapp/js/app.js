@@ -1,6 +1,6 @@
 // the-door/webapp/js/app.js
 // Client-side rendering for The Door static site.
-// Depends on: jsyaml (CDN), marked (CDN, overview/mechanics only), CONTENT_INDEX (content-index.js).
+// Depends on: jsyaml (CDN), marked (CDN, overview/door/timeline), CONTENT_INDEX (content-index.js).
 
 // ── Data loading ────────────────────────────────────────────────────────────
 
@@ -169,6 +169,63 @@ function renderCharacters(chars) {
   route();
 }
 
+// ── Omens + pager ────────────────────────────────────────────────────────────
+
+function renderOmens(omens) {
+  document.getElementById('escalation').innerHTML = (omens.escalation || [])
+    .map(e => `<div class="act"><div class="label">${e.act}</div><p>${e.text}</p></div>`).join('');
+  document.getElementById('omens-minor').innerHTML = (omens.minor || []).map(o => `<li>${o}</li>`).join('');
+  document.getElementById('omens-major').innerHTML = (omens.major || []).map(o => `<li>${o}</li>`).join('');
+}
+
+function setupPager(categories) {
+  let filter = 'all';
+  let bag = [];   // shuffled messages not yet shown for the current filter
+
+  const pool = () => categories
+    .filter(c => filter === 'all' || c.id === filter)
+    .flatMap(c => c.messages.map(m => ({ ...m, category: c.label })));
+
+  function refill() {
+    bag = pool();
+    for (let i = bag.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [bag[i], bag[j]] = [bag[j], bag[i]];
+    }
+  }
+
+  function setFilter(id) {
+    filter = id;
+    refill();
+    document.querySelectorAll('#pager-filters .chip').forEach(c => c.classList.toggle('active', c.dataset.id === id));
+    const cat = categories.find(c => c.id === id);
+    document.getElementById('pager-hint').textContent = cat ? cat.hint : 'Random message from every category.';
+  }
+
+  function page() {
+    if (!bag.length) refill();
+    const m = bag.pop();
+    const hh = String(Math.floor(Math.random() * 24)).padStart(2, '0');
+    const mm = String(Math.floor(Math.random() * 60)).padStart(2, '0');
+    document.getElementById('pager-screen').innerHTML = `
+      <div class="screen-meta"><span>FROM: ${m.from}</span><span>${hh}:${mm}</span></div>
+      <div class="screen-text">${m.text}</div>`;
+    const led = document.getElementById('pager-led');
+    led.classList.remove('on'); void led.offsetWidth; led.classList.add('on');
+    if (filter === 'all') document.getElementById('pager-hint').textContent = `${m.category}: ${categories.find(c => c.label === m.category).hint}`;
+  }
+
+  document.getElementById('pager-filters').innerHTML =
+    `<button class="chip" data-id="all">All</button>` +
+    categories.map(c => `<button class="chip" data-id="${c.id}">${c.label}</button>`).join('');
+  document.getElementById('pager-filters').addEventListener('click', e => {
+    const chip = e.target.closest('.chip');
+    if (chip) setFilter(chip.dataset.id);
+  });
+  document.getElementById('page-btn').addEventListener('click', page);
+  setFilter('all');
+}
+
 // ── Timeline rendering ───────────────────────────────────────────────────────
 
 function renderTimeline(events) {
@@ -248,8 +305,17 @@ async function initOverview() {
   document.getElementById('md-content').innerHTML = marked.parse(md);
 }
 
-async function initMechanics() {
-  const md = await fetchText('../data/mechanics.md');
+async function initOmens() {
+  const [pager, omens] = await Promise.all([
+    fetchYaml('../data/pager.yaml'),
+    fetchYaml('../data/omens.yaml'),
+  ]);
+  renderOmens(omens);
+  setupPager(pager);
+}
+
+async function initDoor() {
+  const md = await fetchText('../data/door.md');
   document.getElementById('md-content').innerHTML = marked.parse(md);
 }
 

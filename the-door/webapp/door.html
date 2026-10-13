@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mechanics — The Door</title>
+  <title>Rules of the Door — The Door</title>
   <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -42,7 +42,8 @@
     <nav>
       <a href="./">Overview</a>
       <a href="./map.html">Map</a>
-      <a href="./mechanics.html" class="active">Mechanics</a>
+      <a href="./door.html" class="active">The Door</a>
+      <a href="./omens.html">Omens</a>
       <a href="./timeline.html">Timeline</a>
       <a href="./characters.html">Crew</a>
       <a href="./audio.html">Audio</a>
@@ -53,6 +54,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
   <script src="./js/content-index.js"></script>
   <script src="./js/app.js"></script>
-  <script>initMechanics().catch(e => { document.getElementById('md-content').textContent = 'Error: ' + e.message; });</script>
+  <script>initDoor().catch(e => { document.getElementById('md-content').textContent = 'Error: ' + e.message; });</script>
 </body>
 </html>

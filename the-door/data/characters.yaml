@@ -114,17 +114,3 @@
     - Constant wind from a new blast site
     - A creaking sound like a door opening
   major_omen: After a blast, parts of a giant door are visible in the newly uncovered rock face.
-
-- role: Miscellaneous
-  salary: 1 kcr
-  skills: []
-  description: General assistance. Mixes and sets explosives in the tunnels.
-  daily_job:
-    - Create explosive charges
-    - Prep work in the tunnels
-  minor_omen:
-    - Dreams of The Door — sees it, opens it, gets what they want
-    - Pager malfunction — urge to turn things off, close eyes, lights go out when leaving
-    - Sleep walks toward The Door
-    - Tries to turn off the video feed
-  major_omen: Android gets killed and the area is destroyed. Life support turns off — Fear Save, then Body Save after 3 hours of low oxygen. Reactor begins melting down — codes required, stored near The Door.

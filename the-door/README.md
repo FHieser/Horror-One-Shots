@@ -24,11 +24,13 @@ A mining drone discovers an impossible door deep in the tunnels. The Door doesn'
 the-door/
 ├── webapp/            # Static site (open webapp/index.html via a local server)
 │   ├── index.html     # Overview (start page)
-│   ├── map.html, room.html, mechanics.html, timeline.html, characters.html, audio.html
+│   ├── map.html, room.html, door.html, omens.html, timeline.html, characters.html, audio.html
 │   └── js/            # app.js + auto-generated content-index.js
 └── data/              # Everything the pages load
     ├── overview.md    # Excerpt, at a glance, GM guide through all three acts
-    ├── mechanics.md   # The Door's rules and solutions
+    ├── door.md        # The Door's rules and solutions
+    ├── omens.yaml     # General omens + escalation (role omens are in characters.yaml)
+    ├── pager.yaml     # Pager messages for the randomizer on the Omens page
     ├── characters.yaml, timeline.yaml, audio.yaml
     ├── map/           # map.png (reference sketch; the map itself is hand-placed SVG in webapp/map.html)
     └── rooms/         # surface/, facility/, mines/ — one YAML per room
