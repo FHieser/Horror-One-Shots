@@ -24,11 +24,15 @@
     - from: "???"
       text: "Kill or be killed."
     - from: "???"
-      text: "You don't see me."
+      text: "Knock knock."
     - from: "???"
       text: "I will fulfil your dreams."
     - from: "???"
       text: "I can see you."
+    - from: "???"
+      text: "[PLAYER] has a weapon."
+    - from: "???"
+      text: "The stars look so beautiful today."
 
 - id: captain
   label: The Captain
@@ -56,20 +60,19 @@
     - from: "UNKNOWN"
       text: "What did [VANISHED] see?"
     - from: "UNKNOWN"
-      text: "It's shy."
-    - from: "UNKNOWN"
-      text: "Shhh."
-    - from: "UNKNOWN"
-      text: "Good night."
-    - from: "UNKNOWN"
-      text: "You blinked."
-    - from: "UNKNOWN"
       text: "Don't stare."
     - from: "UNKNOWN"
-      text: "Everyone is asleep."
-    - from: "UNKNOWN"
-      text: "It's patient."
-    - from: "UNKNOWN"
-      text: "Knock knock."
+      text: "You don't see me."
     - from: "UNKNOWN"
       text: "Are you still watching?"
+
+- id: broadcast
+  label: Station-Wide
+  hint: Fake station-wide alarms. Every player receives it at the same time. None of it is real.
+  messages:
+    - from: "ALL CREW"
+      text: "EMERGENCY MEETING. MESSHALL. NOW"
+    - from: "ALL CREW"
+      text: "REACTOR MELTDOWN IMMINENT"
+    - from: "ALL CREW"
+      text: "LIFE SYSTEMS TURNED OFF"
