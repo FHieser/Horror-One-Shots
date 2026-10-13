@@ -1,51 +1,105 @@
-- phase: ACT 1 — THE DOOR
+- intro: |
+    **This is an example setup.** It shows how a session usually unfolds, not a script you have to follow. Act I is fixed; from Act II on, the players drive and you react. The full GM text for each act is on the Overview page.
 
-- label: Inciting Event
-  type: warning
-  title: The Pager Goes Off
-  text: Drone Control is woken by a message on their pager. One of the mining robots has found something unusual in the tunnels — a door. It appears on the monitors.
+- phase: ACT I — THE DOOR
 
-- label: First Contact
+- label: Pager
+  type: facility
+  title: A Beep in the Night
+  text: Drone Control's pager goes off in the night cycle. Before anyone wakes, describe the empty station from the mines upwards. End at Drone Control, or with the player they call.
+
+- label: Monitors
   type: player
-  title: On the Monitors
-  text: The Door is visible on the surveillance feed. Let players react naturally. Establish the impossibility — there should not be a door here. The Door does nothing.
+  title: Something on the Feed
+  text: A door, set into raw rock. Players investigate through the drones and cameras, wake others and argue. The Door does nothing. The captain is called.
 
-- phase: ACT 2 — INVESTIGATIONS
-
-- label: Crew Investigates
+- label: Going Down
   type: player
-  title: The Captain Insists
-  text: The crew investigates. The Door doesn't react. The captain insists on continuous monitoring and orders the drones not to interact with it. The tension is in its passivity.
+  title: Every Door Is Different
+  text: The captain and a few players drive down. Each player sees their own drawn door. If someone reaches for a handle only they can see, everyone else gets a headache and makes a Sanity Save.
 
-- label: Minor Omens
+- label: Orders
+  type: facility
+  title: The Captain Decides
+  text: Leave it alone and keep it watched. No drones or heavy machines near it. The machines and the daily tasks keep running. Everyone goes back to bed.
+
+- label: Disappearance
   type: warning
-  title: Something Is Off
-  text: Begin dropping minor omens for each character — small, personal, deniable. Nothing that can't be explained away yet.
+  title: The Captain Goes Down Alone
+  text: In the early morning the captain drives to the Door without answering any pages and shoots out the cameras. There is no more footage after that.
 
-- phase: ACT 3 — MISSING CAPTAIN
-
-- label: Point of No Return
+- label: Empty Spot
   type: warning
-  title: The Captain Is Gone
-  text: The captain is missing. The camera feed in the mines has gone dark. A personal item belonging to the captain is found at The Door. Captain's codes are needed for the reactor and life support.
+  title: Card and Gun
+  text: In front of the Door lie the captain's security card and gun. The captain is gone. Let everyone who wants to drive down and look. The act ends here.
 
-- phase: ACT 4 — OMENS
+- phase: ACT II — THE VACUUM
 
-- label: Escalation
-  type: warning
-  title: Major Omens Unleashed
-  text: Let the players run. Release the major omens. Each character experiences personalized horror. Paranoia peaks — players may begin suspecting each other.
-
-- phase: ACT 5 — CHAOS
-
-- label: Resolution
+- label: Routine
   type: player
-  title: No Correct Ending
-  text: Players will fight about what to do. Destroying it? Leaving it? Opening it? Let them drive the conclusion. There is no correct ending — see Mechanics for possible solutions.
+  title: Back to Work
+  text: The players return to their daily tasks. Let the routine play out.
+
+- label: False Pages
+  type: warning
+  title: The Door Reaches Out
+  text: Pass omens and misleading pager messages to individual players as private paper notes. Start with minor omens, then escalate.
+
+- label: Who Leads?
+  type: player
+  title: The Empty Chair
+  text: Who takes the captain's place? Let it be contested. Company messages arrive late and say to wait and ignore the Door for now.
+
+- label: Teams
+  type: player
+  title: Factions Form
+  text: Leave it alone, blow it up, or open it. Steer towards internal discussion and open conflict.
+
+- label: The Click
+  type: warning
+  optional: true
+  title: Opening It in Secret
+  text: A player tries alone, in a separate room. Lights out and cameras destroyed or off, and the Door clicks. If they open it, they are out of the game and may only send spoiler-free pager messages.
+
+- label: Missing
+  type: warning
+  optional: true
+  title: Someone Is Gone
+  text: Only the person who vanished knows why. The rest have fragments and pages from someone who is no longer there.
+
+- label: Something Big
+  type: facility
+  title: Act III Begins
+  text: An explosion, an opening or a mass confrontation at the Door starts the final act.
+
+- phase: ACT III — CHAOS
+
+- label: Collision
+  type: player
+  title: The Teams Play Out
+  text: Plans get carried out, sabotaged or fought over. Players turn drastic or apathetic. Player-on-player violence is welcome.
+
+- label: Visions
+  type: warning
+  title: Nothing Is Deniable
+  text: Major omens and beyond. Shared hallucinations, and the missing seen in corridors and on feeds. The pager messages become personal.
+
+- label: Captain on Tape
+  type: facility
+  title: Never Caught
+  text: The captain is sighted on camera. Then the reactor melts down, life support fails, the airlock is sabotaged, or the machines turn on the crew.
+
+- label: Few Remain
+  type: warning
+  title: The Crew Breaks
+  text: The act ends when the crew is broken. Not many should be left standing.
+
+- phase: EPILOGUE
+
+- label: Two Weeks
+  type: facility
+  title: The Security Team
+  text: A Daedalus team lands, secures the Door and whoever is still alive. Describe the arrival for each survivor individually.
 
 - note: |
-    **The Door's Rules** — The Door cannot act while it is being observed. Cameras, drones, direct line of sight — all count. It cannot be opened while watched.
-
-    **Solutions** — Cryo pods (last resort), constant surveillance, mass interaction, fleeing, creative player solutions, death, or finding a winning condition. See entity-the-door.md for the full solutions table.
-
-    **The Drawings** — Each player drew a door during setup. Revisit these as the session escalates — they reveal how each character perceives The Door, and can drive paranoia between players.
+    **Callbacks.** Throughout Acts II and III, let players and NPCs echo the captain's last orders: *leave it alone, keep it watched, the machines must keep running.*

@@ -101,3 +101,13 @@ If the player then opens it, they disappear and are **out of the game**. They mu
 ## Epilogue
 
 Two weeks later, a Daedalus security team lands on 4d7. They secure the Door and whoever is still alive. Describe the arrival **for each survivor individually**: where they're found, in what state, and what they're holding onto.
+
+## From the Playtests
+
+Moments from real sessions, to show what the Door can do at the table.
+
+**The blast.** The players blew up the Door. The pressure wave knocked everyone in the tunnels unconscious. When they woke, their air was almost gone and their suits were flashing warnings. They barely made it back up to the station on foot, and their Stress went through the roof.
+
+**Footprints.** On a surface trip to take bio probes, the crew saw a door standing in the open. One player went to it, tried to interact with it, and disappeared. Another player followed their footprints and found that the door had been a hallucination. Behind where it had stood was a huge fault in the ground. Did they fall, or did they actually open the Door?
+
+**The last attempt.** In Act III, as their final option, a player went down to the Door alone and tried to open it. They couldn't. In the epilogue, the security team found their character dead in front of the Door. They had run out of air.

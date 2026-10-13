@@ -46,6 +46,11 @@
     .tl-note p { margin: 0 0 0.5rem; }
     .tl-note p:last-child { margin-bottom: 0; }
     .tl-note strong { color: #cc2222; font-weight: normal; }
+    .tl-card.optional { border-style: dashed; }
+    .tl-optional { color: #555; border: 1px dashed #444; padding: 0 0.3rem; margin-left: 0.4rem; }
+    #tl-intro { border-left: 2px solid #cc2222; padding: 0.2rem 0 0.2rem 1rem; margin: -1.5rem 0 2rem; font-size: 0.88rem; color: #b8b8b8; line-height: 1.7; }
+    #tl-intro p { margin: 0; }
+    #tl-intro strong { color: #e0e0e0; }
   </style>
 </head>
 <body>
@@ -64,6 +69,7 @@
   </header>
   <div class="tl-wrap">
     <h1 class="tl-title">Session Timeline</h1>
+    <div id="tl-intro"></div>
     <div class="tl-legend">
       <div class="tl-legend-item"><div class="tl-legend-dot" style="background:#884444;border:1px solid #330000"></div> Facility Event</div>
       <div class="tl-legend-item"><div class="tl-legend-dot" style="background:#2a7aa8;border:1px solid #1a3040"></div> Player Opportunity</div>

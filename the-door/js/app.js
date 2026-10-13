@@ -221,6 +221,10 @@ function renderTimeline(events) {
   let inExtra = false;
 
   for (const e of events) {
+    if (e.intro) {
+      document.getElementById('tl-intro').innerHTML = marked.parse(e.intro);
+      continue;
+    }
     if (e.phase) {
       const header = `<div class="tl-phase-header"><span>${e.phase}</span></div>`;
       if (e.note || inExtra) { inExtra = true; extra += header; } else rows += header;
@@ -232,7 +236,8 @@ function renderTimeline(events) {
       continue;
     }
     if (inExtra) continue;
-    const card = `<div class="tl-card ${e.type || ''}"><div class="tl-card-label">${e.title || ''}</div><p>${e.text || ''}</p></div>`;
+    const optional = e.optional ? ' <span class="tl-optional">optional</span>' : '';
+    const card = `<div class="tl-card ${e.type || ''}${e.optional ? ' optional' : ''}"><div class="tl-card-label">${e.title || ''}${optional}</div><p>${e.text || ''}</p></div>`;
     const isLeft = idx % 2 === 0;
     rows += `
       <div class="tl-row">
