@@ -224,6 +224,14 @@ function setupPager(categories) {
   });
   document.getElementById('page-btn').addEventListener('click', page);
   setFilter('all');
+
+  // Full list of every message, grouped by category
+  document.getElementById('pager-list').innerHTML = categories.map(c => `
+    <section class="msg-group">
+      <h3>${c.label}</h3>
+      <p class="group-hint">${c.hint || ''}</p>
+      ${c.messages.map(m => `<div class="msg"><span class="msg-from">${m.from}</span><span class="msg-text">${m.text}</span></div>`).join('')}
+    </section>`).join('');
 }
 
 // ── Timeline rendering ───────────────────────────────────────────────────────

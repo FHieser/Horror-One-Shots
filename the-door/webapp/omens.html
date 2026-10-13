@@ -60,6 +60,16 @@
     .omen .label { color: #c09040; }
     .omen.major .label { color: #ff5555; }
     @media (max-width: 700px) { .acts, .omens { grid-template-columns: 1fr; } }
+
+    /* All pager messages */
+    .msg-group { margin-bottom: 1.8rem; }
+    .msg-group h3 { color: #8dff9a; font: 700 0.85rem 'Courier New', monospace; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.2rem; }
+    .msg-group .group-hint { font-size: 0.82rem; color: #888; font-style: italic; margin-bottom: 0.6rem; }
+    .msg { display: grid; grid-template-columns: 9rem 1fr; gap: 1rem; padding: 0.4rem 0.6rem; border-bottom: 1px solid #1a1a1a; font-size: 0.9rem; }
+    .msg:hover { background: #111; }
+    .msg-from { font: 0.78rem 'Courier New', monospace; color: #5ec46c; letter-spacing: 0.06em; padding-top: 0.15rem; }
+    .msg-text { color: #d0d0d0; }
+    @media (max-width: 600px) { .msg { grid-template-columns: 1fr; gap: 0.1rem; } }
   </style>
 </head>
 <body>
@@ -100,6 +110,9 @@
       <div class="omen"><div class="label">Minor</div><ul id="omens-minor"></ul></div>
       <div class="omen major"><div class="label">Major</div><ul id="omens-major"></ul></div>
     </div>
+
+    <h2>All Pager Messages</h2>
+    <div id="pager-list"></div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
   <script src="./js/content-index.js"></script>
