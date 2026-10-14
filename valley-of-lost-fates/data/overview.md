@@ -2,7 +2,7 @@
 
 <dl class="glance">
   <div><dt>System</dt><dd>HeartCore <span>(Daggerheart variant, work in progress)</span></dd></div>
-  <div><dt>Players</dt><dd>Up to 5 <span>(one per expedition role)</span></dd></div>
+  <div><dt>Players</dt><dd>Up to 5</dd></div>
   <div><dt>Theme</dt><dd>Dark fairy tale, tragic love, fate</dd></div>
   <div><dt>Status</dt><dd>Early draft</dd></div>
 </dl>
@@ -13,6 +13,8 @@ There is a door leading to a hidden valley. At the door lies an artifact; with i
 
 Teams have been sent in before, and from them basic communications and gear were figured out. The players are the next expedition.
 
+**The party.** Players build HeartCore characters as usual. A balanced group is recommended: ideally the Doctor, Mechanic, Scientist and Soldier are all covered, so the expedition can heal, fix, understand and fight.
+
 ## The Valley
 
 At the centre stands the **Megalith**, the entry point into the valley. It connects every region, and it is where the cards are laid out. Around it lie the regions:
@@ -22,7 +24,7 @@ At the centre stands the **Megalith**, the entry point into the valley. It conne
 - **Sea:** the Lighthouse
 - **Highlands:** Devilsrock, the Keep
 
-Crossing between locations costs **Stress** (see the [Map](./map.html)).
+Crossing a border costs **Resources** (see the [Map](./map.html)), and every character who crosses pays the full cost. **1 Resource** is either 1 Hope, 1 Stress, 1 HP or 1 Armor Slot, and a character can mix them. Route Stabilizers lower the cost (see [Gear](./gear.html)).
 
 ## The Cards
 

@@ -178,22 +178,24 @@ async function initFinal() {
     ${openBox(f.open)}`;
 }
 
-// ── Crew ────────────────────────────────────────────────────────────────────
+// ── Gear ────────────────────────────────────────────────────────────────────
 
-async function initCrew() {
-  const c = await fetchYaml('../data/crew.yaml');
-  document.getElementById('crew').innerHTML = `
-    ${(c.intro || []).map(p => `<p>${p}</p>`).join('')}
-    <div class="roles">${(c.roles || []).map(r => `
-      <div class="role">
-        <h3>${r.name}</h3>
-        <div class="de">${r.german && r.german !== r.name ? r.german : '&nbsp;'}</div>
-        ${r.duty ? `<p class="duty">${r.duty}</p>` : ''}
-        <div class="label">Gear</div>
-        ${list(r.gear)}
-      </div>`).join('')}
-    </div>
-    ${openBox(c.open)}`;
+async function initGear() {
+  const g = await fetchYaml('../data/gear.yaml');
+  const card = c => `
+    <div class="found ${c.type === 'artifact' ? 'artifact' : ''}">
+      <div class="found-head"><h3>${c.name}</h3><span class="slots">${c.slots === undefined ? '? slots' : c.slots + (c.slots === 1 ? ' slot' : ' slots')}</span></div>
+      <div class="from">${c.found || ''}</div>
+      ${list(c.text) || '<p class="dim"><em>Still to be written.</em></p>'}
+      ${openBox(c.open)}
+    </div>`;
+  const section = (title, items) => items && items.length
+    ? `<h2>${title}</h2><div class="found-grid">${items.map(card).join('')}</div>` : '';
+  document.getElementById('gear').innerHTML = `
+    ${(g.intro || []).map(p => `<p>${p}</p>`).join('')}
+    ${section('Expedition Gear', g.expedition)}
+    ${section('Items', g.items)}
+    ${section('Artifacts', g.artifacts)}`;
 }
 
 // ── Lore ────────────────────────────────────────────────────────────────────

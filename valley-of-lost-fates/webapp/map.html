@@ -22,6 +22,7 @@
     .whirl path { stroke: #8ac0f0; stroke-width: 2; }
     .whirl text { fill: #8ac0f0; font: 700 12px 'Courier New', monospace; letter-spacing: 2px; text-anchor: middle; text-transform: uppercase; }
     .whirl:hover circle { fill: #18304a; }
+    .rule { text-align: center; color: var(--text); font-size: 0.92rem; margin-top: 1rem; }
     .legend-note { fill: #8a918b; font: 12px 'Courier New', monospace; text-anchor: middle; }
     .legend { display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: center; margin: 1rem 0 0; font: 0.8rem 'Courier New', monospace; color: var(--text-dim); }
     .legend span::before { content: ""; display: inline-block; width: 12px; height: 12px; margin-right: 0.4rem; vertical-align: -1px; }
@@ -39,7 +40,7 @@
       <a href="./locations.html">Locations</a>
       <a href="./cards.html">Cards</a>
       <a href="./final.html">Final</a>
-      <a href="./crew.html">Crew</a>
+      <a href="./gear.html">Gear</a>
       <a href="./lore.html">Lore</a>
     </nav>
   </header>
@@ -55,12 +56,12 @@
           <text x="417.9" y="141.5"><tspan x="417.9" dy="0">Devilsrock</tspan></text>
         </a>
         <a class="sector highlands" href="./locations.html#loc-keep">
-          <path d="M380.6,287.6 L552.2,143.6 A290,290 0 0 1 618.9,355.3 L395.7,335.8 A66,66 0 0 0 380.6,287.6 Z"/>
-          <text x="528.4" y="267.5"><tspan x="528.4" dy="0">The Keep</tspan></text>
+          <path d="M380.6,287.6 L552.2,143.6 A290,290 0 0 1 620.0,330.0 L396.0,330.0 A66,66 0 0 0 380.6,287.6 Z"/>
+          <text x="525.5" y="258.9"><tspan x="525.5" dy="0">The Keep</tspan></text>
         </a>
         <a class="sector plains" href="./locations.html#loc-village">
-          <path d="M395.7,335.8 L618.9,355.3 A290,290 0 0 1 567.6,496.3 L384.1,367.9 A66,66 0 0 0 395.7,335.8 Z"/>
-          <text x="525.5" y="401.1"><tspan x="525.5" dy="0">Village</tspan></text>
+          <path d="M396.0,330.0 L620.0,330.0 A290,290 0 0 1 567.6,496.3 L384.1,367.9 A66,66 0 0 0 396.0,330.0 Z"/>
+          <text x="528.4" y="392.5"><tspan x="528.4" dy="0">Village</tspan></text>
         </a>
         <a class="sector plains" href="./locations.html#loc-fields">
           <path d="M384.1,367.9 L567.6,496.3 A290,290 0 0 1 452.6,592.8 L357.9,389.8 A66,66 0 0 0 384.1,367.9 Z"/>
@@ -86,8 +87,8 @@
         <g class="cost"><circle cx="330.0" cy="125.1" r="11"/><text x="330.0" y="125.1">3</text></g>
         <line class="border" x1="380.6" y1="287.6" x2="552.2" y2="143.6"/>
         <g class="cost"><circle cx="486.9" cy="198.3" r="11"/><text x="486.9" y="198.3">1</text></g>
-        <line class="border" x1="395.7" y1="335.8" x2="618.9" y2="355.3"/>
-        <g class="cost"><circle cx="534.1" cy="347.9" r="11"/><text x="534.1" y="347.9">2</text></g>
+        <line class="border" x1="396.0" y1="330.0" x2="620.0" y2="330.0"/>
+        <g class="cost"><circle cx="534.9" cy="330.0" r="11"/><text x="534.9" y="330.0">2</text></g>
         <line class="border" x1="384.1" y1="367.9" x2="567.6" y2="496.3"/>
         <g class="cost"><circle cx="497.8" cy="447.5" r="11"/><text x="497.8" y="447.5">1</text></g>
         <line class="border" x1="357.9" y1="389.8" x2="452.6" y2="592.8"/>
@@ -109,15 +110,14 @@
           <path d="M58.0,139.6 m-14,0 a14,14 0 1,1 14,14 a9,9 0 1,1 -9,-9 a4,4 0 1,1 4,4" fill="none"/>
           <text x="58.0" y="183.6">Final</text>
         </a>
-        <text class="legend-note" x="330" y="684">Numbers on the borders: Stress to cross</text>
+        <text class="legend-note" x="330" y="684">Numbers on the borders: Resources to cross</text>
       </svg>
     </div>
     <div class="legend"><span class="l-high">Highlands</span><span class="l-plains">Plains</span><span class="l-swamp">Swamp</span><span class="l-sea">Sea</span></div>
+    <p class="rule"><strong>Crossing a border costs Resources.</strong> Every character who crosses pays the full cost. 1 Resource is either 1 Hope, 1 Stress, 1 HP or 1 Armor Slot, and they can be mixed. Route Stabilizers lower the cost by 1.</p>
     <div class="open" style="max-width:720px;margin:2rem auto 0">
       <div class="label">Open</div>
       <ul>
-        <li>Sector sizes, border costs and "2 to any region" are read from the sketch. Please check them.</li>
-        <li>Where the Tower and the Inverted Tower appear.</li>
         <li>Where the cards are placed on the map, and how many per region.</li>
       </ul>
     </div>

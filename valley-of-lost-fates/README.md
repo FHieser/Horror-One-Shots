@@ -16,7 +16,7 @@ valley-of-lost-fates/
 ├── webapp/              # Static site (serve the repo root and open webapp/index.html)
 │   ├── index.html       # Overview
 │   ├── map.html         # The wheel map (hand-placed SVG)
-│   ├── locations.html, cards.html, final.html, crew.html, lore.html
+│   ├── locations.html, cards.html, final.html, gear.html, lore.html
 │   ├── css/style.css    # Shared styles
 │   └── js/app.js
 └── data/                # Everything the pages load
@@ -24,8 +24,8 @@ valley-of-lost-fates/
     ├── locations.yaml   # All locations with mechanics and artifact challenges
     ├── cards.yaml       # The 22 major arcana (upright / reversed)
     ├── final.yaml       # Final location: ruler, people and realm forms of the meteor
-    ├── crew.yaml        # Expedition roles and gear
+    ├── gear.yaml        # Items, equipment and artifacts (HeartCore found cards)
     └── lore/            # The myths (German)
 ```
 
-Open points are listed in each data file under `open:` and shown on the pages.
+Open points are listed in [TODO.md](TODO.md), in each data file under `open:`, and on the pages.

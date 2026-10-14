@@ -78,7 +78,7 @@ cards:
     category: red
     upright:
       - "Ah, the hearts of lovers will overcome even the greatest obstacles. But love is sadly not eternal, so make haste while it lasts."
-      - "Travelling between the locations of this region is immediate via portals and costs no Stress."
+      - "Travelling between the locations of this region is immediate via portals and costs no Resources."
       - "This lasts until the first rest."
     reversed:
       - "While the players are in this region, two characters become soul-shackled."
@@ -93,7 +93,7 @@ cards:
     category: yellow
     upright:
       - "At the edge of the map a lone horse with a chariot appears."
-      - "If the players step into it, travel becomes easier: all borders cost 1 less Stress to cross."
+      - "If the players step into it, travel becomes easier: all borders cost 1 Resource less to cross."
     reversed:
       - "Teleport to a random location."
 
@@ -183,6 +183,7 @@ cards:
     german: Der Turm
     category: red
     upright:
+      - "Replaces the whole region it is placed in with The Tower."
       - "This represents the tragedy of the writer and his wife."
       - "A path of papers forms a stairway to heaven."
       - "The wife is kept in a heavenly prison. Angels prevent the players from talking to her."
@@ -190,6 +191,7 @@ cards:
       - "She gives the players a letter for the writer at the final location."
       - "The players can reach a secret ending: the happy ending."
     reversed:
+      - "Replaces the whole region it is placed in with The Tower (Inverted)."
       - "This represents the tragedy of the writer and his wife."
       - "A path of papers leads into a deep and watery hell."
       - "The writer is kept in a watery prison in the depths, imprisoned by his own fears. Monsters attack the players."

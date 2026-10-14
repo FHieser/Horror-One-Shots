@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gear — Valley of Lost Fates</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .found-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 1rem; }
+    .found { border: 1px solid var(--line); background: var(--panel); padding: 1rem 1.1rem; display: flex; flex-direction: column; }
+    .found.artifact { border-color: var(--gold-dim); background: #15120a; }
+    .found-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.6rem; margin-bottom: 0.3rem; }
+    .found h3 { margin: 0; color: var(--text-bright); font-size: 1.1rem; }
+    .slots { font: 0.72rem 'Courier New', monospace; color: var(--gold); border: 1px solid var(--gold-dim); padding: 0.1rem 0.45rem; white-space: nowrap; }
+    .found .from { color: var(--text-dim); font-size: 0.8rem; font-style: italic; margin-bottom: 0.6rem; }
+    .found ul { font-size: 0.86rem; margin-bottom: 0.3rem; }
+    .found .open { margin-top: auto; padding: 0.5rem 0.8rem; }
+    .found .open ul { font-size: 0.8rem; }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="../../">Horror One-Shots</a>
+    <span class="brand-sep">/</span>
+    <a class="adv-brand" href="./">Valley of Lost Fates</a>
+    <nav>
+      <a href="./">Overview</a>
+      <a href="./map.html">Map</a>
+      <a href="./locations.html">Locations</a>
+      <a href="./cards.html">Cards</a>
+      <a href="./final.html">Final</a>
+      <a href="./gear.html" class="active">Gear</a>
+      <a href="./lore.html">Lore</a>
+    </nav>
+  </header>
+  <div class="content wide">
+    <h1>Items, Equipment &amp; Artifacts</h1>
+    <div id="gear"><p class="loading">LOADING…</p></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="./js/app.js"></script>
+  <script>initGear().catch(e => { document.querySelector('.content').insertAdjacentHTML('beforeend', '<p class="dim">Error: ' + e.message + '</p>'); });</script>
+</body>
+</html>

@@ -11,7 +11,7 @@
     - "Connects all regions."
   mechanic:
     - "This is where the cards are laid out."
-    - "Travelling from the Megalith into any region costs 2 Stress."
+    - "Travelling from the Megalith into any region costs 2 Resources."
 
 - id: village
   name: Village
@@ -63,7 +63,7 @@
   open:
     - "Third trade item."
     - "Ritual in the Fields."
-    - "Bell of Resurrection and Fire Capsule as HeartCore found cards."
+    - "Slot sizes of the trade items (see Gear)."
 
 - id: fishing-village
   name: Abandoned Fishing Village
@@ -124,12 +124,12 @@
   artifact:
     - "A hooded figure stands on top of Devilsrock: \"You want what I have. Then pay the price.\""
     - "He holds up a single black blade."
-    - "The players have to pay 30 damage in total."
+    - "The players have to pay 3 HP for every player who entered, in total."
     - "Every time the amount is not reached, the figure says: \"More.\""
     - "The moment they reach it, lightning strikes nearby."
     - "The figure is gone, a book lies in its place, and laughter can be heard."
   open:
-    - "Convert \"30 damage\" to HeartCore (HP marked across the group?)."
+    - "How the HP total is split among the players."
 
 - id: keep
   name: The Keep
@@ -160,9 +160,7 @@
     - "An old and crooked tower rises up from the earth."
     - "It has an ominous aura around it."
   mechanic:
-    - "Linked to the Tower card (XVI, upright)."
-  open:
-    - "Where it appears on the map."
+    - "Appears when the Tower card (XVI, red) is laid upright: it replaces the whole region it is placed in."
 
 - id: tower-inverted
   name: The Tower (Inverted)
@@ -172,6 +170,4 @@
     - "A stairway drills itself into the deep."
     - "You feel an ominous aura emanating from the hole."
   mechanic:
-    - "Linked to the Tower card (XVI, reversed)."
-  open:
-    - "Where it appears on the map."
+    - "Appears when the Tower card (XVI, red) is laid reversed: it replaces the whole region it is placed in."

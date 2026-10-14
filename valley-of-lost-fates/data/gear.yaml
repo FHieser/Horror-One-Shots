@@ -1,0 +1,113 @@
+# Items, equipment and artifacts. Shown on webapp/gear.html.
+# Extraordinary things use the HeartCore found card format (HeartCore/.claude/create-domain-cards.md):
+#   name, type (item | artifact | …), slots (loadout slots), text (one line per feature), flavor (optional)
+# Extra fields here: found (where it comes from), open (undecided points).
+# Mundane gear (armor, weapons, consumables) is standard HeartCore equipment.
+
+intro:
+  - "Ordinary gear (armor, weapons, consumables) is standard HeartCore equipment."
+  - "Everything extraordinary is a found card and takes loadout slots."
+
+expedition:
+  - name: Route Stabilizer
+    type: item
+    slots: 1
+    found: "Expedition gear. The expedition starts with 5."
+    text:
+      - "Apply before taking a route: crossing that route costs 1 Resource less."
+      - "Resets on a rest."
+    open:
+      - "Does it lower the cost for everyone crossing the route, or only for the character carrying it?"
+      - "Starting number (5 in the original notes)."
+
+  - name: Communicator
+    type: item
+    found: "Expedition gear. The only link to the outside."
+    text:
+      - "Once per game, send one update to the outside."
+    open:
+      - "Slot size."
+      - "What an update can achieve, and whether anything comes back."
+
+items:
+  - name: Bell of Resurrection
+    type: item
+    found: "Traded from the witch (Witch Hut)."
+    text:
+      - "One-shot: revive a character."
+    open:
+      - "Slot size."
+
+  - name: Fire Capsule of Curse Breaking
+    type: item
+    found: "Traded from the witch (Witch Hut)."
+    text:
+      - "One-shot: throw it. It ignites on impact and breaks a curse."
+    open:
+      - "Slot size."
+
+  - name: Medallion of the Hermit
+    type: item
+    slots: 0
+    found: "Gift from the Hermit (card IX, reversed)."
+    text:
+      - "Can be traded with the witch for any item, or for her artifact."
+
+  - name: Token of Gratitude
+    type: item
+    slots: 0
+    found: "Gift from the Magician (card I, upright) after bringing him the medallion."
+    text:
+      - "Call the Magician to change the location you are in: return the region's payments, or flip the region's card and reset it."
+
+  - name: The Painting
+    type: item
+    found: "Top of the Lighthouse, fetched for the witch."
+    text:
+      - "The witch trades her artifact for it."
+    open:
+      - "Slot size."
+
+  - name: The Letter
+    type: item
+    slots: 0
+    found: "From the writer's wife (card XVI, upright)."
+    text:
+      - "Give it to the writer at the final location to reach the secret happy ending."
+
+  - name: The Book
+    type: item
+    found: "Left behind by the hooded figure on Devilsrock."
+    text: []
+    open:
+      - "What the book is and what it does."
+
+artifacts:
+  - name: The Door Artifact
+    type: artifact
+    found: "At the door into the valley."
+    text:
+      - "Lets the expedition pass through the door into the valley."
+    open:
+      - "What it looks like, and whether it does anything inside the valley."
+
+  - name: Artifact A1
+    type: artifact
+    found: "Location of an A1 card (Empress, Emperor, Hierophant)."
+    text: []
+    open:
+      - "What it is. Decides the ruler form of the meteor."
+
+  - name: Artifact A2
+    type: artifact
+    found: "Location of an A2 card (Strength, Justice, Temperance)."
+    text: []
+    open:
+      - "What it is. Decides the people form of the meteor."
+
+  - name: Artifact A3
+    type: artifact
+    found: "Location of an A3 card (Star, Moon, Sun)."
+    text: []
+    open:
+      - "What it is. Decides the realm form of the meteor."
