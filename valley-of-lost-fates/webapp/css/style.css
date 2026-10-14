@@ -1,0 +1,79 @@
+/* Valley of Lost Fates — shared styles for all pages */
+:root {
+  --bg: #0c0e0d;
+  --panel: #121514;
+  --panel-2: #171b19;
+  --line: #2a302c;
+  --text: #c8ccc6;
+  --text-dim: #8a918b;
+  --text-bright: #eef0ea;
+  --gold: #c9a24a;
+  --gold-dim: #6e5a2c;
+  --yellow: #d8b040;
+  --red: #c84a4a;
+  --blue: #5a9ad8;
+  --plains: #8a9a4a;
+  --swamp: #4a7a5a;
+  --sea: #4a7aa8;
+  --highlands: #8a8a9a;
+  --central: #c9a24a;
+  --special: #9a5ab0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg); color: var(--text); font-family: Georgia, serif; }
+
+header { background: #080a09; border-bottom: 2px solid var(--gold-dim); padding: 0.5rem 1.5rem; display: flex; align-items: center; gap: 2rem; position: sticky; top: 0; z-index: 10; flex-wrap: wrap; }
+.brand { color: #777; font-size: 0.8rem; text-decoration: none; font-family: 'Courier New', monospace; letter-spacing: 0.08em; text-transform: uppercase; }
+.brand:hover { color: var(--gold); }
+.brand-sep { color: var(--gold-dim); margin: 0 0.3rem; }
+.adv-brand { color: var(--gold); font-size: 1.1rem; letter-spacing: 0.05em; text-decoration: none; }
+nav { display: flex; flex-wrap: wrap; margin-left: auto; }
+nav a { color: #888; text-decoration: none; font-size: 0.82rem; padding: 0.3rem 0.9rem; border: 1px solid transparent; letter-spacing: 0.06em; text-transform: uppercase; }
+nav a:hover { color: var(--gold); }
+nav a.active { color: var(--gold); border-color: var(--gold-dim); background: #15120a; }
+
+.content { max-width: 900px; margin: 0 auto; padding: 2.5rem 1.5rem 5rem; }
+.content.wide { max-width: 1150px; }
+h1 { color: var(--gold); font-size: 1.9rem; border-bottom: 2px solid var(--gold-dim); padding-bottom: 0.5rem; margin-bottom: 1.5rem; }
+h2 { color: var(--gold); font-size: 1.35rem; border-bottom: 1px solid var(--line); padding-bottom: 0.4rem; margin: 2.4rem 0 1rem; }
+h3 { color: var(--text-bright); font-size: 1.05rem; margin: 1.4rem 0 0.5rem; }
+p { font-size: 0.92rem; line-height: 1.75; margin-bottom: 0.7rem; }
+ul { font-size: 0.92rem; line-height: 1.7; padding-left: 1.3rem; margin-bottom: 0.7rem; list-style: none; }
+ul li::before { content: "\2726  "; color: var(--gold-dim); font-size: 0.75em; }
+li { margin-bottom: 0.25rem; }
+strong { color: var(--text-bright); }
+a { color: var(--gold); }
+.dim { color: var(--text-dim); }
+.label { font: 0.72rem 'Courier New', monospace; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-dim); margin-bottom: 0.4rem; }
+.loading { color: var(--text-dim); font: 0.85rem 'Courier New', monospace; letter-spacing: 0.1em; }
+
+/* At-a-glance block */
+.glance { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1px; background: var(--gold-dim); border: 1px solid var(--gold-dim); margin-bottom: 1rem; }
+.glance div { background: #11100b; padding: 0.7rem 1rem; }
+.glance dt { color: var(--text-dim); font: 0.7rem 'Courier New', monospace; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.2rem; }
+.glance dd { color: var(--text-bright); font-size: 0.95rem; }
+.glance dd span { color: var(--text-dim); font-size: 0.8rem; }
+
+/* Open questions box */
+.open { border: 1px dashed var(--gold-dim); background: #12100a; padding: 0.8rem 1.1rem; margin-top: 1.5rem; }
+.open .label { color: var(--gold); }
+.open ul { margin: 0; color: var(--text-dim); }
+.open li::before { content: "?  "; color: var(--gold); font-family: 'Courier New', monospace; }
+
+/* Pill selectors and tabs */
+.pills { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.8rem; }
+.pill { background: var(--panel); border: 1px solid var(--line); color: var(--text); font: 0.86rem Georgia, serif; padding: 0.4rem 0.9rem; cursor: pointer; }
+.pill:hover { border-color: var(--gold-dim); color: var(--text-bright); }
+.pill.active { background: #1e1a0e; border-color: var(--gold); color: var(--text-bright); }
+.pill .dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 0.45rem; vertical-align: middle; }
+
+/* Generic sheet */
+.sheet { border: 1px solid var(--line); background: var(--panel); padding: 1.6rem 1.8rem; }
+.sheet-head { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; flex-wrap: wrap; border-bottom: 1px solid var(--line); padding-bottom: 0.7rem; margin-bottom: 1rem; }
+.sheet-head h2 { margin: 0; border: none; padding: 0; font-size: 1.7rem; color: var(--text-bright); }
+.badge { font: 0.75rem 'Courier New', monospace; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.6rem; border: 1px solid currentColor; white-space: nowrap; }
+.section { margin-top: 1.3rem; }
+.box { border: 1px solid var(--line); background: var(--panel-2); padding: 0.9rem 1.1rem; }
+.box.artifact { border-color: var(--gold-dim); background: #15120a; }
+.box.artifact .label { color: var(--gold); }
+@media (max-width: 700px) { .sheet { padding: 1.1rem; } }

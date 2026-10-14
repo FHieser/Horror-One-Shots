@@ -7,6 +7,7 @@ A collection of pen & paper horror one-shots for tabletop RPGs.
 | Name | Theme | Setting | Players | Status |
 |------|-------|---------|---------|--------|
 | [The Door](the-door/) | Cosmic Horror, Isolation | Sci-Fi Mining Colony | 3-7 | Complete |
+| [Valley of Lost Fates](valley-of-lost-fates/) | Dark Fairy Tale, Fate | Hidden Valley (HeartCore) | TBD | In Progress |
 | [Luxury Cruiser](luxury-cruiser/) | Monster Horror, Artifact | Sci-Fi Cruise Ship | TBD | In Progress |
 | [Mountain Facility](mountain-facility/) | Psychological Horror, Cloning | Sci-Fi Research Base | TBD | In Progress |
 

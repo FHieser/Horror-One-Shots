@@ -1,0 +1,177 @@
+# Locations of the valley. Shown on webapp/locations.html and linked from the map.
+# region: central | plains | swamp | sea | highlands | special
+# lore: id of a myth in data/lore/ (liebende | sturmkrone | hexe-und-waerter | narr-und-wald)
+# All text entries are one line each.
+
+- id: megalith
+  name: Megalith
+  region: central
+  narrative:
+    - "Entry point into the valley."
+    - "Connects all regions."
+  mechanic:
+    - "This is where the cards are laid out."
+    - "Travelling from the Megalith into any region costs 2 Stress."
+
+- id: village
+  name: Village
+  region: plains
+  lore: narr-und-wald
+  narrative:
+    - "Contains villagers."
+  artifact:
+    - "Go to the forest and destroy the local monster."
+
+- id: fields
+  name: Fields
+  region: plains
+  narrative:
+    - "Hidden between the high cornfields one can find, or rather be found by, the scarecrows."
+  mechanic:
+    - "The Fields never receive a card."
+  artifact:
+    - "There is none."
+
+- id: woods
+  name: Woods
+  region: plains
+  lore: narr-und-wald
+  narrative:
+    - "The dark woods."
+    - "Here you can find the wolves."
+
+- id: witch-hut
+  name: Witch Hut
+  region: swamp
+  lore: hexe-und-waerter
+  narrative:
+    - "A trader."
+    - "Everything has a price."
+  meeting: "Inside the witch hut, having tea with the witch."
+  mechanic:
+    - "The witch trades items:"
+    - "Bell of Resurrection: revives a character. One-time use."
+    - "Fire Capsule of Curse Breaking: ignites on impact when thrown and breaks a curse."
+    - "A third item, still to be determined."
+    - "Items can be traded against favours or objects of similar value, e.g. the Medallion of the Hermit, or the players' camping equipment and a weapon."
+    - "If the players don't want to trade, they can do her a service: the ritual in the Abandoned Fishing Village (only if there is no artifact there), or a ritual in the Fields (still to be determined)."
+  artifact:
+    - "The witch has the artifact in her possession."
+    - "The players can trade it against the Medallion of the Hermit."
+    - "If they don't have it, the witch wants them to fetch a painting from the top of the Lighthouse. They have to complete the Lighthouse challenge for that."
+    - "This works even if one of the artifacts lies at the Lighthouse."
+  open:
+    - "Third trade item."
+    - "Ritual in the Fields."
+    - "Bell of Resurrection and Fire Capsule as HeartCore found cards."
+
+- id: fishing-village
+  name: Abandoned Fishing Village
+  region: swamp
+  lore: hexe-und-waerter
+  narrative:
+    - "Left to ruins."
+    - "The only one left is Tom. He just sits there and catches fish."
+    - "Join him as he looks into the maddening lake."
+  meeting: "Directly at the pier."
+  mechanic:
+    - "The village is completely empty when the players visit."
+    - "There are no boats to be seen."
+  artifact:
+    - "The players have to ring 3 different bells in order and then light the buoy in the central harbour basin to finish the ritual."
+    - "While doing this, they are attacked by shadow lackeys of the beast."
+    - "Ringing a bell takes 1 action."
+    - "Once the beast is in the central harbour, the players have to guide the buoy into the middle of the harbour (2 actions)."
+    - "The buoy then has to be shot at. The fire drives out the beast and ends the ritual."
+    - "If the artifact is here, the beast spits it up to the players."
+  open:
+    - "Shadow lackey stats for HeartCore (old notes: C35, d5+5 DMG, I:25, W1(10))."
+
+- id: lighthouse
+  name: The Lighthouse
+  region: sea
+  lore: hexe-und-waerter
+  narrative:
+    - "A lonely lighthouse stands by the sea."
+    - "The wind and waves beat it."
+    - "The big door invites you in, like the mouth of a big fish."
+    - "Do you dare to step into it?"
+  meeting: "In front of the Lighthouse."
+  mechanic:
+    - "The Lighthouse is closed if the artifact is not here."
+  artifact:
+    - "Climb the Lighthouse to the top."
+    - "There are stairs up and down. Taking them, you walk into the same room again."
+    - "It is a labyrinth where the only ways are up or down, but never back."
+    - "Once you reach a dead end, you stand in empty space on the stairs."
+    - "There is no escape but to jump into the darkness."
+    - "Once they jump, the players get the artifact and escape."
+
+- id: devilsrock
+  name: Devilsrock
+  region: highlands
+  lore: sturmkrone
+  narrative:
+    - "Lightning strikes this windy peak."
+    - "The bare rock is wet from the rain that hits it again and again."
+    - "You think you see hooded figures in the weather, but it might be a figment of your imagination."
+    - "The biggest of the rocks up here forms a huge plateau."
+    - "There are strange signs worked into the stone."
+    - "You get an eerie feeling."
+  meeting: "On top of the rock."
+  mechanic:
+    - "The rock is always in heavy rain when the players go there."
+  artifact:
+    - "A hooded figure stands on top of Devilsrock: \"You want what I have. Then pay the price.\""
+    - "He holds up a single black blade."
+    - "The players have to pay 30 damage in total."
+    - "Every time the amount is not reached, the figure says: \"More.\""
+    - "The moment they reach it, lightning strikes nearby."
+    - "The figure is gone, a book lies in its place, and laughter can be heard."
+  open:
+    - "Convert \"30 damage\" to HeartCore (HP marked across the group?)."
+
+- id: keep
+  name: The Keep
+  region: highlands
+  lore: sturmkrone
+  narrative:
+    - "The ancient fortress lies like a slumbering colossus upon the land, its stone body weathered by the centuries."
+    - "Moss and ivy drape its walls like a green burial shroud, battlements jutting upward like blunt horns toward the sky."
+    - "Once, voices and footsteps filled these halls. Now only the whisper of wind moves through the abandoned corridors."
+    - "It feels as though some ancient troll, battle-worn and broken, had come here to rest for the last time, and the world simply grew quietly over it."
+  meeting: "In the central hall, trying to talk with the king."
+  mechanic:
+    - "In the central hall the players see the king sitting alone on his throne."
+    - "They can talk to him, but he does not respond."
+    - "He just repeats: \"The price, the price was too high…\", \"A king of nothing\", \"What have I done\"."
+  artifact:
+    - "When the players interact with the king, he gets up and tries to hit them with his sword."
+    - "He screams: \"You are not real. Not really here. I am alone.\""
+    - "He is invulnerable to all forms of damage."
+    - "The crown can be ripped from his head with a successful check."
+    - "He then crumbles into dust. His final word: \"Finally.\""
+    - "The players can uncover the artifact from the dust."
+
+- id: tower
+  name: The Tower
+  region: special
+  narrative:
+    - "An old and crooked tower rises up from the earth."
+    - "It has an ominous aura around it."
+  mechanic:
+    - "Linked to the Tower card (XVI, upright)."
+  open:
+    - "Where it appears on the map."
+
+- id: tower-inverted
+  name: The Tower (Inverted)
+  region: special
+  narrative:
+    - "There is a huge hole in the ground."
+    - "A stairway drills itself into the deep."
+    - "You feel an ominous aura emanating from the hole."
+  mechanic:
+    - "Linked to the Tower card (XVI, reversed)."
+  open:
+    - "Where it appears on the map."

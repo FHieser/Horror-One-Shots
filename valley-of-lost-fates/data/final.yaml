@@ -1,0 +1,74 @@
+# The final location. Shown on webapp/final.html.
+# The meteor's monster form depends on the artifact cards in play:
+# A1 cards (Empress, Emperor, Hierophant) = ruler, A2 (Strength, Justice, Temperance) = people, A3 (Star, Moon, Sun) = realm.
+
+unlock:
+  - "When the players hold every artifact that is available on the map, the final region beyond the Lighthouse opens up."
+  - "If there are no artifacts on the map for whatever reason, the region is unlocked immediately."
+
+arrival:
+  - "A whirlpool at the cliff of the Lighthouse."
+  - "The players have to jump in to reach the end and escape."
+  - "There they meet the meteor, in the form of a monster."
+
+rulers:
+  - card: No card
+    theme:
+      - "Blank pages."
+      - "An empty room."
+      - "A rock floating around as the enemy."
+    attack: "Summons windows into stories, out of which attacks come."
+    ability1: "Freezes a player for 1 turn in a time fracture."
+    ability2: "Triggers a Stress ailment: the player relives a tragic memory again and again."
+  - card: The Emperor
+    theme:
+      - "Tyranny and control."
+      - "A throne room of iron."
+      - "Shadowy soldiers."
+    attack: "Melee: sword."
+    ability1: "Conjures soldiers."
+    ability2: "Lets 3 soldiers act."
+  - card: The Empress
+    theme:
+      - "Decadence and decay."
+      - "A rotting throne room."
+      - "Withered plants."
+    attack: "Withering touch."
+    ability1: "Summons a wall of thorns."
+    ability2: "Attacks are thrown back at the attacker."
+  - card: The Hierophant
+    theme:
+      - "Fanaticism and self-glorification."
+      - "Candles."
+      - "Symbols on the floor: a circle split into 5 areas (the 4 cardinal directions plus the centre)."
+    attack: "Candles: ranged fireball."
+    ability1: "Ritual circle that deals damage on its next activation."
+    ability2: "Ritual circle that you can't see out of."
+
+people:
+  - card: Strength
+    theme:
+      - "A single strong supporter of the ruler."
+      - "A great wolf."
+  - card: Justice
+    theme:
+      - "A large number of weak supporters."
+      - "Fanaticism."
+  - card: Temperance
+    theme: []
+
+realms:
+  - card: The Star
+    theme:
+      - "Restructuring."
+      - "False paths."
+    effect: "The positions of the areas change."
+  - card: The Moon
+    theme: []
+  - card: The Sun
+    theme: []
+
+open:
+  - "Stats for all forms (HeartCore adversary format)."
+  - "Temperance, Moon and Sun."
+  - "The sentence \"Each of the abilities has a …\" is unfinished in the notes."

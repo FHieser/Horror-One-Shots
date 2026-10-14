@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cards — Valley of Lost Fates</title>
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="stylesheet" href="./css/style.css">
+  <style>
+    .toolbar { display: flex; flex-wrap: wrap; gap: 0.6rem; align-items: center; margin-bottom: 1.5rem; }
+    .toolbar .pills { margin: 0; }
+    .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+    .tarot { border: 1px solid var(--line); background: var(--panel); display: flex; flex-direction: column; border-top: 4px solid var(--c); }
+    .tarot.yellow { --c: var(--yellow); } .tarot.red { --c: var(--red); } .tarot.blue { --c: var(--blue); }
+    .tarot-head { padding: 0.8rem 1rem 0.6rem; border-bottom: 1px solid var(--line); }
+    .tarot-num { font: 0.75rem 'Courier New', monospace; color: var(--c); letter-spacing: 0.1em; }
+    .tarot-name { color: var(--text-bright); font-size: 1.15rem; margin: 0.15rem 0; }
+    .tarot-de { color: var(--text-dim); font-size: 0.8rem; font-style: italic; }
+    .tarot-tags { display: flex; gap: 0.4rem; margin-top: 0.5rem; flex-wrap: wrap; }
+    .tarot-tags .badge { font-size: 0.65rem; color: var(--c); }
+    .tarot-tags .badge.art { color: var(--gold); }
+    .tarot-body { padding: 0.8rem 1rem 1rem; flex: 1; }
+    .tarot-body .label { color: var(--c); }
+    .tarot-body ul { font-size: 0.85rem; margin-bottom: 0.4rem; }
+    .tarot-body .side + .side { margin-top: 0.8rem; padding-top: 0.8rem; border-top: 1px dashed var(--line); }
+    .todo { color: var(--text-dim); font-style: italic; font-size: 0.85rem; }
+    .cat-legend { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-bottom: 1rem; }
+    .cat { border: 1px solid var(--line); border-top: 4px solid var(--c); background: var(--panel); padding: 0.7rem 0.9rem; font-size: 0.85rem; }
+    .cat strong { color: var(--c); }
+    .cat.yellow { --c: var(--yellow); } .cat.red { --c: var(--red); } .cat.blue { --c: var(--blue); }
+    @media (max-width: 700px) { .cat-legend { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <a class="brand" href="../../">Horror One-Shots</a>
+    <span class="brand-sep">/</span>
+    <a class="adv-brand" href="./">Valley of Lost Fates</a>
+    <nav>
+      <a href="./">Overview</a>
+      <a href="./map.html">Map</a>
+      <a href="./locations.html">Locations</a>
+      <a href="./cards.html" class="active">Cards</a>
+      <a href="./final.html">Final</a>
+      <a href="./crew.html">Crew</a>
+      <a href="./lore.html">Lore</a>
+    </nav>
+  </header>
+  <div class="content wide">
+    <h1>Cards</h1>
+    <div class="cat-legend">
+      <div class="cat yellow"><strong>Yellow</strong> · a single location. Some are artifact cards.</div>
+      <div class="cat red"><strong>Red</strong> · warps the rules of a region.</div>
+      <div class="cat blue"><strong>Blue</strong> · affects the whole map.</div>
+    </div>
+    <ul id="card-system"></ul>
+    <h2>The Major Arcana</h2>
+    <div class="toolbar">
+      <div class="pills" id="side-picker">
+        <button class="pill active" data-side="both">Both</button>
+        <button class="pill" data-side="upright">Upright</button>
+        <button class="pill" data-side="reversed">Reversed</button>
+      </div>
+      <div class="pills" id="cat-picker">
+        <button class="pill active" data-cat="all">All</button>
+        <button class="pill" data-cat="yellow"><span class="dot" style="background:var(--yellow)"></span>Yellow</button>
+        <button class="pill" data-cat="red"><span class="dot" style="background:var(--red)"></span>Red</button>
+        <button class="pill" data-cat="blue"><span class="dot" style="background:var(--blue)"></span>Blue</button>
+        <button class="pill" data-cat="artifact"><span class="dot" style="background:var(--gold)"></span>Artifacts</button>
+      </div>
+    </div>
+    <div class="grid" id="card-grid"><p class="loading">LOADING…</p></div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/4.1.0/js-yaml.min.js"></script>
+  <script src="./js/app.js"></script>
+  <script>initCards().catch(e => { document.querySelector('.content').insertAdjacentHTML('beforeend', '<p class="dim">Error: ' + e.message + '</p>'); });</script>
+</body>
+</html>

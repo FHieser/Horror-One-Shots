@@ -1,0 +1,239 @@
+# The 22 major arcana. Shown on webapp/cards.html.
+# category: yellow (single location) | red (whole region) | blue (whole map)
+# artifact: A1 | A2 | A3 for artifact cards (they make their location an artifact location)
+# upright / reversed: effect lines, one line each. Empty list = still to be written.
+
+system:
+  - "The cards represent the encounters and events that can happen in the valley."
+  - "Yellow cards are single-location encounters. When the players visit that place, they meet the card's event or character there."
+  - "Yellow cards are either artifact cards or non-artifact cards. An artifact card turns its location into an artifact location."
+  - "The players have to collect up to 3 different artifacts to unlock the final region."
+  - "Red cards are regional effects. They warp specific rules of a region."
+  - "Blue cards affect the whole map."
+
+cards:
+  - id: 0
+    name: The Fool
+    german: Der Narr
+    category: yellow
+    upright:
+      - "Teleport to a location of choice."
+    reversed:
+      - "In this region the party stumbles across an artifact: seemingly valuable and found with almost no effort."
+      - "No checks are needed; it appears entirely genuine and significant."
+      - "The moment they leave the region, it crumbles to dust or vanishes into thin air, without explanation or benefit."
+      - "All that remains is frustration, and the creeping sense that their confidence and judgement may have been misplaced."
+
+  - id: 1
+    name: The Magician
+    german: Der Magier
+    category: yellow
+    upright:
+      - "Sends the players to one of the other regions (dice roll). They have to fetch a medallion there."
+      - "Promises to support the players if they want to change the fate of a location."
+      - "Once they bring him the medallion, he gifts them a token of gratitude."
+      - "With the token, the players can call him to change the location they are in: return the region's payments, or flip the region's card and reset it."
+    reversed:
+      - "Sends the players to one of the other regions (dice roll), promising an artifact of invincibility. They have to fetch a medallion there."
+      - "When the players return, the mage is gone."
+
+  - id: 2
+    name: The High Priestess
+    german: Die Hohepriesterin
+    category: yellow
+    upright:
+      - "The players meet the old storyteller."
+      - "She tells them three facts about cards currently in play, but not which cards they are."
+    reversed:
+      - "The players meet the old storyteller."
+      - "She tells them three facts, but they are about cards that are currently not in play."
+
+  - id: 3
+    name: The Empress
+    german: Die Herrscherin
+    category: yellow
+    artifact: A1
+    upright: []
+    reversed: []
+
+  - id: 4
+    name: The Emperor
+    german: Der Herrscher
+    category: yellow
+    artifact: A1
+    upright: []
+    reversed: []
+
+  - id: 5
+    name: The Hierophant
+    german: Der Hierophant
+    category: yellow
+    artifact: A1
+    upright: []
+    reversed: []
+
+  - id: 6
+    name: The Lovers
+    german: Die Liebenden
+    category: red
+    upright:
+      - "Ah, the hearts of lovers will overcome even the greatest obstacles. But love is sadly not eternal, so make haste while it lasts."
+      - "Travelling between the locations of this region is immediate via portals and costs no Stress."
+      - "This lasts until the first rest."
+    reversed:
+      - "While the players are in this region, two characters become soul-shackled."
+      - "Randomly choose the first linked player; that player chooses the second."
+      - "Any Stress marked by one is also marked by the other."
+      - "A heart symbol appears on their palms."
+      - "The link lasts until the group leaves the region."
+
+  - id: 7
+    name: The Chariot
+    german: Der Wagen
+    category: yellow
+    upright:
+      - "At the edge of the map a lone horse with a chariot appears."
+      - "If the players step into it, travel becomes easier: all borders cost 1 less Stress to cross."
+    reversed:
+      - "Teleport to a random location."
+
+  - id: 8
+    name: Strength
+    german: Die Kraft
+    category: yellow
+    artifact: A2
+    upright: []
+    reversed: []
+
+  - id: 9
+    name: The Hermit
+    german: Der Eremit
+    category: yellow
+    upright:
+      - "Likes to be alone. Proposes that one of the players plays a simple game."
+      - "If the Hermit wins, they are to be left alone."
+      - "If the Hermit loses, they share some wisdom: pick 3 cards or locations and get their general feeling."
+    reversed:
+      - "The Hermit grieves a long-forgotten love."
+      - "They gift the players a medallion and then vanish."
+      - "The medallion can be traded with the witch for any item."
+
+  - id: 10
+    name: Wheel of Fortune
+    german: Das Rad des Schicksals
+    category: blue
+    upright:
+      - "After each rest, rotate all cards and paths 1d4 steps clockwise."
+      - "If another blue card is drawn, lay it under this card; its effect is not triggered."
+    reversed:
+      - "As upright, but counter-clockwise."
+      - "If another blue card is drawn, lay it under this card; its effect is not triggered."
+
+  - id: 11
+    name: Justice
+    german: Die Gerechtigkeit
+    category: yellow
+    artifact: A2
+    upright: []
+    reversed: []
+
+  - id: 12
+    name: The Hanged Man
+    german: Der Gehängte
+    category: yellow
+    upright:
+      - "A corpse hangs from a tree, and it is still alive."
+      - "If the players cut it loose, it shares information about two locations."
+    reversed:
+      - "A corpse hangs from a tree, and it is still alive."
+      - "It demands that the players leave valuable items with it, and then gives them information."
+
+  - id: 13
+    name: Death
+    german: Der Tod
+    category: red
+    upright:
+      - "When the players enter the region, a tall hooded figure with a scythe appears out of nothing."
+      - "It asks whether they want to resurrect the region."
+      - "If they agree, new cards are drawn to fill the region."
+    reversed:
+      - "When the players enter the region, a tall hooded figure with a scythe appears out of nothing."
+      - "It tells them the region is dead."
+      - "All cards drawn for the region are destroyed and no longer active. The areas are empty."
+
+  - id: 14
+    name: Temperance
+    german: Die Mäßigkeit
+    category: yellow
+    artifact: A2
+    upright: []
+    reversed: []
+
+  - id: 15
+    name: The Devil
+    german: Der Teufel
+    category: yellow
+    upright:
+      - "Offers the first player who sees him a way out of the valley: sacrifice the other players."
+    reversed:
+      - "The players must sacrifice one of their own to escape the Devil."
+
+  - id: 16
+    name: The Tower
+    german: Der Turm
+    category: red
+    upright:
+      - "This represents the tragedy of the writer and his wife."
+      - "A path of papers forms a stairway to heaven."
+      - "The wife is kept in a heavenly prison. Angels prevent the players from talking to her."
+      - "She knows about the pain her husband went through, but she is bound there and can't reach him."
+      - "She gives the players a letter for the writer at the final location."
+      - "The players can reach a secret ending: the happy ending."
+    reversed:
+      - "This represents the tragedy of the writer and his wife."
+      - "A path of papers leads into a deep and watery hell."
+      - "The writer is kept in a watery prison in the depths, imprisoned by his own fears. Monsters attack the players."
+      - "In a moment of clarity he gifts the players … (unfinished)."
+      - "The players can reach a secret ending: the sad ending."
+
+  - id: 17
+    name: The Star
+    german: Der Stern
+    category: yellow
+    artifact: A3
+    upright: []
+    reversed: []
+
+  - id: 18
+    name: The Moon
+    german: Der Mond
+    category: yellow
+    artifact: A3
+    upright: []
+    reversed: []
+
+  - id: 19
+    name: The Sun
+    german: Die Sonne
+    category: yellow
+    artifact: A3
+    upright: []
+    reversed: []
+
+  - id: 20
+    name: Judgement
+    german: Das Gericht
+    category: yellow
+    upright: []
+    reversed: []
+
+  - id: 21
+    name: The World
+    german: Die Welt
+    category: blue
+    upright:
+      - "Whoever lays out the cards can decide whether to redraw every card again (excluding the World)."
+      - "If another blue card is drawn, lay it under this card; its effect is not triggered."
+    reversed:
+      - "The next three cards are drawn by the GM and can be arranged in any way on the board."
+      - "If another blue card is drawn, lay it under this card; its effect is not triggered."

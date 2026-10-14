@@ -63,6 +63,12 @@ jobs:
           # Keep /the-door/ working: redirect to the webapp
           printf '<!DOCTYPE html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=webapp/"><a href="webapp/">The Door</a>' > _site/the-door/index.html
 
+          # Valley of Lost Fates — webapp pages + data (fetched at runtime via ../data/)
+          mkdir -p _site/valley-of-lost-fates
+          cp -r "valley-of-lost-fates/webapp"  _site/valley-of-lost-fates/webapp
+          cp -r "valley-of-lost-fates/data"    _site/valley-of-lost-fates/data
+          printf '<!DOCTYPE html><meta charset="utf-8"><meta http-equiv="refresh" content="0; url=webapp/"><a href="webapp/">Valley of Lost Fates</a>' > _site/valley-of-lost-fates/index.html
+
           # Placeholder pages
           cp "On route to chaos/index.html" _site/on-route-to-chaos/
 
