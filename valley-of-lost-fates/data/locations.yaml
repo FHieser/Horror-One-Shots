@@ -1,6 +1,7 @@
 # Locations of the valley. Shown on webapp/locations.html and linked from the map.
 # region: central | plains | swamp | sea | highlands | special
 # challenge: completing it gains the page, if one lies here (see data/pages.yaml)
+# adversaries: ids from data/adversaries.yaml
 # lore: id of a myth in data/lore/ (liebende | sturmkrone | hexe-und-waerter | narr-und-wald)
 # All text entries are one line each.
 
@@ -9,6 +10,8 @@
   region: central
   narrative:
     - "Entry point into the valley."
+    - "Here stands the door: an ancient stone arch, filled with mist."
+    - "From the inside, the arch stands empty. There is no way back through it."
     - "Connects all regions."
   mechanic:
     - "This is where the cards are laid out."
@@ -50,11 +53,12 @@
     - "Everything has a price."
   meeting: "Inside the witch hut, having tea with the witch."
   mechanic:
-    - "The witch trades items:"
-    - "Bell of Resurrection: revives a character. One-time use."
-    - "Fire Capsule of Curse Breaking: ignites on impact when thrown and breaks a curse."
-    - "A third item, still to be determined."
-    - "Items can be traded against favours or objects of similar value, e.g. the Medallion of the Hermit, or the players' camping equipment and a weapon."
+    - "The witch trades items. Each has a price, paid in favours or objects of similar value (e.g. the Medallion of the Hermit, or the players' camping equipment and a weapon):"
+    - "Health Potion (price 1): clear 1d4 HP. One-time use."
+    - "Stress Potion (price 1): clear 1d4 Stress. One-time use."
+    - "Teleporter Mushroom (price 1): teleports to a location; everyone who goes along marks 2 Stress. One-time use."
+    - "Bell of Resurrection (price 2): revives a character. One-time use."
+    - "She has exactly one of each and doesn't restock. Once an item is traded, it's gone."
     - "If the players don't want to trade, they can do her a service: the ritual in the Abandoned Fishing Village (only if there is no page there), or a ritual in the Fields (still to be determined)."
   challenge:
     - "If a page lies here, the witch has it in her possession."
@@ -62,9 +66,7 @@
     - "If they don't have it, the witch wants them to fetch a painting from the top of the Lighthouse. They have to complete the Lighthouse challenge for that."
     - "This works even if one of the pages lies at the Lighthouse."
   open:
-    - "Third trade item."
     - "Ritual in the Fields."
-    - "Slot sizes of the trade items (see Gear)."
 
 - id: fishing-village
   name: Abandoned Fishing Village
@@ -80,13 +82,12 @@
     - "There are no boats to be seen."
   challenge:
     - "The players have to ring 3 different bells in order and then light the buoy in the central harbour basin to finish the ritual."
-    - "While doing this, they are attacked by shadow lackeys of the beast."
+    - "While doing this, they are attacked by Shadefin Scuttlers, shadow lackeys of the beast."
     - "Ringing a bell takes 1 action."
     - "Once the beast is in the central harbour, the players have to guide the buoy into the middle of the harbour (2 actions)."
     - "The buoy then has to be shot at. The fire drives out the beast and ends the ritual."
     - "If a page lies here, the beast spits it up to the players."
-  open:
-    - "Shadow lackey stats for HeartCore (old notes: C35, d5+5 DMG, I:25, W1(10))."
+  adversaries: [shadefin-scuttler]
 
 - id: lighthouse
   name: The Lighthouse
@@ -126,12 +127,11 @@
   challenge:
     - "A hooded figure stands on top of Devilsrock: \"You want what I have. Then pay the price.\""
     - "He holds up a single black blade."
-    - "The players have to pay 3 HP for every player who entered, in total."
+    - "The players have to pay 2 HP for every player who entered, in total. It doesn't matter whose blood it is: any split among the players counts."
+    - "What has been paid resets on a rest."
     - "Every time the amount is not reached, the figure says: \"More.\""
     - "The moment they reach it, lightning strikes nearby."
-    - "The figure is gone, a book lies in its place, and laughter can be heard."
-  open:
-    - "How the HP total is split among the players."
+    - "The figure is gone and laughter can be heard. If a page lies here, it lies in the figure's place."
 
 - id: keep
   name: The Keep

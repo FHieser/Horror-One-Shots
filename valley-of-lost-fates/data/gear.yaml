@@ -19,29 +19,40 @@ expedition:
 
   - name: Communicator
     type: item
+    slots: 1
     found: "Expedition gear. The only link to the outside."
     text:
-      - "Once per game, send one update to the outside."
-    open:
-      - "Slot size."
-      - "What an update can achieve, and whether anything comes back."
+      - "Once per game, send a message of up to 20 words to the outside."
+      - "The messages are kept: groups who play the valley later may receive the messages of former players."
 
 items:
+  - name: Health Potion
+    type: item
+    slots: 0
+    found: "Traded from the witch (Witch Hut) for a price of 1. She has only one."
+    text:
+      - "One-shot: clear 1d4 HP."
+
+  - name: Stress Potion
+    type: item
+    slots: 0
+    found: "Traded from the witch (Witch Hut) for a price of 1. She has only one."
+    text:
+      - "One-shot: clear 1d4 Stress."
+
+  - name: Teleporter Mushroom
+    type: item
+    slots: 0
+    found: "Traded from the witch (Witch Hut) for a price of 1. She has only one."
+    text:
+      - "One-shot: teleport to a location. Everyone who goes along marks 2 Stress."
+
   - name: Bell of Resurrection
     type: item
-    found: "Traded from the witch (Witch Hut)."
+    slots: 0
+    found: "Traded from the witch (Witch Hut) for a price of 2. She has only one."
     text:
       - "One-shot: revive a character."
-    open:
-      - "Slot size."
-
-  - name: Fire Capsule of Curse Breaking
-    type: item
-    found: "Traded from the witch (Witch Hut)."
-    text:
-      - "One-shot: throw it. It ignites on impact and breaks a curse."
-    open:
-      - "Slot size."
 
   - name: Medallion of the Hermit
     type: item
@@ -59,11 +70,10 @@ items:
 
   - name: The Painting
     type: item
+    slots: 1
     found: "Top of the Lighthouse, fetched for the witch."
     text:
       - "The witch trades a page she holds for it."
-    open:
-      - "Slot size."
 
   - name: The Letter
     type: item
@@ -72,39 +82,25 @@ items:
     text:
       - "Give it to the writer at the final location to reach the secret happy ending."
 
-  - name: The Book
-    type: item
-    found: "Left behind by the hooded figure on Devilsrock."
-    text: []
-    open:
-      - "What the book is and what it does."
-
-  - name: The Door Artifact
-    type: artifact
-    found: "At the door into the valley."
-    text:
-      - "Lets the expedition pass through the door into the valley."
-    open:
-      - "What it looks like, and whether it does anything inside the valley."
-
 pages:
   - name: The First Reading
     type: item
+    slots: 0
     found: "At the location the table gives for the first card drawn. Gained by completing the challenge there."
     text:
-      - "One of the three pages the hermit read at the cliff. All three open the way to the final region."
+      - "One of the three pages the hermit read at the cliff. All three open the way to the final region. No power of its own; it is simply carried."
       - "Holds the story: Der Narr und der verbotene Wald."
-    open:
-      - "Slot size, and whether it has a power of its own."
   - name: The Second Reading
     type: item
+    slots: 0
     found: "At the location the table gives for the first card drawn. Gained by completing the challenge there."
     text:
-      - "One of the three pages the hermit read at the cliff. All three open the way to the final region."
+      - "One of the three pages the hermit read at the cliff. All three open the way to the final region. No power of its own; it is simply carried."
       - "Holds the story: Die Hexe und der Wärter."
   - name: The Third Reading
     type: item
+    slots: 0
     found: "At the location the table gives for the first card drawn. Gained by completing the challenge there."
     text:
-      - "One of the three pages the hermit read at the cliff. All three open the way to the final region."
+      - "One of the three pages the hermit read at the cliff. All three open the way to the final region. No power of its own; it is simply carried."
       - "Holds the story: Die Sturmkrone."

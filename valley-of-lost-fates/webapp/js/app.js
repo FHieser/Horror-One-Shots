@@ -218,8 +218,25 @@ async function initReading() {
 
 // ── Locations ───────────────────────────────────────────────────────────────
 
+function adversaryBlock(a) {
+  return (a.tiers || []).map(t => `
+    <div class="adversary">
+      <div class="adv-head"><h3>${a.name}</h3><span class="badge">Tier ${t.tier} ${a.category || ''}</span></div>
+      <p class="adv-desc">${a.description || ''}</p>
+      ${a.motives ? `<p class="adv-line"><span class="label">Motives &amp; tactics</span> ${a.motives}</p>` : ''}
+      <div class="adv-stats">
+        <span><b>Difficulty</b> ${t.difficulty}</span><span><b>HP</b> ${t.hp}</span><span><b>Stress</b> ${t.stress}</span>
+        ${t.thresholds ? `<span><b>Thresholds</b> ${t.thresholds}</span>` : ''}
+      </div>
+      ${t.attack ? `<p class="adv-line"><span class="label">Attack</span> ${t.attack.bonus} · ${t.attack.name} · ${t.attack.range} · ${t.attack.damage}</p>` : ''}
+      ${t.experience?.length ? `<p class="adv-line"><span class="label">Experience</span> ${t.experience.map(e => `${e.name} +${e.value}`).join(', ')}</p>` : ''}
+      ${(t.features || []).map(f => `<div class="adv-feature"><strong>${f.name}</strong> <span class="dim">· ${f.type}${f.cost ? ' · ' + f.cost : ''}</span><p>${f.description}</p></div>`).join('')}
+    </div>`).join('');
+}
+
 async function initLocations() {
-  const locs = await fetchYaml('../data/locations.yaml');
+  const [locs, advs] = await Promise.all([fetchYaml('../data/locations.yaml'), fetchYaml('../data/adversaries.yaml')]);
+  const advById = Object.fromEntries((advs || []).map(a => [a.id, a]));
   const byId = Object.fromEntries(locs.map(l => [l.id, l]));
 
   document.getElementById('loc-picker').innerHTML = locs.map(l =>
@@ -238,6 +255,7 @@ async function initLocations() {
         ${l.meeting ? `<div class="section"><div class="label">Meeting place</div><p>${l.meeting}</p></div>` : ''}
         ${l.mechanic?.length ? `<div class="section"><div class="label">Mechanic</div>${list(l.mechanic)}</div>` : ''}
         ${l.challenge?.length ? `<div class="section box artifact"><div class="label">Challenge</div>${list(l.challenge)}</div>` : ''}
+        ${(l.adversaries || []).filter(id => advById[id]).map(id => `<div class="section"><div class="label">Adversary</div>${adversaryBlock(advById[id])}</div>`).join('')}
         ${openBox(l.open)}
       </article>`;
   });

@@ -9,9 +9,11 @@
 
 ## Premise
 
-There is a door leading to a hidden valley. At the door lies an artifact; with it, you can go through. Once inside, you can't leave.
+An ancient stone arch, filled with mist, leads into a hidden valley. Once through, there is no way back: from the inside, the arch stands empty.
 
 Teams have been sent in before, and from them basic communications and gear were figured out. The players are the next expedition.
+
+**Legacy.** The valley is played as a one-shot series. Once per game, the expedition can send a message of up to 20 words to the outside, and groups who play later may receive the messages of those who came before.
 
 **The party.** Players build HeartCore characters as usual. A balanced group is recommended: ideally the Doctor, Mechanic, Scientist and Soldier are all covered, so the expedition can heal, fix, understand and fight.
 

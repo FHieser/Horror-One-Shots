@@ -77,3 +77,16 @@ a { color: var(--gold); }
 .box.artifact { border-color: var(--gold-dim); background: #15120a; }
 .box.artifact .label { color: var(--gold); }
 @media (max-width: 700px) { .sheet { padding: 1.1rem; } }
+
+/* Adversary stat block */
+.adversary { border: 1px solid #4a2a2a; background: #140e0e; padding: 1rem 1.2rem; }
+.adv-head { display: flex; justify-content: space-between; align-items: baseline; gap: 0.8rem; flex-wrap: wrap; }
+.adv-head h3 { margin: 0; color: var(--text-bright); font-size: 1.15rem; }
+.adv-head .badge { color: var(--red); }
+.adv-desc { font-style: italic; color: var(--text); margin: 0.5rem 0; }
+.adv-stats { display: flex; flex-wrap: wrap; gap: 0.5rem 1.2rem; padding: 0.5rem 0; border-top: 1px solid #3a2222; border-bottom: 1px solid #3a2222; margin: 0.5rem 0; font-size: 0.9rem; }
+.adv-stats b { color: var(--red); font-weight: normal; font-family: 'Courier New', monospace; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; margin-right: 0.3rem; }
+.adv-line { margin-bottom: 0.35rem; }
+.adv-line .label { display: inline; margin-right: 0.4rem; color: var(--red); }
+.adv-feature { margin-top: 0.6rem; }
+.adv-feature p { margin: 0.15rem 0 0; font-size: 0.88rem; }

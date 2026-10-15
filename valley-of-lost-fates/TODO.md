@@ -2,23 +2,11 @@
 
 ## Open
 
-### Core rules
-- [ ] **The three pages as items:** slot size, and whether a page has a power of its own.
-- [ ] **Door artifact:** what it looks like, and whether it does anything inside the valley.
-
-### Gear
-- [ ] **Communicator:** slot size; what an update to the outside can achieve, and whether anything comes back.
-- [ ] **Slot sizes** for the Bell of Resurrection, the Fire Capsule and the Painting.
-- [ ] **The Book** from Devilsrock: what it is and what it does.
-
 ### Locations
-- [ ] **Village:** mechanic; which monster in the forest the artifact challenge is about.
-- [ ] **Woods:** mechanic and artifact challenge.
+- [ ] **Village:** mechanic; which monster in the forest the challenge is about.
+- [ ] **Woods:** mechanic and challenge.
 - [ ] **Fields:** what the scarecrows do; the witch's ritual in the Fields.
-- [ ] **Witch Hut:** the third trade item.
-- [ ] **Abandoned Fishing Village:** shadow lackey stats in HeartCore format (old notes: C35, d5+5 DMG, I:25, W1(10)).
-- [ ] **Devilsrock:** how the HP total (3 per player who entered) is split among the players.
-- [ ] **Meeting places** (where the players meet the character of a card laid at the location) for the Megalith, Village, Fields, Woods and both Towers.
+- [ ] **Meeting places** (where the players meet the character of a card laid at the location) for the Village and the Woods.
 
 ### Cards
 - [ ] **Cards without effects** (formerly artifact cards): Empress, Emperor, Hierophant, Strength, Justice, Temperance, Star, Moon, Sun.
@@ -44,9 +32,15 @@
 - **Route Stabilizers:** found cards, 1 slot each. Apply before taking a route: it costs 1 Resource less for the whole group. Reset on a rest. The expedition starts with 5.
 - **Card reading:** at the start, the players meet the old lady (the High Priestess storyteller) on the Megalith. The 22 cards are shuffled with mixed orientation; the players place each drawn card into a free slot of its colour without knowing its meaning. Slots: 7 yellow (one per location, none for the Fields), 4 red (one per region), 1 blue (whole map); extra blue cards go under the first. The reading ends when all yellow slots are filled. It is done at the table with real cards; the GM records it on the Map page.
 - **Meeting place:** where the players meet the character of a card laid at a location (e.g. the Hermit at the Witch Hut is met inside the hut).
-- **Communicator:** essential expedition gear; one update to the outside per game.
-- **Devilsrock:** the price is 3 HP for every player who entered.
+- **Communicator:** 1 slot. Once per game, one message of up to 20 words to the outside. The valley is a one-shot series: later groups may receive the messages of former players.
+- **The door:** an ancient stone arch filled with mist, at the Megalith. It does nothing; from the inside it stands empty, and there is no way back.
+- **Pages:** 0 slots, no powers, simply carried.
+- **Items:** Bell of Resurrection 0 slots, the Painting 1 slot. The Fire Capsule is dropped.
+- **Witch's trades:** Health Potion (clear 1d4 HP), Stress Potion (clear 1d4 Stress) and Teleporter Mushroom (teleport to a location; everyone who goes along marks 2 Stress) for a price of 1 each; Bell of Resurrection for a price of 2. All 0 slots, all one-time use. She has one of each and doesn't restock. Prices are paid in favours or objects of similar value.
+- **Devilsrock:** once paid, the page (if one lies here) lies in the hooded figure's place; no book. The price is 2 HP for every player who entered, in total; any split among the players counts. What has been paid resets on a rest.
+- **No meeting place needed:** the Megalith, the Fields (never get a card) and both Towers (they replace the whole region).
 - **The Tower:** a red card; laid upright or reversed, it replaces the whole region it is placed in with The Tower or The Tower (Inverted).
 - **The three pages replace the artifacts:** the three readings of the hermit. The first card drawn in the reading decides their locations via a balanced table (data/pages.yaml, 22 rows, only the 7 locations that hold a card). A page is gained by completing the challenge at its location. Each page holds one story: I Der Narr und der verbotene Wald, II Die Hexe und der Wärter, III Die Sturmkrone (the Fall of the Lovers is the frame). All three open the final region. The first card goes into the white Pages field above the map: it is set aside, has no effect in the valley, and its orientation doesn't matter. Pages may land in any location, regardless of their story's region. On the Map page, the GM puts it into the Pages field and sees the pages marked.
 - **Lighthouse:** the way through the stairs is up, up, down, up, down.
+- **Shadow lackeys:** Shadefin Scuttler (Minion, tier 1), stats in data/adversaries.yaml.
 - **Players:** up to 5. **Theme:** dark fairy tale, tragic love, fate.
