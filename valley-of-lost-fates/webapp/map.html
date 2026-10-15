@@ -37,6 +37,13 @@
     .face .orient.rev { fill: #ff8a8a; }
 
     /* Reading panel */
+    .first-card { display: flex; flex-direction: column; gap: 0.2rem; }
+    .first-card select { background: var(--panel); color: var(--text-bright); border: 1px solid var(--gold-dim); font: 0.9rem Georgia, serif; padding: 0.35rem 0.5rem; }
+    .pages-line { max-width: 900px; margin: -0.8rem auto 1.5rem; font-size: 0.9rem; color: var(--text); }
+    .pages-line strong { color: var(--gold); }
+    .page-mark[hidden] { display: none; }
+    .page-mark circle { fill: #c9a24a; stroke: #0c0e0d; stroke-width: 2; }
+    .page-mark text { fill: #1a1508; font: 700 10px 'Courier New', monospace; text-anchor: middle; dominant-baseline: central; }
     .slot { cursor: pointer; }
     .slot:hover .frame { fill: #1e1b10; stroke-width: 3; }
     .slot-panel { max-width: 900px; margin: 0 auto 1.5rem; border: 1px solid var(--gold); background: var(--panel); padding: 1rem 1.2rem; }
@@ -85,8 +92,12 @@
     <h1>The Valley</h1>
     <div class="reading">
       <p class="lady"><strong>The reading</strong> happens at the table with the real cards. Record it here: click an empty slot to choose the card that was laid there, click a filled slot to see its effect, flip or remove it. Your reading is saved in this browser.</p>
-      <div class="actions"><button class="btn ghost" id="reset-btn">Clear reading</button></div>
+      <div class="actions">
+        <label class="first-card"><span class="label">First card drawn</span><select id="first-card"><option value="">—</option></select></label>
+        <button class="btn ghost" id="reset-btn">Clear reading</button>
+      </div>
     </div>
+    <p class="pages-line" id="pages-line"></p>
     <div class="slot-panel" id="slot-panel" hidden></div>
     <div class="map-wrap">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 990" role="img" aria-label="Map of the valley with card slots">
@@ -155,61 +166,73 @@
         <g class="slot yellow" data-slot="lighthouse" data-color="yellow" data-label="The Lighthouse" data-w="74" data-h="112" transform="translate(24,22)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">The Lighthouse</text>
         </g>
         <g class="slot red" data-slot="sea" data-color="red" data-label="Sea" data-w="112" data-h="74" transform="translate(110,41)">
           <rect class="frame" width="112" height="74" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="112" cy="0" r="14"/><text x="112" y="0"></text></g>
           <text class="slot-label" x="56.0" y="89">Sea</text>
         </g>
         <g class="slot blue" data-slot="map" data-color="blue" data-label="Whole map" data-w="112" data-h="74" transform="translate(444,41)">
           <rect class="frame" width="112" height="74" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="112" cy="0" r="14"/><text x="112" y="0"></text></g>
           <text class="slot-label" x="56.0" y="89">Whole map</text>
         </g>
         <g class="slot yellow" data-slot="devilsrock" data-color="yellow" data-label="Devilsrock" data-w="74" data-h="112" transform="translate(690,22)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">Devilsrock</text>
         </g>
         <g class="slot red" data-slot="highlands" data-color="red" data-label="Highlands" data-w="112" data-h="74" transform="translate(776,41)">
           <rect class="frame" width="112" height="74" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="112" cy="0" r="14"/><text x="112" y="0"></text></g>
           <text class="slot-label" x="56.0" y="89">Highlands</text>
         </g>
         <g class="slot yellow" data-slot="keep" data-color="yellow" data-label="The Keep" data-w="74" data-h="112" transform="translate(900,22)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">The Keep</text>
         </g>
         <g class="slot yellow" data-slot="fishing-village" data-color="yellow" data-label="Fishing Village" data-w="74" data-h="112" transform="translate(24,830)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">Fishing Village</text>
         </g>
         <g class="slot red" data-slot="swamp" data-color="red" data-label="Swamp" data-w="112" data-h="74" transform="translate(110,849)">
           <rect class="frame" width="112" height="74" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="112" cy="0" r="14"/><text x="112" y="0"></text></g>
           <text class="slot-label" x="56.0" y="89">Swamp</text>
         </g>
         <g class="slot yellow" data-slot="witch-hut" data-color="yellow" data-label="Witch Hut" data-w="74" data-h="112" transform="translate(234,830)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">Witch Hut</text>
         </g>
         <g class="slot red" data-slot="plains" data-color="red" data-label="Plains" data-w="112" data-h="74" transform="translate(652,849)">
           <rect class="frame" width="112" height="74" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="112" cy="0" r="14"/><text x="112" y="0"></text></g>
           <text class="slot-label" x="56.0" y="89">Plains</text>
         </g>
         <g class="slot yellow" data-slot="village" data-color="yellow" data-label="Village" data-w="74" data-h="112" transform="translate(776,830)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">Village</text>
         </g>
         <g class="slot yellow" data-slot="woods" data-color="yellow" data-label="Woods" data-w="74" data-h="112" transform="translate(862,830)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">Woods</text>
         </g>
         <text class="legend-note" x="500" y="982">Numbers on the borders: Resources to cross</text>

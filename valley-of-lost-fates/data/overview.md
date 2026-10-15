@@ -30,13 +30,13 @@ Crossing a border costs **Resources** (see the [Map](./map.html)), and every cha
 
 The valley changes with every game. At the start, the players meet the old lady on the Megalith and do the reading with her: the **22 major arcana** are shuffled with mixed orientation and drawn one by one, and the players place each card into a free slot of its colour around the map, without knowing what it means. The reading ends when every location slot is filled (record the reading on the [Map](./map.html); effects on [Cards](./cards.html)).
 
-- **Yellow** cards are encounters at a single location. Some of them are **artifact cards**.
+- **Yellow** cards are encounters at a single location.
 - **Red** cards change the rules of a whole region.
 - **Blue** cards affect the whole map.
 
 ## Goal
 
-Collect the **artifacts** (up to 3) to open the final region beyond the Lighthouse: a whirlpool at the cliffs, where the meteor waits in the form of a monster. Its form depends on which artifact cards were in play (see [Final](./final.html)).
+Find the **three pages**, the three readings the hermit once read at the cliff. The first card drawn in the reading decides where they lie, and each is gained by completing the challenge at its location, so a run never needs every quest. With all three, the final region beyond the Lighthouse opens: a whirlpool at the cliffs, where the meteor waits in the form of a monster (see [Final](./final.html)).
 
 ## Background
 

@@ -1,5 +1,6 @@
 # Locations of the valley. Shown on webapp/locations.html and linked from the map.
 # region: central | plains | swamp | sea | highlands | special
+# challenge: completing it gains the page, if one lies here (see data/pages.yaml)
 # lore: id of a myth in data/lore/ (liebende | sturmkrone | hexe-und-waerter | narr-und-wald)
 # All text entries are one line each.
 
@@ -19,7 +20,7 @@
   lore: narr-und-wald
   narrative:
     - "Contains villagers."
-  artifact:
+  challenge:
     - "Go to the forest and destroy the local monster."
 
 - id: fields
@@ -29,7 +30,7 @@
     - "Hidden between the high cornfields one can find, or rather be found by, the scarecrows."
   mechanic:
     - "The Fields never receive a card."
-  artifact:
+  challenge:
     - "There is none."
 
 - id: woods
@@ -54,12 +55,12 @@
     - "Fire Capsule of Curse Breaking: ignites on impact when thrown and breaks a curse."
     - "A third item, still to be determined."
     - "Items can be traded against favours or objects of similar value, e.g. the Medallion of the Hermit, or the players' camping equipment and a weapon."
-    - "If the players don't want to trade, they can do her a service: the ritual in the Abandoned Fishing Village (only if there is no artifact there), or a ritual in the Fields (still to be determined)."
-  artifact:
-    - "The witch has the artifact in her possession."
+    - "If the players don't want to trade, they can do her a service: the ritual in the Abandoned Fishing Village (only if there is no page there), or a ritual in the Fields (still to be determined)."
+  challenge:
+    - "If a page lies here, the witch has it in her possession."
     - "The players can trade it against the Medallion of the Hermit."
     - "If they don't have it, the witch wants them to fetch a painting from the top of the Lighthouse. They have to complete the Lighthouse challenge for that."
-    - "This works even if one of the artifacts lies at the Lighthouse."
+    - "This works even if one of the pages lies at the Lighthouse."
   open:
     - "Third trade item."
     - "Ritual in the Fields."
@@ -77,13 +78,13 @@
   mechanic:
     - "The village is completely empty when the players visit."
     - "There are no boats to be seen."
-  artifact:
+  challenge:
     - "The players have to ring 3 different bells in order and then light the buoy in the central harbour basin to finish the ritual."
     - "While doing this, they are attacked by shadow lackeys of the beast."
     - "Ringing a bell takes 1 action."
     - "Once the beast is in the central harbour, the players have to guide the buoy into the middle of the harbour (2 actions)."
     - "The buoy then has to be shot at. The fire drives out the beast and ends the ritual."
-    - "If the artifact is here, the beast spits it up to the players."
+    - "If a page lies here, the beast spits it up to the players."
   open:
     - "Shadow lackey stats for HeartCore (old notes: C35, d5+5 DMG, I:25, W1(10))."
 
@@ -98,15 +99,15 @@
     - "Do you dare to step into it?"
   meeting: "In front of the Lighthouse."
   mechanic:
-    - "The Lighthouse is closed if the artifact is not here."
-  artifact:
+    - "The Lighthouse is closed if no page lies here."
+  challenge:
     - "Climb the Lighthouse to the top."
     - "There are stairs up and down. Taking them, you walk into the same room again."
     - "It is a labyrinth where the only ways are up or down, but never back."
     - "The way through is the combination: up, up, down, up, down."
     - "Once you reach a dead end, you stand in empty space on the stairs."
     - "There is no escape but to jump into the darkness."
-    - "Once they jump, the players get the artifact and escape."
+    - "Once they jump, the players get the page and escape."
 
 - id: devilsrock
   name: Devilsrock
@@ -122,7 +123,7 @@
   meeting: "On top of the rock."
   mechanic:
     - "The rock is always in heavy rain when the players go there."
-  artifact:
+  challenge:
     - "A hooded figure stands on top of Devilsrock: \"You want what I have. Then pay the price.\""
     - "He holds up a single black blade."
     - "The players have to pay 3 HP for every player who entered, in total."
@@ -146,13 +147,13 @@
     - "In the central hall the players see the king sitting alone on his throne."
     - "They can talk to him, but he does not respond."
     - "He just repeats: \"The price, the price was too high…\", \"A king of nothing\", \"What have I done\"."
-  artifact:
+  challenge:
     - "When the players interact with the king, he gets up and tries to hit them with his sword."
     - "He screams: \"You are not real. Not really here. I am alone.\""
     - "He is invulnerable to all forms of damage."
     - "The crown can be ripped from his head with a successful check."
     - "He then crumbles into dust. His final word: \"Finally.\""
-    - "The players can uncover the artifact from the dust."
+    - "If a page lies here, the players uncover it from the dust."
 
 - id: tower
   name: The Tower

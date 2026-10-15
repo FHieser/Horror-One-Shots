@@ -1,10 +1,8 @@
 # The final location. Shown on webapp/final.html.
-# The meteor's monster form depends on the artifact cards in play:
-# A1 cards (Empress, Emperor, Hierophant) = ruler, A2 (Strength, Justice, Temperance) = people, A3 (Star, Moon, Sun) = realm.
+# The ruler / people / realm forms below are the old variant idea (one per artifact tier). Being replaced by one boss form.
 
 unlock:
-  - "When the players hold every artifact that is available on the map, the final region beyond the Lighthouse opens up."
-  - "If there are no artifacts on the map for whatever reason, the region is unlocked immediately."
+  - "When the players hold all three pages (the First, Second and Third Reading), the final region beyond the Lighthouse opens up."
 
 arrival:
   - "A whirlpool at the cliff of the Lighthouse."
@@ -69,6 +67,7 @@ realms:
     theme: []
 
 open:
-  - "Stats for all forms (HeartCore adversary format)."
+  - "One boss form instead of the ruler / people / realm variants."
+  - "Stats (HeartCore adversary format)."
   - "Temperance, Moon and Sun."
   - "The sentence \"Each of the abilities has a …\" is unfinished in the notes."

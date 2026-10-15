@@ -1,6 +1,5 @@
 # The 22 major arcana. Shown on webapp/cards.html.
 # category: yellow (single location) | red (whole region) | blue (whole map)
-# artifact: A1 | A2 | A3 for artifact cards (they make their location an artifact location)
 # upright / reversed: effect lines, one line each. Empty list = still to be written.
 
 system:
@@ -11,8 +10,7 @@ system:
   - "A second blue card goes under the first one, without effect."
   - "The reading ends when all yellow slots are filled. Red slots can stay empty."
   - "Yellow cards are single-location encounters. When the players visit that place, they meet the card's event or character there."
-  - "Yellow cards are either artifact cards or non-artifact cards. An artifact card turns its location into an artifact location."
-  - "The players have to collect up to 3 different artifacts to unlock the final region."
+  - "The first card drawn also decides where the three pages lie (see Final)."
   - "Red cards are regional effects. They warp specific rules of a region."
   - "Blue cards affect the whole map."
 
@@ -24,7 +22,7 @@ cards:
     upright:
       - "Teleport to a location of choice."
     reversed:
-      - "In this region the party stumbles across an artifact: seemingly valuable and found with almost no effort."
+      - "In this region the party stumbles across a page: seemingly valuable and found with almost no effort."
       - "No checks are needed; it appears entirely genuine and significant."
       - "The moment they leave the region, it crumbles to dust or vanishes into thin air, without explanation or benefit."
       - "All that remains is frustration, and the creeping sense that their confidence and judgement may have been misplaced."
@@ -57,7 +55,6 @@ cards:
     name: The Empress
     german: Die Herrscherin
     category: yellow
-    artifact: A1
     upright: []
     reversed: []
 
@@ -65,7 +62,6 @@ cards:
     name: The Emperor
     german: Der Herrscher
     category: yellow
-    artifact: A1
     upright: []
     reversed: []
 
@@ -73,7 +69,6 @@ cards:
     name: The Hierophant
     german: Der Hierophant
     category: yellow
-    artifact: A1
     upright: []
     reversed: []
 
@@ -106,7 +101,6 @@ cards:
     name: Strength
     german: Die Kraft
     category: yellow
-    artifact: A2
     upright: []
     reversed: []
 
@@ -138,7 +132,6 @@ cards:
     name: Justice
     german: Die Gerechtigkeit
     category: yellow
-    artifact: A2
     upright: []
     reversed: []
 
@@ -170,7 +163,6 @@ cards:
     name: Temperance
     german: Die Mäßigkeit
     category: yellow
-    artifact: A2
     upright: []
     reversed: []
 
@@ -207,7 +199,6 @@ cards:
     name: The Star
     german: Der Stern
     category: yellow
-    artifact: A3
     upright: []
     reversed: []
 
@@ -215,7 +206,6 @@ cards:
     name: The Moon
     german: Der Mond
     category: yellow
-    artifact: A3
     upright: []
     reversed: []
 
@@ -223,7 +213,6 @@ cards:
     name: The Sun
     german: Die Sonne
     category: yellow
-    artifact: A3
     upright: []
     reversed: []
 

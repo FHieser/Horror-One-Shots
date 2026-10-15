@@ -48,7 +48,7 @@ items:
     slots: 0
     found: "Gift from the Hermit (card IX, reversed)."
     text:
-      - "Can be traded with the witch for any item, or for her artifact."
+      - "Can be traded with the witch for any item, or for a page she holds."
 
   - name: Token of Gratitude
     type: item
@@ -61,7 +61,7 @@ items:
     type: item
     found: "Top of the Lighthouse, fetched for the witch."
     text:
-      - "The witch trades her artifact for it."
+      - "The witch trades a page she holds for it."
     open:
       - "Slot size."
 
@@ -79,7 +79,6 @@ items:
     open:
       - "What the book is and what it does."
 
-artifacts:
   - name: The Door Artifact
     type: artifact
     found: "At the door into the valley."
@@ -88,23 +87,21 @@ artifacts:
     open:
       - "What it looks like, and whether it does anything inside the valley."
 
-  - name: Artifact A1
-    type: artifact
-    found: "Location of an A1 card (Empress, Emperor, Hierophant)."
-    text: []
+pages:
+  - name: The First Reading
+    type: item
+    found: "At the location the table gives for the first card drawn. Gained by completing the challenge there."
+    text:
+      - "One of the three pages the hermit read at the cliff. All three open the way to the final region."
     open:
-      - "What it is. Decides the ruler form of the meteor."
-
-  - name: Artifact A2
-    type: artifact
-    found: "Location of an A2 card (Strength, Justice, Temperance)."
-    text: []
-    open:
-      - "What it is. Decides the people form of the meteor."
-
-  - name: Artifact A3
-    type: artifact
-    found: "Location of an A3 card (Star, Moon, Sun)."
-    text: []
-    open:
-      - "What it is. Decides the realm form of the meteor."
+      - "Slot size, and whether it has a power of its own."
+  - name: The Second Reading
+    type: item
+    found: "At the location the table gives for the first card drawn. Gained by completing the challenge there."
+    text:
+      - "One of the three pages the hermit read at the cliff. All three open the way to the final region."
+  - name: The Third Reading
+    type: item
+    found: "At the location the table gives for the first card drawn. Gained by completing the challenge there."
+    text:
+      - "One of the three pages the hermit read at the cliff. All three open the way to the final region."

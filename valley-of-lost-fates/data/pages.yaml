@@ -1,0 +1,46 @@
+# The three pages (the three readings). Shown on webapp/final.html and used on webapp/map.html.
+# The first card drawn in the reading decides where the pages lie: look it up in the table.
+# Locations: only the 7 that hold a card (the Fields never do). A page is gained by completing the location's challenge.
+
+rules:
+  - "The hermit read his stories at the cliff three times, and three times he let the pages fall. Those three readings are scattered across the valley."
+  - "The first card drawn in the reading decides where the pages lie (see the table)."
+  - "A page is gained by completing the challenge at its location."
+  - "With all three pages, the way to the final region opens."
+
+pages:
+  - id: 1
+    name: The First Reading
+  - id: 2
+    name: The Second Reading
+  - id: 3
+    name: The Third Reading
+
+# card id → locations of the First, Second and Third Reading
+table:
+  - { card: 0, pages: [devilsrock, keep, woods] }   # The Fool
+  - { card: 1, pages: [lighthouse, woods, devilsrock] }   # The Magician
+  - { card: 2, pages: [woods, lighthouse, keep] }   # The High Priestess
+  - { card: 3, pages: [keep, devilsrock, fishing-village] }   # The Empress
+  - { card: 4, pages: [woods, fishing-village, witch-hut] }   # The Emperor
+  - { card: 5, pages: [village, witch-hut, lighthouse] }   # The Hierophant
+  - { card: 6, pages: [fishing-village, devilsrock, village] }   # The Lovers
+  - { card: 7, pages: [keep, village, woods] }   # The Chariot
+  - { card: 8, pages: [witch-hut, keep, village] }   # Strength
+  - { card: 9, pages: [lighthouse, village, devilsrock] }   # The Hermit
+  - { card: 10, pages: [fishing-village, woods, lighthouse] }   # Wheel of Fortune
+  - { card: 11, pages: [village, woods, witch-hut] }   # Justice
+  - { card: 12, pages: [devilsrock, fishing-village, woods] }   # The Hanged Man
+  - { card: 13, pages: [witch-hut, lighthouse, devilsrock] }   # Death
+  - { card: 14, pages: [keep, village, fishing-village] }   # Temperance
+  - { card: 15, pages: [village, lighthouse, keep] }   # The Devil
+  - { card: 16, pages: [woods, witch-hut, keep] }   # The Tower
+  - { card: 17, pages: [devilsrock, witch-hut, fishing-village] }   # The Star
+  - { card: 18, pages: [fishing-village, devilsrock, lighthouse] }   # The Moon
+  - { card: 19, pages: [keep, fishing-village, woods] }   # The Sun
+  - { card: 20, pages: [witch-hut, fishing-village, village] }   # Judgement
+  - { card: 21, pages: [lighthouse, keep, witch-hut] }   # The World
+
+open:
+  - "What the pages do as items (slots, any power of their own)."
+  - "Does the orientation of the first card matter?"

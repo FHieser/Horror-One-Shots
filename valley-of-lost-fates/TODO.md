@@ -3,7 +3,8 @@
 ## Open
 
 ### Core rules
-- [ ] **Artifacts A1–A3:** what they are, as HeartCore found cards. They decide the ruler, people and realm forms of the meteor.
+- [ ] **The three pages as items:** slot size, and whether a page has a power of its own.
+- [ ] **First card orientation:** does upright / reversed change where the pages lie?
 - [ ] **Door artifact:** what it looks like, and whether it does anything inside the valley.
 
 ### Gear
@@ -21,12 +22,13 @@
 - [ ] **Meeting places** (where the players meet the character of a card laid at the location) for the Megalith, Village, Fields, Woods and both Towers.
 
 ### Cards
-- [ ] **Artifact cards without effects:** Empress, Emperor, Hierophant (A1); Strength, Justice, Temperance (A2); Star, Moon, Sun (A3).
+- [ ] **Cards without effects** (formerly artifact cards): Empress, Emperor, Hierophant, Strength, Justice, Temperance, Star, Moon, Sun.
 - [ ] **Judgement:** completely empty.
 - [ ] **The Tower (reversed):** "In a moment of clarity he gifts the players …" is unfinished; write out both secret endings (happy / sad).
 
 ### Final location
-- [ ] **Stats** for every form of the meteor (HeartCore adversary format).
+- [ ] **One boss form** for the meteor instead of the 16 ruler / people / realm variants.
+- [ ] **Stats** for the boss (HeartCore adversary format).
 - [ ] **Missing forms:** Temperance (people), Moon and Sun (realm).
 - [ ] **Unfinished note:** "Each of the abilities has a …".
 
@@ -46,4 +48,6 @@
 - **Communicator:** essential expedition gear; one update to the outside per game.
 - **Devilsrock:** the price is 3 HP for every player who entered.
 - **The Tower:** a red card; laid upright or reversed, it replaces the whole region it is placed in with The Tower or The Tower (Inverted).
+- **The three pages replace the artifacts:** the three readings of the hermit. The first card drawn in the reading decides their locations via a balanced table (data/pages.yaml, 22 rows, only the 7 locations that hold a card). A page is gained by completing the challenge at its location. All three open the final region. The GM picks the first card on the Map page and sees the pages marked.
+- **Lighthouse:** the way through the stairs is up, up, down, up, down.
 - **Players:** up to 5. **Theme:** dark fairy tale, tragic love, fate.

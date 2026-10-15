@@ -87,7 +87,7 @@ function wrapWords(text, max) {
 }
 
 async function initReading() {
-  const data = await fetchYaml('../data/cards.yaml');
+  const [data, pageData] = await Promise.all([fetchYaml('../data/cards.yaml'), fetchYaml('../data/pages.yaml')]);
   const byId = Object.fromEntries(data.cards.map(c => [c.id, c]));
   const slotEls = [...document.querySelectorAll('.slot')];
   const slotById = Object.fromEntries(slotEls.map(s => [s.dataset.slot, s]));
@@ -98,6 +98,29 @@ async function initReading() {
   let active = null;   // slot id whose panel is open
 
   const save = () => { try { localStorage.setItem(READING_KEY, JSON.stringify(placements)); } catch (e) {} };
+
+  // First card drawn → where the three pages lie
+  const FIRST_KEY = 'vlf-first-card';
+  const firstSel = document.getElementById('first-card');
+  firstSel.innerHTML += data.cards.map(c => `<option value="${c.id}">${ROMAN[c.id]} · ${c.name}</option>`).join('');
+  try { firstSel.value = localStorage.getItem(FIRST_KEY) || ''; } catch (e) {}
+  function renderPages() {
+    const row = pageData.table.find(r => String(r.card) === firstSel.value);
+    slotEls.forEach(s => {
+      const mark = s.querySelector('.page-mark');
+      const i = row ? row.pages.indexOf(s.dataset.slot) : -1;
+      mark.toggleAttribute('hidden', i < 0);   // SVG elements have no .hidden property
+      if (i >= 0) mark.querySelector('text').textContent = ROMAN[i + 1];
+    });
+    document.getElementById('pages-line').innerHTML = row
+      ? 'Pages: ' + row.pages.map((l, i) => `<strong>${ROMAN[i + 1]}</strong> ${slotById[l].dataset.label}`).join(' · ')
+      : '<span class="dim">Choose the first card drawn to see where the three pages lie.</span>';
+  }
+  firstSel.addEventListener('change', () => {
+    try { localStorage.setItem(FIRST_KEY, firstSel.value); } catch (e) {}
+    renderPages();
+  });
+  renderPages();
   const usedIds = () => new Set(Object.values(placements).map(p => p.id));
   const orient = rev => rev ? 'reversed' : 'upright';
 
@@ -186,6 +209,9 @@ async function initReading() {
 
   document.getElementById('reset-btn').addEventListener('click', () => {
     placements = {}; active = null; save(); render();
+    firstSel.value = '';
+    try { localStorage.removeItem(FIRST_KEY); } catch (e) {}
+    renderPages();
   });
   render();
 }
@@ -211,7 +237,7 @@ async function initLocations() {
         ${myth ? `<p class="dim">Myth: <a href="./lore.html#myth-${myth.id}">${myth.title}</a></p>` : ''}
         ${l.meeting ? `<div class="section"><div class="label">Meeting place</div><p>${l.meeting}</p></div>` : ''}
         ${l.mechanic?.length ? `<div class="section"><div class="label">Mechanic</div>${list(l.mechanic)}</div>` : ''}
-        ${l.artifact?.length ? `<div class="section box artifact"><div class="label">Artifact challenge</div>${list(l.artifact)}</div>` : ''}
+        ${l.challenge?.length ? `<div class="section box artifact"><div class="label">Challenge</div>${list(l.challenge)}</div>` : ''}
         ${openBox(l.open)}
       </article>`;
   });
@@ -233,7 +259,7 @@ async function initCards() {
 
   function render() {
     const cards = data.cards.filter(c =>
-      cat === 'all' || (cat === 'artifact' ? !!c.artifact : c.category === cat));
+      cat === 'all' || c.category === cat);
     document.getElementById('card-grid').innerHTML = cards.map(c => `
       <article class="tarot ${c.category}">
         <div class="tarot-head">
@@ -242,7 +268,6 @@ async function initCards() {
           <div class="tarot-de">${c.german || ''}</div>
           <div class="tarot-tags">
             <span class="badge">${c.category}</span>
-            ${c.artifact ? `<span class="badge art">Artifact ${c.artifact}</span>` : ''}
           </div>
         </div>
         <div class="tarot-body">
@@ -272,7 +297,16 @@ async function initCards() {
 // ── Final location ──────────────────────────────────────────────────────────
 
 async function initFinal() {
-  const f = await fetchYaml('../data/final.yaml');
+  const [f, pg, cards, locs] = await Promise.all([
+    fetchYaml('../data/final.yaml'), fetchYaml('../data/pages.yaml'),
+    fetchYaml('../data/cards.yaml'), fetchYaml('../data/locations.yaml'),
+  ]);
+  const cardName = Object.fromEntries(cards.cards.map(c => [c.id, c.name]));
+  const locName = Object.fromEntries(locs.map(l => [l.id, l.name]));
+  const pageTable = `<div class="table-wrap"><table class="pages-table">
+      <thead><tr><th>First card drawn</th>${pg.pages.map(p => `<th>${ROMAN[p.id]} · ${p.name}</th>`).join('')}</tr></thead>
+      <tbody>${pg.table.map(r => `<tr><td><span class="dim">${ROMAN[r.card]}</span> ${cardName[r.card]}</td>${r.pages.map(l => `<td><a href="./locations.html#loc-${l}">${locName[l]}</a></td>`).join('')}</tr>`).join('')}</tbody>
+    </table></div>`;
   const row = (label, value) => value ? `<div class="row"><div class="label">${label}</div>${value}</div>` : '';
   const form = x => `
     <div class="form">
@@ -285,16 +319,17 @@ async function initFinal() {
     </div>`;
 
   document.getElementById('final').innerHTML = `
+    <h2>The Three Pages</h2>${list(pg.rules)}
+    ${pageTable}
+    ${openBox(pg.open)}
     <h2>Unlocking</h2>${list(f.unlock)}
     <h2>Arrival</h2>${list(f.arrival)}
+    <p class="group-note">The forms below are the old variant idea and are being replaced by a single boss form.</p>
     <h2>Ruler</h2>
-    <p class="group-note">Set by the A1 artifact card in play (Empress, Emperor, Hierophant).</p>
     <div class="forms">${(f.rulers || []).map(form).join('')}</div>
     <h2>People</h2>
-    <p class="group-note">Set by the A2 artifact card in play (Strength, Justice, Temperance).</p>
     <div class="forms">${(f.people || []).map(form).join('')}</div>
     <h2>Realm</h2>
-    <p class="group-note">Set by the A3 artifact card in play (Star, Moon, Sun).</p>
     <div class="forms">${(f.realms || []).map(form).join('')}</div>
     ${openBox(f.open)}`;
 }
@@ -316,7 +351,7 @@ async function initGear() {
     ${(g.intro || []).map(p => `<p>${p}</p>`).join('')}
     ${section('Expedition Gear', g.expedition)}
     ${section('Items', g.items)}
-    ${section('Artifacts', g.artifacts)}`;
+    ${section('The Three Pages', g.pages)}`;
 }
 
 // ── Lore ────────────────────────────────────────────────────────────────────
