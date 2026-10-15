@@ -4,17 +4,22 @@
 
 rules:
   - "The hermit read his stories at the cliff three times, and three times he let the pages fall. Those three readings are scattered across the valley."
-  - "The first card drawn in the reading decides where the pages lie (see the table)."
-  - "A page is gained by completing the challenge at its location."
+  - "The first card drawn in the reading goes into the white Pages field. It decides where the pages lie (see the table), is set aside and has no effect in the valley."
+  - "Each page holds one of the hermit's stories: the First Reading Der Narr und der verbotene Wald, the Second Die Hexe und der Wärter, the Third Die Sturmkrone. The Fall of the Lovers is the frame around them."
+  - "A page is gained by completing the challenge at its location. When the players gain it, they get its story (read it out or hand it over)."
   - "With all three pages, the way to the final region opens."
 
+# story: id of the myth written on the page (data/lore/)
 pages:
   - id: 1
     name: The First Reading
+    story: narr-und-wald
   - id: 2
     name: The Second Reading
+    story: hexe-und-waerter
   - id: 3
     name: The Third Reading
+    story: sturmkrone
 
 # card id → locations of the First, Second and Third Reading
 table:
@@ -43,4 +48,3 @@ table:
 
 open:
   - "What the pages do as items (slots, any power of their own)."
-  - "Does the orientation of the first card matter?"

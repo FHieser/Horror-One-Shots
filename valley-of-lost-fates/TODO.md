@@ -4,7 +4,6 @@
 
 ### Core rules
 - [ ] **The three pages as items:** slot size, and whether a page has a power of its own.
-- [ ] **First card orientation:** does upright / reversed change where the pages lie?
 - [ ] **Door artifact:** what it looks like, and whether it does anything inside the valley.
 
 ### Gear
@@ -48,6 +47,6 @@
 - **Communicator:** essential expedition gear; one update to the outside per game.
 - **Devilsrock:** the price is 3 HP for every player who entered.
 - **The Tower:** a red card; laid upright or reversed, it replaces the whole region it is placed in with The Tower or The Tower (Inverted).
-- **The three pages replace the artifacts:** the three readings of the hermit. The first card drawn in the reading decides their locations via a balanced table (data/pages.yaml, 22 rows, only the 7 locations that hold a card). A page is gained by completing the challenge at its location. All three open the final region. The GM picks the first card on the Map page and sees the pages marked.
+- **The three pages replace the artifacts:** the three readings of the hermit. The first card drawn in the reading decides their locations via a balanced table (data/pages.yaml, 22 rows, only the 7 locations that hold a card). A page is gained by completing the challenge at its location. Each page holds one story: I Der Narr und der verbotene Wald, II Die Hexe und der Wärter, III Die Sturmkrone (the Fall of the Lovers is the frame). All three open the final region. The first card goes into the white Pages field above the map: it is set aside, has no effect in the valley, and its orientation doesn't matter. Pages may land in any location, regardless of their story's region. On the Map page, the GM puts it into the Pages field and sees the pages marked.
 - **Lighthouse:** the way through the stairs is up, up, down, up, down.
 - **Players:** up to 5. **Theme:** dark fairy tale, tragic love, fate.

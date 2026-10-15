@@ -36,7 +36,7 @@ The valley changes with every game. At the start, the players meet the old lady 
 
 ## Goal
 
-Find the **three pages**, the three readings the hermit once read at the cliff. The first card drawn in the reading decides where they lie, and each is gained by completing the challenge at its location, so a run never needs every quest. With all three, the final region beyond the Lighthouse opens: a whirlpool at the cliffs, where the meteor waits in the form of a monster (see [Final](./final.html)).
+Find the **three pages**, the three readings the hermit once read at the cliff. The first card drawn in the reading goes into the white Pages field; it is set aside and decides where they lie, and each is gained by completing the challenge at its location, so a run never needs every quest. With all three, the final region beyond the Lighthouse opens: a whirlpool at the cliffs, where the meteor waits in the form of a monster (see [Final](./final.html)).
 
 ## Background
 

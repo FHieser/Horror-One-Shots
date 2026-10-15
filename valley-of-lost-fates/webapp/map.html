@@ -26,7 +26,7 @@
 
     /* Card slots */
     .slot { --c: #888; }
-    .slot.yellow { --c: #d8b040; } .slot.red { --c: #c84a4a; } .slot.blue { --c: #5a9ad8; }
+    .slot.yellow { --c: #d8b040; } .slot.red { --c: #c84a4a; } .slot.blue { --c: #5a9ad8; } .slot.white { --c: #ece8dc; }
     .slot .frame { fill: #121514; stroke: var(--c); stroke-width: 2; stroke-dasharray: 6 4; transition: fill 0.15s, stroke-width 0.15s; }
     .slot .slot-label { fill: var(--c); font: 700 11px 'Courier New', monospace; letter-spacing: 1px; text-anchor: middle; text-transform: uppercase; }
     .slot.filled .frame { fill: #1c1a14; stroke-dasharray: none; }
@@ -37,8 +37,6 @@
     .face .orient.rev { fill: #ff8a8a; }
 
     /* Reading panel */
-    .first-card { display: flex; flex-direction: column; gap: 0.2rem; }
-    .first-card select { background: var(--panel); color: var(--text-bright); border: 1px solid var(--gold-dim); font: 0.9rem Georgia, serif; padding: 0.35rem 0.5rem; }
     .pages-line { max-width: 900px; margin: -0.8rem auto 1.5rem; font-size: 0.9rem; color: var(--text); }
     .pages-line strong { color: var(--gold); }
     .page-mark[hidden] { display: none; }
@@ -91,77 +89,76 @@
   <div class="content wide">
     <h1>The Valley</h1>
     <div class="reading">
-      <p class="lady"><strong>The reading</strong> happens at the table with the real cards. Record it here: click an empty slot to choose the card that was laid there, click a filled slot to see its effect, flip or remove it. Your reading is saved in this browser.</p>
+      <p class="lady"><strong>The reading</strong> happens at the table with the real cards. Record it here: the first card drawn goes into the white <em>Pages</em> field and decides where the three pages lie. Click an empty slot to choose the card that was laid there, click a filled slot to see its effect, flip or remove it. Your reading is saved in this browser.</p>
       <div class="actions">
-        <label class="first-card"><span class="label">First card drawn</span><select id="first-card"><option value="">—</option></select></label>
         <button class="btn ghost" id="reset-btn">Clear reading</button>
       </div>
     </div>
     <p class="pages-line" id="pages-line"></p>
     <div class="slot-panel" id="slot-panel" hidden></div>
     <div class="map-wrap">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 990" role="img" aria-label="Map of the valley with card slots">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1050" role="img" aria-label="Map of the valley with card slots">
         <defs>
           <radialGradient id="glow"><stop offset="0" stop-color="#c9a24a" stop-opacity="0.35"/><stop offset="1" stop-color="#c9a24a" stop-opacity="0"/></radialGradient>
         </defs>
         <a class="sector highlands" href="./locations.html#loc-devilsrock">
-          <path d="M500.0,414.0 L500.0,190.0 A290,290 0 0 1 722.2,293.6 L550.6,437.6 A66,66 0 0 0 500.0,414.0 Z"/>
-          <text x="587.9" y="291.5"><tspan x="587.9" dy="0">Devilsrock</tspan></text>
+          <path d="M500.0,474.0 L500.0,250.0 A290,290 0 0 1 722.2,353.6 L550.6,497.6 A66,66 0 0 0 500.0,474.0 Z"/>
+          <text x="587.9" y="351.5"><tspan x="587.9" dy="0">Devilsrock</tspan></text>
         </a>
         <a class="sector highlands" href="./locations.html#loc-keep">
-          <path d="M550.6,437.6 L722.2,293.6 A290,290 0 0 1 790.0,480.0 L566.0,480.0 A66,66 0 0 0 550.6,437.6 Z"/>
-          <text x="695.5" y="408.9"><tspan x="695.5" dy="0">The Keep</tspan></text>
+          <path d="M550.6,497.6 L722.2,353.6 A290,290 0 0 1 790.0,540.0 L566.0,540.0 A66,66 0 0 0 550.6,497.6 Z"/>
+          <text x="695.5" y="468.9"><tspan x="695.5" dy="0">The Keep</tspan></text>
         </a>
         <a class="sector plains" href="./locations.html#loc-village">
-          <path d="M566.0,480.0 L790.0,480.0 A290,290 0 0 1 737.6,646.3 L554.1,517.9 A66,66 0 0 0 566.0,480.0 Z"/>
-          <text x="698.4" y="542.5"><tspan x="698.4" dy="0">Village</tspan></text>
+          <path d="M566.0,540.0 L790.0,540.0 A290,290 0 0 1 737.6,706.3 L554.1,577.9 A66,66 0 0 0 566.0,540.0 Z"/>
+          <text x="698.4" y="602.5"><tspan x="698.4" dy="0">Village</tspan></text>
         </a>
         <a class="sector plains" href="./locations.html#loc-fields">
-          <path d="M554.1,517.9 L737.6,646.3 A290,290 0 0 1 622.6,742.8 L527.9,539.8 A66,66 0 0 0 554.1,517.9 Z"/>
-          <text x="633.7" y="639.3"><tspan x="633.7" dy="0">Fields</tspan></text>
+          <path d="M554.1,577.9 L737.6,706.3 A290,290 0 0 1 622.6,802.8 L527.9,599.8 A66,66 0 0 0 554.1,577.9 Z"/>
+          <text x="633.7" y="699.3"><tspan x="633.7" dy="0">Fields</tspan></text>
         </a>
         <a class="sector plains" href="./locations.html#loc-woods">
-          <path d="M527.9,539.8 L622.6,742.8 A290,290 0 0 1 500.0,770.0 L500.0,546.0 A66,66 0 0 0 527.9,539.8 Z"/>
-          <text x="545.0" y="683.1"><tspan x="545.0" dy="0">Woods</tspan></text>
+          <path d="M527.9,599.8 L622.6,802.8 A290,290 0 0 1 500.0,830.0 L500.0,606.0 A66,66 0 0 0 527.9,599.8 Z"/>
+          <text x="545.0" y="743.1"><tspan x="545.0" dy="0">Woods</tspan></text>
         </a>
         <a class="sector swamp" href="./locations.html#loc-witch-hut">
-          <path d="M500.0,546.0 L500.0,770.0 A290,290 0 0 1 284.5,674.0 L451.0,524.2 A66,66 0 0 0 500.0,546.0 Z"/>
-          <text x="415.4" y="670.0"><tspan x="415.4" dy="0">Witch Hut</tspan></text>
+          <path d="M500.0,606.0 L500.0,830.0 A290,290 0 0 1 284.5,734.0 L451.0,584.2 A66,66 0 0 0 500.0,606.0 Z"/>
+          <text x="415.4" y="730.0"><tspan x="415.4" dy="0">Witch Hut</tspan></text>
         </a>
         <a class="sector swamp" href="./locations.html#loc-fishing-village">
-          <path d="M451.0,524.2 L284.5,674.0 A290,290 0 0 1 210.0,480.0 L434.0,480.0 A66,66 0 0 0 451.0,524.2 Z"/>
-          <text x="305.8" y="546.0"><tspan x="305.8" dy="0">Abandoned</tspan><tspan x="305.8" dy="17">Fishing Village</tspan></text>
+          <path d="M451.0,584.2 L284.5,734.0 A290,290 0 0 1 210.0,540.0 L434.0,540.0 A66,66 0 0 0 451.0,584.2 Z"/>
+          <text x="305.8" y="606.0"><tspan x="305.8" dy="0">Abandoned</tspan><tspan x="305.8" dy="17">Fishing Village</tspan></text>
         </a>
         <a class="sector sea" href="./locations.html#loc-lighthouse">
-          <path d="M434.0,480.0 L210.0,480.0 A290,290 0 0 1 500.0,190.0 L500.0,414.0 A66,66 0 0 0 434.0,480.0 Z"/>
-          <text x="352.9" y="332.9"><tspan x="352.9" dy="0">The Lighthouse</tspan></text>
+          <path d="M434.0,540.0 L210.0,540.0 A290,290 0 0 1 500.0,250.0 L500.0,474.0 A66,66 0 0 0 434.0,540.0 Z"/>
+          <text x="352.9" y="392.9"><tspan x="352.9" dy="0">The Lighthouse</tspan></text>
         </a>
-        <line class="border" x1="500.0" y1="414.0" x2="500.0" y2="190.0"/>
-        <g class="cost"><circle cx="500.0" cy="275.1" r="11"/><text x="500.0" y="275.1">3</text></g>
-        <line class="border" x1="550.6" y1="437.6" x2="722.2" y2="293.6"/>
-        <g class="cost"><circle cx="656.9" cy="348.3" r="11"/><text x="656.9" y="348.3">1</text></g>
-        <line class="border" x1="566.0" y1="480.0" x2="790.0" y2="480.0"/>
-        <g class="cost"><circle cx="704.9" cy="480.0" r="11"/><text x="704.9" y="480.0">2</text></g>
-        <line class="border" x1="554.1" y1="517.9" x2="737.6" y2="646.3"/>
-        <g class="cost"><circle cx="667.8" cy="597.5" r="11"/><text x="667.8" y="597.5">1</text></g>
-        <line class="border" x1="527.9" y1="539.8" x2="622.6" y2="742.8"/>
-        <g class="cost"><circle cx="586.6" cy="665.7" r="11"/><text x="586.6" y="665.7">1</text></g>
-        <line class="border" x1="500.0" y1="546.0" x2="500.0" y2="770.0"/>
-        <g class="cost"><circle cx="500.0" cy="684.9" r="11"/><text x="500.0" y="684.9">2</text></g>
-        <line class="border" x1="451.0" y1="524.2" x2="284.5" y2="674.0"/>
-        <g class="cost"><circle cx="347.7" cy="617.1" r="11"/><text x="347.7" y="617.1">1</text></g>
-        <line class="border" x1="434.0" y1="480.0" x2="210.0" y2="480.0"/>
-        <g class="cost"><circle cx="295.1" cy="480.0" r="11"/><text x="295.1" y="480.0">2</text></g>
-        <circle cx="500" cy="480" r="96" fill="url(#glow)" pointer-events="none"/>
+        <line class="border" x1="500.0" y1="474.0" x2="500.0" y2="250.0"/>
+        <g class="cost"><circle cx="500.0" cy="335.1" r="11"/><text x="500.0" y="335.1">3</text></g>
+        <line class="border" x1="550.6" y1="497.6" x2="722.2" y2="353.6"/>
+        <g class="cost"><circle cx="656.9" cy="408.3" r="11"/><text x="656.9" y="408.3">1</text></g>
+        <line class="border" x1="566.0" y1="540.0" x2="790.0" y2="540.0"/>
+        <g class="cost"><circle cx="704.9" cy="540.0" r="11"/><text x="704.9" y="540.0">2</text></g>
+        <line class="border" x1="554.1" y1="577.9" x2="737.6" y2="706.3"/>
+        <g class="cost"><circle cx="667.8" cy="657.5" r="11"/><text x="667.8" y="657.5">1</text></g>
+        <line class="border" x1="527.9" y1="599.8" x2="622.6" y2="802.8"/>
+        <g class="cost"><circle cx="586.6" cy="725.7" r="11"/><text x="586.6" y="725.7">1</text></g>
+        <line class="border" x1="500.0" y1="606.0" x2="500.0" y2="830.0"/>
+        <g class="cost"><circle cx="500.0" cy="744.9" r="11"/><text x="500.0" y="744.9">2</text></g>
+        <line class="border" x1="451.0" y1="584.2" x2="284.5" y2="734.0"/>
+        <g class="cost"><circle cx="347.7" cy="677.1" r="11"/><text x="347.7" y="677.1">1</text></g>
+        <line class="border" x1="434.0" y1="540.0" x2="210.0" y2="540.0"/>
+        <g class="cost"><circle cx="295.1" cy="540.0" r="11"/><text x="295.1" y="540.0">2</text></g>
+        <circle cx="500" cy="540" r="96" fill="url(#glow)" pointer-events="none"/>
         <a class="sector central" href="./locations.html#loc-megalith">
-          <circle cx="500" cy="480" r="66"/>
-          <text x="500" y="474">Megalith</text>
-          <text class="sub" x="500" y="494">2 to any region</text>
+          <circle cx="500" cy="540" r="66"/>
+          <text x="500" y="534">Megalith</text>
+          <text class="sub" x="500" y="554">2 to any region</text>
         </a>
         <a class="whirl" href="./final.html">
-          <circle cx="228.0" cy="289.6" r="26"/>
-          <path d="M228.0,289.6 m-14,0 a14,14 0 1,1 14,14 a9,9 0 1,1 -9,-9 a4,4 0 1,1 4,4" fill="none"/>
-          <text x="228.0" y="333.6">Final</text>
+          <circle cx="228.0" cy="349.6" r="26"/>
+          <path d="M228.0,349.6 m-14,0 a14,14 0 1,1 14,14 a9,9 0 1,1 -9,-9 a4,4 0 1,1 4,4" fill="none"/>
+          <text x="228.0" y="393.6">Final</text>
         </a>
         <g class="slot yellow" data-slot="lighthouse" data-color="yellow" data-label="The Lighthouse" data-w="74" data-h="112" transform="translate(24,22)">
           <rect class="frame" width="74" height="112" rx="5"/>
@@ -175,7 +172,13 @@
           <g class="page-mark" hidden><circle cx="112" cy="0" r="14"/><text x="112" y="0"></text></g>
           <text class="slot-label" x="56.0" y="89">Sea</text>
         </g>
-        <g class="slot blue" data-slot="map" data-color="blue" data-label="Whole map" data-w="112" data-h="74" transform="translate(444,41)">
+        <g class="slot white" data-slot="pages" data-color="white" data-label="Pages" data-w="112" data-h="74" transform="translate(444,10)">
+          <rect class="frame" width="112" height="74" rx="5"/>
+          <g class="face"></g>
+          <g class="page-mark" hidden><circle cx="112" cy="0" r="14"/><text x="112" y="0"></text></g>
+          <text class="slot-label" x="56.0" y="89">Pages</text>
+        </g>
+        <g class="slot blue" data-slot="map" data-color="blue" data-label="Whole map" data-w="112" data-h="74" transform="translate(444,118)">
           <rect class="frame" width="112" height="74" rx="5"/>
           <g class="face"></g>
           <g class="page-mark" hidden><circle cx="112" cy="0" r="14"/><text x="112" y="0"></text></g>
@@ -199,43 +202,43 @@
           <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">The Keep</text>
         </g>
-        <g class="slot yellow" data-slot="fishing-village" data-color="yellow" data-label="Fishing Village" data-w="74" data-h="112" transform="translate(24,830)">
+        <g class="slot yellow" data-slot="fishing-village" data-color="yellow" data-label="Fishing Village" data-w="74" data-h="112" transform="translate(24,890)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
           <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">Fishing Village</text>
         </g>
-        <g class="slot red" data-slot="swamp" data-color="red" data-label="Swamp" data-w="112" data-h="74" transform="translate(110,849)">
+        <g class="slot red" data-slot="swamp" data-color="red" data-label="Swamp" data-w="112" data-h="74" transform="translate(110,909)">
           <rect class="frame" width="112" height="74" rx="5"/>
           <g class="face"></g>
           <g class="page-mark" hidden><circle cx="112" cy="0" r="14"/><text x="112" y="0"></text></g>
           <text class="slot-label" x="56.0" y="89">Swamp</text>
         </g>
-        <g class="slot yellow" data-slot="witch-hut" data-color="yellow" data-label="Witch Hut" data-w="74" data-h="112" transform="translate(234,830)">
+        <g class="slot yellow" data-slot="witch-hut" data-color="yellow" data-label="Witch Hut" data-w="74" data-h="112" transform="translate(234,890)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
           <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">Witch Hut</text>
         </g>
-        <g class="slot red" data-slot="plains" data-color="red" data-label="Plains" data-w="112" data-h="74" transform="translate(652,849)">
+        <g class="slot red" data-slot="plains" data-color="red" data-label="Plains" data-w="112" data-h="74" transform="translate(652,909)">
           <rect class="frame" width="112" height="74" rx="5"/>
           <g class="face"></g>
           <g class="page-mark" hidden><circle cx="112" cy="0" r="14"/><text x="112" y="0"></text></g>
           <text class="slot-label" x="56.0" y="89">Plains</text>
         </g>
-        <g class="slot yellow" data-slot="village" data-color="yellow" data-label="Village" data-w="74" data-h="112" transform="translate(776,830)">
+        <g class="slot yellow" data-slot="village" data-color="yellow" data-label="Village" data-w="74" data-h="112" transform="translate(776,890)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
           <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">Village</text>
         </g>
-        <g class="slot yellow" data-slot="woods" data-color="yellow" data-label="Woods" data-w="74" data-h="112" transform="translate(862,830)">
+        <g class="slot yellow" data-slot="woods" data-color="yellow" data-label="Woods" data-w="74" data-h="112" transform="translate(862,890)">
           <rect class="frame" width="74" height="112" rx="5"/>
           <g class="face"></g>
           <g class="page-mark" hidden><circle cx="74" cy="0" r="14"/><text x="74" y="0"></text></g>
           <text class="slot-label" x="37.0" y="127">Woods</text>
         </g>
-        <text class="legend-note" x="500" y="982">Numbers on the borders: Resources to cross</text>
+        <text class="legend-note" x="500" y="1042">Numbers on the borders: Resources to cross</text>
       </svg>
     </div>
     <div class="legend"><span class="l-high">Highlands</span><span class="l-plains">Plains</span><span class="l-swamp">Swamp</span><span class="l-sea">Sea</span></div>

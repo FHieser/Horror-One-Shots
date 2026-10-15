@@ -99,13 +99,10 @@ async function initReading() {
 
   const save = () => { try { localStorage.setItem(READING_KEY, JSON.stringify(placements)); } catch (e) {} };
 
-  // First card drawn → where the three pages lie
-  const FIRST_KEY = 'vlf-first-card';
-  const firstSel = document.getElementById('first-card');
-  firstSel.innerHTML += data.cards.map(c => `<option value="${c.id}">${ROMAN[c.id]} · ${c.name}</option>`).join('');
-  try { firstSel.value = localStorage.getItem(FIRST_KEY) || ''; } catch (e) {}
+  // The white "Pages" slot holds the first card drawn; it decides where the three pages lie
   function renderPages() {
-    const row = pageData.table.find(r => String(r.card) === firstSel.value);
+    const first = placements.pages;
+    const row = first ? pageData.table.find(r => r.card === first.id) : null;
     slotEls.forEach(s => {
       const mark = s.querySelector('.page-mark');
       const i = row ? row.pages.indexOf(s.dataset.slot) : -1;
@@ -113,14 +110,10 @@ async function initReading() {
       if (i >= 0) mark.querySelector('text').textContent = ROMAN[i + 1];
     });
     document.getElementById('pages-line').innerHTML = row
-      ? 'Pages: ' + row.pages.map((l, i) => `<strong>${ROMAN[i + 1]}</strong> ${slotById[l].dataset.label}`).join(' · ')
-      : '<span class="dim">Choose the first card drawn to see where the three pages lie.</span>';
+      ? 'Pages: ' + row.pages.map((l, i) => `<strong>${ROMAN[i + 1]}</strong> ${slotById[l].dataset.label} <span class="dim">(${MYTHS.find(m => m.id === pageData.pages[i].story)?.title || ''})</span>`).join(' · ')
+      : '<span class="dim">Put the first card drawn into the white Pages field to see where the three pages lie.</span>';
   }
-  firstSel.addEventListener('change', () => {
-    try { localStorage.setItem(FIRST_KEY, firstSel.value); } catch (e) {}
-    renderPages();
-  });
-  renderPages();
+
   const usedIds = () => new Set(Object.values(placements).map(p => p.id));
   const orient = rev => rev ? 'reversed' : 'upright';
 
@@ -132,12 +125,20 @@ async function initReading() {
     const y0 = upright ? 48 : 36;
     const name = lines.map((l, i) => `<text class="name" x="${w / 2}" y="${y0 + i * 13}">${l}</text>`).join('');
     return `<text class="num" x="${w / 2}" y="${upright ? 22 : 18}">${ROMAN[c.id]}</text>${name}
-      <text class="orient ${card.rev ? 'rev' : ''}" x="${w / 2}" y="${h - 8}">${card.rev ? '▼ REVERSED' : '▲ UPRIGHT'}</text>`;
+      ${slot.dataset.slot === 'pages' ? '' : `<text class="orient ${card.rev ? 'rev' : ''}" x="${w / 2}" y="${h - 8}">${card.rev ? '▼ REVERSED' : '▲ UPRIGHT'}</text>`}`;
   }
 
   function effectBox(slotId) {
     const card = placements[slotId];
     const c = byId[card.id];
+    if (slotId === 'pages') {
+      const row = pageData.table.find(r => r.card === card.id);
+      return `<div class="box">
+        <h3>${ROMAN[c.id]} · ${c.name} <span class="dim">(first card drawn)</span></h3>
+        <div class="where">Pages field · set aside, no effect in the valley</div>
+        ${list(row.pages.map((l, i) => `<strong>${ROMAN[i + 1]}</strong> ${slotById[l].dataset.label}: ${MYTHS.find(m => m.id === pageData.pages[i].story)?.title || ''}`))}
+      </div>`;
+    }
     return `<div class="box">
       <h3>${ROMAN[c.id]} · ${c.name} <span class="dim">(${orient(card.rev)})</span></h3>
       <div class="where">${slotById[slotId].dataset.label} · ${c.category}</div>
@@ -153,21 +154,22 @@ async function initReading() {
       return `<div class="panel-head"><h2>${label}</h2><button class="btn ghost" data-act="close">Close</button></div>
         ${effectBox(active)}
         <div class="panel-actions">
-          <button class="btn" data-act="flip">Flip to ${orient(!placements[active].rev)}</button>
+          ${active === 'pages' ? '' : `<button class="btn" data-act="flip">Flip to ${orient(!placements[active].rev)}</button>`}
           <button class="btn ghost" data-act="change">Change card</button>
           <button class="btn ghost" data-act="remove">Remove</button>
         </div>`;
     }
     const color = slot.dataset.color;
     const used = usedIds();
-    const options = data.cards.filter(c => c.category === color && !used.has(c.id));
-    return `<div class="panel-head"><h2>${label} <span class="dim">· choose a ${color} card</span></h2><button class="btn ghost" data-act="close">Close</button></div>
+    const options = data.cards.filter(c => (color === 'white' || c.category === color) && !used.has(c.id));
+    return `<div class="panel-head"><h2>${label} <span class="dim">· ${color === 'white' ? 'choose the first card drawn' : 'choose a ' + color + ' card'}</span></h2><button class="btn ghost" data-act="close">Close</button></div>
       <div class="pick-grid">${options.map(c => `
         <div class="pick ${c.category}">
           <div class="pick-name"><span class="num">${ROMAN[c.id]}</span> ${c.name}</div>
-          <div class="pick-btns">
-            <button class="btn" data-act="pick" data-id="${c.id}" data-rev="0">▲ Upright</button>
-            <button class="btn" data-act="pick" data-id="${c.id}" data-rev="1">▼ Reversed</button>
+          <div class="pick-btns">${color === 'white'
+            ? `<button class="btn" data-act="pick" data-id="${c.id}" data-rev="0">Choose</button>`
+            : `<button class="btn" data-act="pick" data-id="${c.id}" data-rev="0">▲ Upright</button>
+            <button class="btn" data-act="pick" data-id="${c.id}" data-rev="1">▼ Reversed</button>`}
           </div>
         </div>`).join('') || '<p class="dim">Every card of this colour is already on the map.</p>'}
       </div>`;
@@ -184,6 +186,7 @@ async function initReading() {
     panel.innerHTML = panelHtml();
     panel.hidden = !active;
 
+    renderPages();
     const filled = slotEls.filter(s => placements[s.dataset.slot]);
     document.getElementById('gm').innerHTML = filled.length
       ? '<h2>The reading</h2>' + filled.map(s => effectBox(s.dataset.slot)).join('<div style="height:0.8rem"></div>')
@@ -209,9 +212,6 @@ async function initReading() {
 
   document.getElementById('reset-btn').addEventListener('click', () => {
     placements = {}; active = null; save(); render();
-    firstSel.value = '';
-    try { localStorage.removeItem(FIRST_KEY); } catch (e) {}
-    renderPages();
   });
   render();
 }
@@ -304,7 +304,7 @@ async function initFinal() {
   const cardName = Object.fromEntries(cards.cards.map(c => [c.id, c.name]));
   const locName = Object.fromEntries(locs.map(l => [l.id, l.name]));
   const pageTable = `<div class="table-wrap"><table class="pages-table">
-      <thead><tr><th>First card drawn</th>${pg.pages.map(p => `<th>${ROMAN[p.id]} · ${p.name}</th>`).join('')}</tr></thead>
+      <thead><tr><th>First card drawn</th>${pg.pages.map(p => `<th>${ROMAN[p.id]} · ${p.name}<br><a class="story" href="./lore.html#myth-${p.story}">${MYTHS.find(m => m.id === p.story)?.title || ''}</a></th>`).join('')}</tr></thead>
       <tbody>${pg.table.map(r => `<tr><td><span class="dim">${ROMAN[r.card]}</span> ${cardName[r.card]}</td>${r.pages.map(l => `<td><a href="./locations.html#loc-${l}">${locName[l]}</a></td>`).join('')}</tr>`).join('')}</tbody>
     </table></div>`;
   const row = (label, value) => value ? `<div class="row"><div class="label">${label}</div>${value}</div>` : '';

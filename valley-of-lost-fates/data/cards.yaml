@@ -10,7 +10,7 @@ system:
   - "A second blue card goes under the first one, without effect."
   - "The reading ends when all yellow slots are filled. Red slots can stay empty."
   - "Yellow cards are single-location encounters. When the players visit that place, they meet the card's event or character there."
-  - "The first card drawn also decides where the three pages lie (see Final)."
+  - "The first card drawn goes into the white Pages field above the map. It decides where the three pages lie (see Final), is set aside and has no effect in the valley."
   - "Red cards are regional effects. They warp specific rules of a region."
   - "Blue cards affect the whole map."
 

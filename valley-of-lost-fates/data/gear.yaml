@@ -93,6 +93,7 @@ pages:
     found: "At the location the table gives for the first card drawn. Gained by completing the challenge there."
     text:
       - "One of the three pages the hermit read at the cliff. All three open the way to the final region."
+      - "Holds the story: Der Narr und der verbotene Wald."
     open:
       - "Slot size, and whether it has a power of its own."
   - name: The Second Reading
@@ -100,8 +101,10 @@ pages:
     found: "At the location the table gives for the first card drawn. Gained by completing the challenge there."
     text:
       - "One of the three pages the hermit read at the cliff. All three open the way to the final region."
+      - "Holds the story: Die Hexe und der Wärter."
   - name: The Third Reading
     type: item
     found: "At the location the table gives for the first card drawn. Gained by completing the challenge there."
     text:
       - "One of the three pages the hermit read at the cliff. All three open the way to the final region."
+      - "Holds the story: Die Sturmkrone."
