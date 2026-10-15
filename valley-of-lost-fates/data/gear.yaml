@@ -14,11 +14,8 @@ expedition:
     slots: 1
     found: "Expedition gear. The expedition starts with 5."
     text:
-      - "Apply before taking a route: crossing that route costs 1 Resource less."
+      - "Apply before taking a route: crossing that route costs 1 Resource less for the whole group."
       - "Resets on a rest."
-    open:
-      - "Does it lower the cost for everyone crossing the route, or only for the character carrying it?"
-      - "Starting number (5 in the original notes)."
 
   - name: Communicator
     type: item

@@ -3,12 +3,10 @@
 ## Open
 
 ### Core rules
-- [ ] **Card layout:** where the cards are placed on the map, how many per region, who draws them and when. (The Cartographer role is gone, so who "reads the cards"?)
 - [ ] **Artifacts A1–A3:** what they are, as HeartCore found cards. They decide the ruler, people and realm forms of the meteor.
 - [ ] **Door artifact:** what it looks like, and whether it does anything inside the valley.
 
 ### Gear
-- [ ] **Route Stabilizer:** does it lower the cost for everyone crossing the route, or only for its carrier? Starting number (5 in the notes)?
 - [ ] **Communicator:** slot size; what an update to the outside can achieve, and whether anything comes back.
 - [ ] **Slot sizes** for the Bell of Resurrection, the Fire Capsule and the Painting.
 - [ ] **The Book** from Devilsrock: what it is and what it does.
@@ -20,7 +18,7 @@
 - [ ] **Witch Hut:** the third trade item.
 - [ ] **Abandoned Fishing Village:** shadow lackey stats in HeartCore format (old notes: C35, d5+5 DMG, I:25, W1(10)).
 - [ ] **Devilsrock:** how the HP total (3 per player who entered) is split among the players.
-- [ ] **Meeting places** (where exactly the players meet the encounter) for the Megalith, Village, Fields, Woods and both Towers, or drop the field.
+- [ ] **Meeting places** (where the players meet the character of a card laid at the location) for the Megalith, Village, Fields, Woods and both Towers.
 
 ### Cards
 - [ ] **Artifact cards without effects:** Empress, Emperor, Hierophant (A1); Strength, Justice, Temperance (A2); Star, Moon, Sun (A3).
@@ -42,7 +40,9 @@
 - **Travel:** crossing a border costs Resources. 1 Resource = 1 Hope, 1 Stress, 1 HP or 1 Armor Slot. Every character who crosses pays the full cost, and Resources can be mixed.
 - **Map:** sector sizes and border costs from the sketch are correct; the Keep/Village border is horizontal.
 - **Roles dropped:** players use the standard HeartCore classes; a balanced group (Doctor, Mechanic, Scientist, Soldier) is recommended. No information terminal, no rations.
-- **Route Stabilizers:** found cards, 1 slot each. Apply before taking a route: it costs 1 Resource less. Reset on a rest.
+- **Route Stabilizers:** found cards, 1 slot each. Apply before taking a route: it costs 1 Resource less for the whole group. Reset on a rest. The expedition starts with 5.
+- **Card reading:** at the start, the players meet the old lady (the High Priestess storyteller) on the Megalith. The 22 cards are shuffled with mixed orientation; the players place each drawn card into a free slot of its colour without knowing its meaning. Slots: 7 yellow (one per location, none for the Fields), 4 red (one per region), 1 blue (whole map); extra blue cards go under the first. The reading ends when all yellow slots are filled. Playable on the Map page.
+- **Meeting place:** where the players meet the character of a card laid at a location (e.g. the Hermit at the Witch Hut is met inside the hut).
 - **Communicator:** essential expedition gear; one update to the outside per game.
 - **Devilsrock:** the price is 3 HP for every player who entered.
 - **The Tower:** a red card; laid upright or reversed, it replaces the whole region it is placed in with The Tower or The Tower (Inverted).

@@ -5,6 +5,11 @@
 
 system:
   - "The cards represent the encounters and events that can happen in the valley."
+  - "At the start, on the Megalith, the players meet the old lady (the storyteller of the High Priestess). She does the reading with them."
+  - "She shuffles the 22 cards with mixed orientation. Cards are drawn one at a time; the players place each one into a free slot of its colour, without knowing what it means."
+  - "Slots around the map: 7 yellow (one per location; the Fields never get a card), 4 red (one per region), 1 blue (the whole map)."
+  - "A second blue card goes under the first one, without effect."
+  - "The reading ends when all yellow slots are filled. Red slots can stay empty."
   - "Yellow cards are single-location encounters. When the players visit that place, they meet the card's event or character there."
   - "Yellow cards are either artifact cards or non-artifact cards. An artifact card turns its location into an artifact location."
   - "The players have to collect up to 3 different artifacts to unlock the final region."

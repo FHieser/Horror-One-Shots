@@ -69,6 +69,170 @@ async function initOverview() {
   document.getElementById('md-content').innerHTML = marked.parse(md);
 }
 
+// ── Reading (map page) ──────────────────────────────────────────────────────
+// The old lady shuffles the 22 cards with mixed orientation. Cards are drawn one at a time;
+// the players place each one into a free slot of its colour. Extra blue cards go under the
+// blue card without effect. The reading ends when every yellow slot is filled.
+
+const READING_KEY = 'vlf-reading';
+
+function wrapWords(text, max) {
+  const lines = [];
+  for (const word of text.split(' ')) {
+    const last = lines[lines.length - 1];
+    if (last && (last + ' ' + word).length <= max) lines[lines.length - 1] = last + ' ' + word;
+    else lines.push(word);
+  }
+  return lines;
+}
+
+async function initReading() {
+  const data = await fetchYaml('../data/cards.yaml');
+  const byId = Object.fromEntries(data.cards.map(c => [c.id, c]));
+  const slotEls = [...document.querySelectorAll('.slot')];
+  const slotById = Object.fromEntries(slotEls.map(s => [s.dataset.slot, s]));
+
+  let state = null;
+  try { state = JSON.parse(localStorage.getItem(READING_KEY)); } catch (e) { state = null; }
+  let selected = null;
+
+  const save = () => { try { localStorage.setItem(READING_KEY, JSON.stringify(state)); } catch (e) {} };
+  const freeSlots = color => slotEls.filter(s => s.dataset.color === color && !state.placements[s.dataset.slot]);
+  const yellowDone = () => state && freeSlots('yellow').length === 0;
+  const orientLabel = rev => rev ? 'reversed' : 'upright';
+
+  function start() {
+    const deck = data.cards.map(c => ({ id: c.id, rev: Math.random() < 0.5 }));
+    for (let i = deck.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [deck[i], deck[j]] = [deck[j], deck[i]];
+    }
+    state = { deck, next: 0, current: null, placements: {}, under: [], note: '' };
+    selected = null;
+    draw();
+  }
+
+  function draw() {
+    state.note = '';
+    if (yellowDone() || state.next >= state.deck.length) { state.current = null; save(); render(); return; }
+    const card = state.deck[state.next++];
+    const color = byId[card.id].category;
+    if (color === 'blue' && state.placements.map) {
+      state.under.push(card);
+      state.current = card;
+      state.note = 'blue-under';
+    } else if (!freeSlots(color).length) {
+      state.current = card;
+      state.note = 'no-slot';
+    } else {
+      state.current = card;
+    }
+    save();
+    render();
+  }
+
+  function place(slotId) {
+    state.placements[slotId] = state.current;
+    state.current = null;
+    draw();
+  }
+
+  function faceSvg(slot, card) {
+    const c = byId[card.id];
+    const w = +slot.dataset.w, h = +slot.dataset.h;
+    const upright = slot.dataset.color === 'yellow';
+    const lines = wrapWords(c.name, upright ? 10 : 16);
+    const y0 = upright ? 48 : 36;
+    const name = lines.map((l, i) => `<text class="name" x="${w / 2}" y="${y0 + i * 13}">${l}</text>`).join('');
+    const under = slot.dataset.slot === 'map' && state.under.length ? `<text class="under" x="${w / 2}" y="${h - 22}">+${state.under.length} under</text>` : '';
+    return `<text class="num" x="${w / 2}" y="${upright ? 22 : 18}">${ROMAN[c.id]}</text>${name}${under}
+      <text class="orient ${card.rev ? 'rev' : ''}" x="${w / 2}" y="${h - 8}">${card.rev ? '▼ REVERSED' : '▲ UPRIGHT'}</text>`;
+  }
+
+  function cardDetail(slotId) {
+    const card = state.placements[slotId];
+    const c = byId[card.id];
+    const effects = card.rev ? c.reversed : c.upright;
+    return `<div class="box">
+      <h3>${ROMAN[c.id]} · ${c.name} <span class="dim">(${orientLabel(card.rev)})</span></h3>
+      <div class="where">${slotById[slotId].dataset.label} · ${c.category}${c.artifact ? ' · Artifact ' + c.artifact : ''}</div>
+      ${list(effects) || '<p class="dim"><em>Still to be written.</em></p>'}
+    </div>`;
+  }
+
+  function render() {
+    // Slots
+    slotEls.forEach(s => {
+      const card = state && state.placements[s.dataset.slot];
+      s.classList.toggle('filled', !!card);
+      s.classList.toggle('selected', selected === s.dataset.slot);
+      s.querySelector('.face').innerHTML = card ? faceSvg(s, card) : '';
+      const valid = state && state.current && !state.note && s.dataset.color === byId[state.current.id].category && !card;
+      s.classList.toggle('valid', !!valid);
+    });
+
+    // Drawn card + the old lady's words
+    const drawn = document.getElementById('drawn');
+    const lady = document.getElementById('lady');
+    const btn = document.getElementById('draw-btn');
+    if (!state) {
+      drawn.className = 'drawn';
+      drawn.innerHTML = '<span class="dim">22</span>';
+      lady.innerHTML = '<p>On the Megalith, an old lady is waiting. She shuffles a deck of 22 cards and asks the expedition to lay out the valley with her. <em>"Where does this one belong, do you think?"</em></p>';
+      btn.textContent = 'Start the reading';
+      btn.hidden = false;
+    } else if (state.current) {
+      const c = byId[state.current.id];
+      drawn.className = `drawn ${c.category}${state.current.rev ? ' rev' : ''}`;
+      drawn.innerHTML = `<span class="num">${ROMAN[c.id]}</span><span class="name">${c.name}</span><span class="orient ${state.current.rev ? 'rev' : ''}">${orientLabel(state.current.rev)}</span>`;
+      if (state.note === 'blue-under') {
+        lady.innerHTML = `<p>She turns over <strong>${c.name}</strong>. The blue place is already taken, so she slides it under the first blue card. It has no effect.</p>`;
+        btn.textContent = 'Draw next card'; btn.hidden = false;
+      } else if (state.note === 'no-slot') {
+        lady.innerHTML = `<p>She turns over <strong>${c.name}</strong>, but there is no free ${c.category} place left. She puts it aside.</p>`;
+        btn.textContent = 'Draw next card'; btn.hidden = false;
+      } else {
+        lady.innerHTML = `<p>She turns over <strong>${c.name}</strong> (${orientLabel(state.current.rev)}). Place it in a free <strong>${c.category}</strong> slot on the map.</p>
+          <p class="dim">${freeSlots('yellow').length} yellow ${freeSlots('yellow').length === 1 ? 'place remains' : 'places remain'} · ${state.deck.length - state.next} cards left in the deck</p>`;
+        btn.hidden = true;
+      }
+    } else {
+      drawn.className = 'drawn';
+      drawn.innerHTML = `<span class="dim">${state.deck.length - state.next}</span>`;
+      lady.innerHTML = '<p>Every place for a single location is taken. The old lady gathers the rest of the cards. <em>"So this is the valley you chose."</em></p><p class="dim">Click a card on the map to see its effect.</p>';
+      btn.hidden = true;
+    }
+
+    // GM view: selected card, plus the full reading once it is complete
+    const gm = document.getElementById('gm');
+    let html = '';
+    if (state && selected && state.placements[selected]) html += `<h2>Selected card</h2>${cardDetail(selected)}`;
+    if (state && !state.current && Object.keys(state.placements).length) {
+      html += '<h2>The reading (GM)</h2>' + slotEls
+        .filter(s => state.placements[s.dataset.slot])
+        .map(s => cardDetail(s.dataset.slot)).join('<div style="height:0.8rem"></div>');
+    }
+    gm.innerHTML = html;
+  }
+
+  document.getElementById('draw-btn').addEventListener('click', () => state ? draw() : start());
+  document.getElementById('reset-btn').addEventListener('click', () => {
+    state = null; selected = null;
+    try { localStorage.removeItem(READING_KEY); } catch (e) {}
+    render();
+  });
+  slotEls.forEach(s => s.addEventListener('click', () => {
+    if (!state) return;
+    if (s.classList.contains('valid')) { place(s.dataset.slot); return; }
+    if (state.placements[s.dataset.slot]) {
+      selected = selected === s.dataset.slot ? null : s.dataset.slot;
+      render();
+      if (selected) document.getElementById('gm').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }));
+  render();
+}
+
 // ── Locations ───────────────────────────────────────────────────────────────
 
 async function initLocations() {
