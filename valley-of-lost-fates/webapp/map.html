@@ -30,35 +30,34 @@
     .slot .frame { fill: #121514; stroke: var(--c); stroke-width: 2; stroke-dasharray: 6 4; transition: fill 0.15s, stroke-width 0.15s; }
     .slot .slot-label { fill: var(--c); font: 700 11px 'Courier New', monospace; letter-spacing: 1px; text-anchor: middle; text-transform: uppercase; }
     .slot.filled .frame { fill: #1c1a14; stroke-dasharray: none; }
-    .slot.filled { cursor: pointer; }
     .slot.filled:hover .frame, .slot.selected .frame { fill: #2a2614; stroke-width: 3; }
-    .slot.valid { cursor: pointer; }
-    .slot.valid .frame { fill: #241f0c; stroke-width: 3; stroke-dasharray: none; animation: pulse 1.2s ease-in-out infinite; }
-    @keyframes pulse { 50% { fill: #3a3010; } }
     .face .num { fill: var(--c); font: 700 13px 'Courier New', monospace; text-anchor: middle; }
     .face .name { fill: #f2efe4; font: 600 11px system-ui, 'Segoe UI', sans-serif; text-anchor: middle; }
     .face .orient { fill: #c8ccc6; font: 700 9px 'Courier New', monospace; letter-spacing: 1px; text-anchor: middle; }
     .face .orient.rev { fill: #ff8a8a; }
-    .face .under { fill: #8ac0f0; font: 9px 'Courier New', monospace; text-anchor: middle; }
 
     /* Reading panel */
+    .slot { cursor: pointer; }
+    .slot:hover .frame { fill: #1e1b10; stroke-width: 3; }
+    .slot-panel { max-width: 900px; margin: 0 auto 1.5rem; border: 1px solid var(--gold); background: var(--panel); padding: 1rem 1.2rem; }
+    .slot-panel .panel-head { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-bottom: 0.8rem; }
+    .slot-panel .panel-head h2 { margin: 0; border: none; padding: 0; }
+    .panel-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.8rem; }
+    .pick-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(230px, 1fr)); gap: 0.6rem; }
+    .pick { border: 1px solid var(--line); border-left: 4px solid var(--c); background: var(--panel-2); padding: 0.6rem 0.7rem; }
+    .pick.yellow { --c: var(--yellow); } .pick.red { --c: var(--red); } .pick.blue { --c: var(--blue); }
+    .pick-name { color: var(--text-bright); margin-bottom: 0.5rem; }
+    .pick-name .num { font: 700 0.8rem 'Courier New', monospace; color: var(--c); margin-right: 0.3rem; }
+    .pick-btns { display: flex; gap: 0.4rem; }
+    .pick-btns .btn { padding: 0.35rem 0.6rem; font-size: 0.72rem; }
     .reading { border: 1px solid var(--gold-dim); background: #12100a; padding: 1rem 1.2rem; margin: 0 auto 1.5rem; max-width: 900px; display: flex; gap: 1.2rem; align-items: center; flex-wrap: wrap; }
     .reading .lady { flex: 1; min-width: 240px; font-size: 0.92rem; line-height: 1.6; }
-    .reading .lady em { color: var(--gold); }
-    .drawn { width: 120px; min-height: 168px; border: 2px solid var(--c, var(--line)); background: var(--panel); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0.6rem; gap: 0.3rem; }
-    .drawn.yellow { --c: var(--yellow); } .drawn.red { --c: var(--red); } .drawn.blue { --c: var(--blue); }
-    .drawn .num { font: 700 1rem 'Courier New', monospace; color: var(--c); }
-    .drawn .name { color: var(--text-bright); font-size: 1rem; }
-    .drawn .orient { font: 0.7rem 'Courier New', monospace; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-dim); }
-    .drawn .orient.rev { color: #ff8a8a; }
-    .drawn.rev .num, .drawn.rev .name { transform: rotate(180deg); }
     .reading .actions { display: flex; flex-direction: column; gap: 0.5rem; }
     .btn { background: #2a2210; border: 1px solid var(--gold); color: var(--text-bright); font: 700 0.82rem 'Courier New', monospace; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.55rem 1rem; cursor: pointer; }
     .btn:hover { background: #3a2f12; }
     .btn.ghost { background: none; border-color: var(--line); color: var(--text-dim); }
     .btn.ghost:hover { color: var(--text-bright); border-color: var(--gold-dim); }
     .gm { max-width: 900px; margin: 1.5rem auto 0; }
-    .gm .box h3 { margin: 0 0 0.3rem; }
     .gm .box .where { color: var(--text-dim); font-size: 0.82rem; margin-bottom: 0.5rem; }
 
     .rule { text-align: center; color: var(--text); font-size: 0.92rem; margin-top: 1rem; }
@@ -84,14 +83,11 @@
   </header>
   <div class="content wide">
     <h1>The Valley</h1>
-    <div class="reading" id="reading">
-      <div class="drawn" id="drawn"><span class="dim">—</span></div>
-      <div class="lady" id="lady"><p class="loading">LOADING…</p></div>
-      <div class="actions">
-        <button class="btn" id="draw-btn">Start the reading</button>
-        <button class="btn ghost" id="reset-btn">Reset</button>
-      </div>
+    <div class="reading">
+      <p class="lady"><strong>The reading</strong> happens at the table with the real cards. Record it here: click an empty slot to choose the card that was laid there, click a filled slot to see its effect, flip or remove it. Your reading is saved in this browser.</p>
+      <div class="actions"><button class="btn ghost" id="reset-btn">Clear reading</button></div>
     </div>
+    <div class="slot-panel" id="slot-panel" hidden></div>
     <div class="map-wrap">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 990" role="img" aria-label="Map of the valley with card slots">
         <defs>

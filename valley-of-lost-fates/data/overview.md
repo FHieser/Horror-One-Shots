@@ -28,7 +28,7 @@ Crossing a border costs **Resources** (see the [Map](./map.html)), and every cha
 
 ## The Cards
 
-The valley changes with every game. At the start, the players meet the old lady on the Megalith and do the reading with her: the **22 major arcana** are shuffled with mixed orientation and drawn one by one, and the players place each card into a free slot of its colour around the map, without knowing what it means. The reading ends when every location slot is filled (see the [Map](./map.html) to do a reading, and [Cards](./cards.html)).
+The valley changes with every game. At the start, the players meet the old lady on the Megalith and do the reading with her: the **22 major arcana** are shuffled with mixed orientation and drawn one by one, and the players place each card into a free slot of its colour around the map, without knowing what it means. The reading ends when every location slot is filled (record the reading on the [Map](./map.html); effects on [Cards](./cards.html)).
 
 - **Yellow** cards are encounters at a single location. Some of them are **artifact cards**.
 - **Red** cards change the rules of a whole region.

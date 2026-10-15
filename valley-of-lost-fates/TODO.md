@@ -41,7 +41,7 @@
 - **Map:** sector sizes and border costs from the sketch are correct; the Keep/Village border is horizontal.
 - **Roles dropped:** players use the standard HeartCore classes; a balanced group (Doctor, Mechanic, Scientist, Soldier) is recommended. No information terminal, no rations.
 - **Route Stabilizers:** found cards, 1 slot each. Apply before taking a route: it costs 1 Resource less for the whole group. Reset on a rest. The expedition starts with 5.
-- **Card reading:** at the start, the players meet the old lady (the High Priestess storyteller) on the Megalith. The 22 cards are shuffled with mixed orientation; the players place each drawn card into a free slot of its colour without knowing its meaning. Slots: 7 yellow (one per location, none for the Fields), 4 red (one per region), 1 blue (whole map); extra blue cards go under the first. The reading ends when all yellow slots are filled. Playable on the Map page.
+- **Card reading:** at the start, the players meet the old lady (the High Priestess storyteller) on the Megalith. The 22 cards are shuffled with mixed orientation; the players place each drawn card into a free slot of its colour without knowing its meaning. Slots: 7 yellow (one per location, none for the Fields), 4 red (one per region), 1 blue (whole map); extra blue cards go under the first. The reading ends when all yellow slots are filled. It is done at the table with real cards; the GM records it on the Map page.
 - **Meeting place:** where the players meet the character of a card laid at a location (e.g. the Hermit at the Witch Hut is met inside the hut).
 - **Communicator:** essential expedition gear; one update to the outside per game.
 - **Devilsrock:** the price is 3 HP for every player who entered.
