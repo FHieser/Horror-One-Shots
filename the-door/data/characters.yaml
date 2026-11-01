@@ -97,15 +97,20 @@
   skills:
     - Geology
     - Asteroid Mining
-  description: Analyzes probes and creates mining recommendations.
+    - Explosives
+  description: Analyzes probes and creates mining recommendations. Handles and stores explosives, plans and executes blasts, and runs safety inspections.
   daily_job:
     - Take and analyze probes
     - Create geological mappings
     - Write recommendations for the team
+    - Safety checks in the tunnels
+    - Explosive drilling
   minor_omen:
     - Seismograph sends a failure reading
     - Sees what looks like a door in the probe samples
-  major_omen: Presents a geological map that looks exactly like a giant door. Attacks someone with a drill.
+    - Constant wind from a new blast site
+    - A creaking sound like a door opening
+  major_omen: Presents a geological map that looks exactly like a giant door. After a blast, parts of a giant door are visible in the newly uncovered rock face. Attacks someone with a drill.
   pager:
     - from: "LAB"
       text: "CORE SAMPLE 22-B: ANALYSIS PENDING"
@@ -115,6 +120,14 @@
       text: "RECOMMENDATION REPORT REQUESTED BY HQ"
     - from: "SEISMOGRAPH"
       text: "CALIBRATION DUE"
+    - from: "MINES"
+      text: "BLAST WINDOW TUNNEL C 11:00. CLEAR SECTOR"
+    - from: "MINES"
+      text: "SAFETY INSPECTION OVERDUE: SHAFT 2"
+    - from: "MINES"
+      text: "DRILL PATTERN 7 READY FOR CHARGES"
+    - from: "MINES"
+      text: "EXPLOSIVES INVENTORY CHECK DUE"
 
 - role: Transports
   salary: 4 kcr
@@ -164,25 +177,3 @@
       text: "CRYO POD 4 SELF-TEST FAILED"
     - from: "MED BAY"
       text: "CREW SLEEP LOGS IRREGULAR. REVIEW"
-
-- role: Explosives
-  salary: 4 kcr
-  skills:
-    - Explosives
-  description: Handles and stores explosives. Plans and executes blasts. Safety inspections.
-  daily_job:
-    - Safety checks in the tunnels
-    - Explosive drilling
-  minor_omen:
-    - Constant wind from a new blast site
-    - A creaking sound like a door opening
-  major_omen: After a blast, parts of a giant door are visible in the newly uncovered rock face.
-  pager:
-    - from: "MINES"
-      text: "BLAST WINDOW TUNNEL C 11:00. CLEAR SECTOR"
-    - from: "MINES"
-      text: "SAFETY INSPECTION OVERDUE: SHAFT 2"
-    - from: "MINES"
-      text: "DRILL PATTERN 7 READY FOR CHARGES"
-    - from: "MINES"
-      text: "EXPLOSIVES INVENTORY CHECK DUE"
